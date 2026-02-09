@@ -92,9 +92,12 @@ $p(\theta\mid d_{\rm recon})$. For a model $\mathcal{M}$, define the joint score
 \end{equation}
 where $\{\theta_j\}_{j=1}^{N_s}$ are draws from $p(\theta\mid d_{\rm recon})$ and $\alpha(\theta,\mathcal{M})$ is the standard
 selection normalization (detection efficiency) computed from an injection-calibrated selection model. We report
+Intuitively, $\LPD$ is a joint predictive-fit score across all events: larger values mean the model assigns higher probability
+density to the observed dataset.
 \begin{equation}
 \Delta\LPD_{\rm tot}\equiv \LPD({\rm prop})-\LPD({\rm GR}).
 \end{equation}
+A $+1$ shift in $\Delta\LPD$ corresponds to a multiplicative predictive-density ratio of $\exp(1)\approx 2.7$.
 For diagnostic bookkeeping we also use the decomposition
 \begin{equation}
 \Delta\LPD_{\rm tot} = \Delta\LPD_{\rm data} + \Delta\LPD_{\rm sel},
@@ -104,12 +107,13 @@ the selection normalization.
 
 \section{Real-Data Tension and Mechanism Controls}
 \subsection{Real-data score and sky-rotation null}
-On the $N_{\rm ev}=36$ GWTC-3 sample, the production configuration yields
+On the $N_{\rm ev}=36$ GWTC-3 sample, the updated injection-trained logistic-selection rerun yields
 \begin{equation}
-\Delta\LPD_{\rm tot}\simeq +3.03,\qquad \exp(\Delta\LPD_{\rm tot})\approx 20,
+\Delta\LPD_{\rm tot}=+3.670,\qquad \exp(\Delta\LPD_{\rm tot})\approx 39,
 \end{equation}
 which indicates a statistically interesting preference for the propagation phenomenology over the internal GR baseline
-under the PPD construction. A key diagnostic is a sky-rotation null: we randomly rotate each event's sky localization
+under the PPD construction. Here $\exp(\Delta\LPD)$ is used as a predictive-score Bayes proxy under this fixed scoring setup,
+not as a full marginal-likelihood evidence ratio over unrestricted model classes. A key diagnostic is a sky-rotation null: we randomly rotate each event's sky localization
 relative to the galaxy catalog while preserving its distance posterior and re-score the dataset. Under rotations we obtain
 a distribution of scores with $\langle\Delta\LPD_{\rm rot}\rangle=+3.017$ (sd 0.091) and
 $P(\Delta\LPD_{\rm rot}\ge\Delta\LPD_{\rm real})=0.45$. Thus, the real-data preference is typical under rotations and is not
@@ -119,6 +123,8 @@ As a direct robustness check on the selection term implementation, we reran the 
 injection-trained logistic detection model for $\alpha(\theta,\mathcal{M})$ (``injection\_logit''), replacing the
 SNR-binned proxy. This rerun gives $\Delta\LPD_{\rm tot}=+3.670$ (data $+2.670$, selection $+1.000$), showing the
 positive O3 anomaly persists under a more explicit injection-derived selection model.
+For continuity with earlier calibration suites, the legacy production configuration (SNR-binned selection) gave
+$\Delta\LPD_{\rm tot}\simeq+3.03$.
 
 \subsection{Spectral-only vs.\ sky-only controls}
 To isolate the dominant channel behind the preference, we implement two controls. In a spectral-only control we retain
@@ -143,14 +149,13 @@ GR baseline using the joint posterior-predictive definition in Eq.~(4).}
 \toprule
 Configuration & $\Delta\LPD$ summary \\
 \midrule
-Real data (production) & $\Delta\LPD_{\rm tot}\simeq +3.03$ \\
 Real data (O3 rerun; injection\_logit selection model) & $\Delta\LPD_{\rm tot}=+3.670$ ($\Delta\LPD_{\rm data}=+2.670$, $\Delta\LPD_{\rm sel}=+1.000$) \\
 Sky-rotation null (distribution) & $\langle\Delta\LPD_{\rm rot}\rangle=+3.017$ (sd 0.091); $P(\mathrm{rot}\ge \mathrm{real})=0.45$ \\
 Spectral-only control & $\Delta\LPD_{\rm spectral}\simeq +2.995$ \\
 Sky-only control & $\Delta\LPD_{\rm sky}\simeq +0.969$ \\
 GR-truth catalog injection (512 reps; spectral/selection channel) & $\langle\Delta\LPD_{\rm tot}\rangle=-0.839$ (sd 0.240); max $+0.076$ \\
 Fixed-power injection grid (5 scales, 256 reps/scale) & mean $\Delta\LPD_{\rm tot}$ rises from $-0.495$ (scale 0) to $+0.562$ (scale 2) \\
-GR-systematics matrix (9 variants, 128 reps/variant) & all variant maxima $\le +0.678$ (none near real-data $+3.03$) \\
+GR-systematics matrix (9 variants, 128 reps/variant) & all variant maxima $\le +0.678$ (none near the legacy $+3.03$, and far below $+3.670$) \\
 Hierarchical checkpoint (3 variants, 12 aligned reps) & $\langle\Delta\LPD_{\rm tot}\rangle=-0.548$ (sd 0.252); fixed-weight real $\Delta\LPD_{\rm tot}=+3.027$; calibrated tail $0/12$ \\
 \bottomrule
 \end{tabular}
@@ -188,7 +193,7 @@ offsets the data term but does not reverse the net preference under GR truth.
 \includegraphics[width=\textwidth]{fig_delta_lpd_total_hist.png}
 \caption{GR-truth injection calibration (512 replicates): histogram of the posterior-predictive score difference
 $\Delta\LPD_{\rm tot}=\LPD({\rm prop})-\LPD({\rm GR})$ computed using the joint catalog-injection logmeanexp construction
-(Eq.~4). The vertical black line marks $\Delta\LPD=0$; the dashed orange line marks the real-data value
+(Eq.~4). The vertical black line marks $\Delta\LPD=0$; the dashed orange line marks the legacy real-data value
 $\Delta\LPD_{\rm tot}\simeq +3.03$. Under the calibrated GR-truth generator, the score distribution has mean $-0.839$,
 sd $0.240$, and maximum $+0.076$ in 512 replicates.}
 \label{fig:gr_truth_hist}
@@ -262,6 +267,16 @@ During this checkpoint, we identified and fixed a resume-path aggregation bug in
 final combined summary after a restart. The fix does not change per-variant replicate files or real-data summaries; it
 restores correct final integration from already completed artifacts.
 
+\subsection{Ancillary cross-probe checks (context, not primary evidence)}
+Two additional holdout probes were run as secondary context. First, a three-source void-prism run (BOSS DR12 voids with
+Planck lensing plus ACT DR6/SDSS kSZx $\theta$ maps) gives very small same-sign shifts relative to its internal GR baseline:
+$\Delta\LPD_{\rm vs\,GR}=[+0.0116,+0.0198,+0.0249,+0.0127,+0.0221]$ across five seeds (mean $+0.0182$). The corresponding
+null batteries remain non-decisive in that setup, so this is at most a weak directional consistency hint. Second, an
+independent strong-lens time-delay holdout (H0LiCOW/TDCOSMO public chains) remains mildly BH/GR-favoring in this implementation:
+across a 13-configuration KDE nuisance suite, $\Delta\LPD_{\rm MG-BH}$ has mean $-0.498$ and range $[-0.646,-0.474]$ with
+$P(\Delta\LPD>0)=0$. We therefore treat these ancillary probes as useful external stress checks, but not decisive model selectors
+at current data volume and calibration depth.
+
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{fig_fixed_power_grid.png}
@@ -283,10 +298,10 @@ $\Delta\LPD_{\rm tot}\simeq +3.03$ (dashed red line).}
 
 \section{Conclusion}
 Using 36 GWTC-3 dark sirens, we find a posterior-predictive tension with the internal GR baseline, quantified by
-$\Delta\LPD_{\rm tot}\simeq +3.03$ under a joint logmeanexp score. Sky-rotation and spectral/sky mechanism controls localize the
+$\Delta\LPD_{\rm tot}=+3.670$ in the updated O3 rerun with injection-trained logistic selection. Sky-rotation and spectral/sky mechanism controls localize the
 anomaly to the spectral/selection channel rather than unique host alignments. A GR-truth catalog-injection calibration
 (512 replicates) targeted at this dominant channel yields a centered-negative score distribution with maximum $+0.076$, placing
-the real-data value far outside the calibrated GR-truth ensemble under the injection-generator assumptions. The completed
+both real-data scores ($+3.03$ legacy, $+3.670$ updated rerun) far outside the calibrated GR-truth ensemble under the injection-generator assumptions. The completed
 fixed-power grid further shows the expected monotonic score response to injected propagation strength, while the completed
 nine-variant GR-systematics matrix does not reproduce values close to $+3$. These results substantially weaken the generic
 numerical-artifact explanation under tested assumptions, but they still do not uniquely identify modified gravity. The highest-
@@ -298,8 +313,10 @@ this selection-model upgrade.
 
 \section*{Data and Software Availability}
 The source code and reproducibility materials for this analysis are archived on Zenodo at
-\href{https://doi.org/10.5281/zenodo.18510138}{doi:10.5281/zenodo.18510138}. All figures in this Letter are generated from the
-archived scripts and artifact manifests.
+\href{https://doi.org/10.5281/zenodo.18510138}{doi:10.5281/zenodo.18510138}. Core external sources used in this Letter include
+GWTC-3 PE products (\doi{10.1103/PhysRevX.13.041039}), GLADE+ (\doi{10.1093/mnras/stac1443}), and Planck 2018 lensing
+(\doi{10.1051/0004-6361/201833886}); additional ancillary-catalog source pointers are documented in the repository manifest.
+All figures in this Letter are generated from the archived scripts and artifact manifests.
 
 \section*{Acknowledgments}
 The author used AI assistance during this project for brainstorming, drafting/editing text, and software development.
@@ -315,7 +332,7 @@ Belgacem, E., Dirian, Y., Foffa, S., \& Maggiore, M. 2018, \emph{Phys. Rev. D}, 
 
 \bibitem[D\'alya et al.(2022)]{Dalya2022}
 D\'alya, G., et al. 2022, \emph{Mon. Not. R. Astron. Soc.}, 514, 1403,
-\doi{10.1093/mnras/stac2011}
+\doi{10.1093/mnras/stac1443}
 
 \bibitem[Nishizawa(2017)]{Nishizawa2017}
 Nishizawa, A. 2017, \emph{Phys. Rev. D}, 97, 104037,

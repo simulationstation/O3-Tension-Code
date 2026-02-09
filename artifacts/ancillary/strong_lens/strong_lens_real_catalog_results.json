@@ -1,0 +1,50 @@
+{
+  "catalog": "H0LiCOW_6_lens_distance_likelihood",
+  "created_utc": "2026-02-09T01:32:58Z",
+  "deltas": [
+    {
+      "delta_lpd_a_minus_b": -0.47396440846104326,
+      "run_a": "master_suite__V_L_OFF__M0_start101",
+      "run_b": "master_suite__V_L_OFF_BH__M0_start101"
+    },
+    {
+      "delta_lpd_a_minus_b": 0.47396440846104326,
+      "run_a": "master_suite__V_L_OFF_BH__M0_start101",
+      "run_b": "master_suite__V_L_OFF__M0_start101"
+    }
+  ],
+  "files": {
+    "HE0435_Ddt_AO+HST.dat": "/home/primary/PROJECT/data/cache/strong_lens/h0licow_distance_chains/HE0435_Ddt_AO+HST.dat",
+    "J1206_final.csv": "/home/primary/PROJECT/data/cache/strong_lens/h0licow_distance_chains/J1206_final.csv",
+    "PG1115_AO+HST_Dd_Ddt.dat": "/home/primary/PROJECT/data/cache/strong_lens/h0licow_distance_chains/PG1115_AO+HST_Dd_Ddt.dat",
+    "RXJ1131_AO+HST_Dd_Ddt.dat": "/home/primary/PROJECT/data/cache/strong_lens/h0licow_distance_chains/RXJ1131_AO+HST_Dd_Ddt.dat",
+    "wfi2033_dt_bic.dat": "/home/primary/PROJECT/data/cache/strong_lens/h0licow_distance_chains/wfi2033_dt_bic.dat"
+  },
+  "n_runs": 2,
+  "rows": [
+    {
+      "invalid_frac": 0.0,
+      "ll_mean": -70.33175601836886,
+      "ll_p16": -73.4013073197127,
+      "ll_p50": -69.82381124888177,
+      "ll_p84": -66.87064846990341,
+      "lpd": -67.63638824457733,
+      "n_eval": 120,
+      "run": "master_suite__V_L_OFF__M0_start101",
+      "run_dir": "outputs/master_suite/V_L_OFF/M0_start101",
+      "run_id": "master_suite__V_L_OFF__M0_start101"
+    },
+    {
+      "invalid_frac": 0.0,
+      "ll_mean": -68.69450489996913,
+      "ll_p16": -70.92333194835552,
+      "ll_p50": -68.08118465420014,
+      "ll_p84": -66.40151714571874,
+      "lpd": -67.16242383611629,
+      "n_eval": 120,
+      "run": "master_suite__V_L_OFF_BH__M0_start101",
+      "run_dir": "outputs/master_suite/V_L_OFF_BH/M0_start101",
+      "run_id": "master_suite__V_L_OFF_BH__M0_start101"
+    }
+  ]
+}

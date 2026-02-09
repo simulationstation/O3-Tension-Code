@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "entropy-horizon-recon"
+version = "0.1.0"
+description = "Nonparametric reconstruction of horizon entropy functional S(A) from late-time cosmological data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Codex CLI agent"}]
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "pandas>=2.2",
+  "matplotlib>=3.8",
+  "pooch>=1.8",
+  "pyyaml>=6.0",
+  "tqdm>=4.66",
+  "emcee>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-xdist>=3.5",
+]
+optical_bias = [
+  "healpy>=1.16",
+  "astropy>=6.0",
+  "joblib>=1.3",
+]
+sirens = [
+  "healpy>=1.16",
+  "astropy>=6.0",
+  "h5py>=3.10",
+  "ligo.skymap>=2.5.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

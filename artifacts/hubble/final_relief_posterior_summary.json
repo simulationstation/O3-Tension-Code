@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-02-09T06:19:51Z",
+  "highz_bias_thresholds_linear_fit": {
+    "fit_intercept": 0.24608462485976604,
+    "fit_slope": 12.19066606941237,
+    "highz_bias_for_10pct_relief": -0.011983317730793015,
+    "highz_bias_for_40pct_relief": 0.01262567395939287,
+    "note": "Linear fit on pilot mean relief vs high-z bias; thresholds are extrapolated if outside fit domain."
+  },
+  "inputs": {
+    "constrained_csvs": [
+      "/home/primary/PROJECT/outputs/hubble_tension_bias_transfer_constrained_v2_20260209_061632UTC/sweep_results.csv",
+      "/home/primary/PROJECT/outputs/hubble_tension_bias_transfer_constrained_v2_repeat_20260209_061832UTC/sweep_results.csv"
+    ],
+    "highz_prior_sigma": 0.003,
+    "local_prior_sigma": 0.25,
+    "mc_samples": 400000,
+    "pilot_csv": "/home/primary/PROJECT/outputs/hubble_tension_bias_transfer_pilot_20260208_050953UTC/sweep_results.csv"
+  },
+  "mc_repeatability_estimate": {
+    "anchor_gr_relief_diff_mean": 0.0006624323739296685,
+    "anchor_gr_relief_diff_sd": 0.001201453227464521,
+    "anchor_gr_relief_sigma_mc": 0.0008495557244186263,
+    "n_pairs": 45
+  },
+  "posterior_weighted_no_mc": {
+    "max": 0.3132051411290023,
+    "mean": 0.24585812435555657,
+    "min": 0.1715180417029267,
+    "p16": 0.20409309569968673,
+    "p50": 0.23939752634529574,
+    "p84": 0.2765612321783403,
+    "sd": 0.036734762002448344
+  },
+  "posterior_with_mc_calibration": {
+    "max": 0.31637063887451594,
+    "mean": 0.24588792293472664,
+    "min": 0.1681671537871538,
+    "p16": 0.20484412658406004,
+    "p50": 0.2396286209898556,
+    "p84": 0.2767151511023986,
+    "sd": 0.03672086978352527
+  },
+  "uncertainty_budget": {
+    "highz_bias_mean_range": 0.07324014401462553,
+    "local_bias_mean_range": 0.000127340071156945,
+    "mc_sigma_from_repeatability": 0.0008495557244186263,
+    "seed_mean_sd": 0.027681678138966402
+  }
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "event": "GW191103_012549",
+    "delta_lpd_total_leave_one_out": 3.7189275004777187,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.04898223508422461
+  },
+  {
+    "event": "GW191105_143521",
+    "delta_lpd_total_leave_one_out": 3.736312780533467,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.06636751513997297
+  },
+  {
+    "event": "GW191109_010717",
+    "delta_lpd_total_leave_one_out": 3.694414481408103,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.02446921601460872
+  },
+  {
+    "event": "GW191113_071753",
+    "delta_lpd_total_leave_one_out": 3.70104450911532,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.031099243721826042
+  },
+  {
+    "event": "GW191126_115259",
+    "delta_lpd_total_leave_one_out": 3.5954565240056127,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.07448874138788142
+  },
+  {
+    "event": "GW191127_050227",
+    "delta_lpd_total_leave_one_out": 3.6578541485379787,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.012091116855515338
+  },
+  {
+    "event": "GW191129_134029",
+    "delta_lpd_total_leave_one_out": 3.7022264688656037,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.03228120347210961
+  },
+  {
+    "event": "GW191204_110529",
+    "delta_lpd_total_leave_one_out": 3.6852847340064727,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.015339468612978635
+  },
+  {
+    "event": "GW191204_171526",
+    "delta_lpd_total_leave_one_out": 3.6833893840660608,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.013444118672566674
+  },
+  {
+    "event": "GW191215_223052",
+    "delta_lpd_total_leave_one_out": 3.630158988312928,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.039786277080565924
+  },
+  {
+    "event": "GW191216_213338",
+    "delta_lpd_total_leave_one_out": 3.604769783520908,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.06517548187258626
+  },
+  {
+    "event": "GW191219_163120",
+    "delta_lpd_total_leave_one_out": 3.6632047468342535,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.006740518559240627
+  },
+  {
+    "event": "GW191222_033537",
+    "delta_lpd_total_leave_one_out": 3.6305499763304283,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.039395289063065775
+  },
+  {
+    "event": "GW191230_180458",
+    "delta_lpd_total_leave_one_out": 3.5406736081214945,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.12927165727199963
+  },
+  {
+    "event": "GW200105_162426",
+    "delta_lpd_total_leave_one_out": 3.5781823561561055,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.09176290923738861
+  },
+  {
+    "event": "GW200112_155838",
+    "delta_lpd_total_leave_one_out": 3.7143490660507723,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.044403800657278225
+  },
+  {
+    "event": "GW200115_042309",
+    "delta_lpd_total_leave_one_out": 3.591118125744458,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.07882713964903587
+  },
+  {
+    "event": "GW200128_022011",
+    "delta_lpd_total_leave_one_out": 3.6255634963637817,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.04438176902971236
+  },
+  {
+    "event": "GW200129_065458",
+    "delta_lpd_total_leave_one_out": 3.737810396460759,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.06786513106726488
+  },
+  {
+    "event": "GW200202_154313",
+    "delta_lpd_total_leave_one_out": 3.624271259974705,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.045674005418788965
+  },
+  {
+    "event": "GW200208_130117",
+    "delta_lpd_total_leave_one_out": 3.4766794038077364,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.19326586158575765
+  },
+  {
+    "event": "GW200208_222617",
+    "delta_lpd_total_leave_one_out": 3.547380652480115,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.12256461291337928
+  },
+  {
+    "event": "GW200209_085452",
+    "delta_lpd_total_leave_one_out": 3.6440030819462095,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.025942183447284606
+  },
+  {
+    "event": "GW200210_092254",
+    "delta_lpd_total_leave_one_out": 3.7315727699252648,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.06162750453177068
+  },
+  {
+    "event": "GW200216_220804",
+    "delta_lpd_total_leave_one_out": 3.648212127482907,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.021733137910587175
+  },
+  {
+    "event": "GW200219_094415",
+    "delta_lpd_total_leave_one_out": 3.4677783518447995,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.20216691354869454
+  },
+  {
+    "event": "GW200220_061928",
+    "delta_lpd_total_leave_one_out": 3.178041721981117,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.4919035434123771
+  },
+  {
+    "event": "GW200220_124850",
+    "delta_lpd_total_leave_one_out": 3.6772175120136126,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.007272246620118494
+  },
+  {
+    "event": "GW200224_222234",
+    "delta_lpd_total_leave_one_out": 3.5781340702488933,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.09181119514460079
+  },
+  {
+    "event": "GW200225_060421",
+    "delta_lpd_total_leave_one_out": 3.731728475884495,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.06178321049100077
+  },
+  {
+    "event": "GW200302_015811",
+    "delta_lpd_total_leave_one_out": 3.6793684574639087,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.009423192070414643
+  },
+  {
+    "event": "GW200306_093714",
+    "delta_lpd_total_leave_one_out": 3.624218219539898,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 0.04572704585359588
+  },
+  {
+    "event": "GW200308_173609",
+    "delta_lpd_total_leave_one_out": 2.191237964377308,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": 1.4787073010161862
+  },
+  {
+    "event": "GW200311_115853",
+    "delta_lpd_total_leave_one_out": 3.7645046062417578,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.09455934084826367
+  },
+  {
+    "event": "GW200316_215756",
+    "delta_lpd_total_leave_one_out": 3.712694094413166,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.04274882901967203
+  },
+  {
+    "event": "GW200322_091133",
+    "delta_lpd_total_leave_one_out": 3.6882458254035555,
+    "delta_lpd_total_full": 3.669945265393494,
+    "influence": -0.018300560010061417
+  }
+]

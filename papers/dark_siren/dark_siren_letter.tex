@@ -1,0 +1,325 @@
+\documentclass[aps,prd,reprint,superscriptaddress,nofootinbib,floatfix]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{lineno}
+
+\graphicspath{{./}{figures/}{update_paper/dark_siren/figures/}}
+
+\newcommand{\LPD}{\mathrm{LPD}}
+\newcommand{\dlGW}{d_L^{\mathrm{GW}}}
+\newcommand{\dlEM}{d_L^{\mathrm{EM}}}
+
+\begin{document}
+
+\title{Tension in GWTC-3 Dark-Siren Cosmology: A Calibrated Search for Modified GW Propagation}
+
+\email{aidenblakesmithtravel@gmail.com}
+
+\author{Aiden B. Smith}
+\affiliation{Independent Researcher}
+
+\begin{abstract}
+We test modified gravitational-wave propagation with 36 GWTC-3 dark sirens using a host-incompleteness-marginalized galaxy-catalog likelihood. A fixed damping model, $\dlGW=R(z)\,\dlEM$, is scored against internal GR ($R\equiv1$) with posterior-predictive log scores, explicit selection normalization, and PE distance-prior removal. In an updated O3 rerun with an injection-trained logistic selection model, we find $\Delta\LPD_{\rm tot}=+3.670$ ($\Delta\LPD_{\rm data}=+2.670$, $\Delta\LPD_{\rm sel}=+1.000$). Sky rotations give $\langle\Delta\LPD_{\rm rot}\rangle=+3.017$ (sd 0.091) and $P(\Delta\LPD_{\rm rot}\ge\Delta\LPD_{\rm real})=0.45$, indicating the signal is not driven by unique host alignments. GR-truth injections (512 replicates) return mean $-0.839$, sd $0.240$, and max $+0.076$ (none $\ge3$). Tested GR-truth systematics remain far below the real-data score (max $\le+0.678$). The result disfavors a generic numerical artifact but does not yet uniquely identify modified gravity, because residual catalog/selection mismodeling can still mimic a spectral-channel preference.
+\end{abstract}
+
+\maketitle
+\linenumbers
+\modulolinenumbers[5]
+
+\noindent\textbf{Keywords:} gravitational waves; cosmology: observations; methods: statistical; catalogs.
+
+\section{Introduction}
+In General Relativity (GR), gravitational waves (GWs) propagate such that the GW luminosity distance
+equals the electromagnetic (EM) luminosity distance for the same background expansion history. In many
+beyond-GR scenarios, however, the GW amplitude can experience an additional friction-like term during
+propagation, yielding a redshift-dependent ratio
+\begin{equation}
+\dlGW(z) = R(z)\,\dlEM(z), \qquad R(z)=1\ \text{in GR}.
+\end{equation}
+A broad class of effective-field-theory constructions predicts $R(z)\ne 1$ through an evolving effective
+Planck mass $M_\ast(z)$ (equivalently, an evolving effective Newton coupling),
+\begin{equation}
+R(z)=\frac{M_\ast(0)}{M_\ast(z)}.
+\end{equation}
+In the minimal running-$M_\ast$ embedding used here, the reconstructed horizon--entropy slope deformation
+$\mu(A)\equiv G_{\rm eff}(A)/G_N$ implies $M_\ast^2(z)\propto 1/\mu(A(z))$ and therefore
+$R(z)=\sqrt{\mu(A(z))/\mu(A(0))}$ (see, e.g., \citealt{Belgacem2018,Nishizawa2017}).
+
+Statistical dark sirens (no unique host identification) provide an out-of-sample probe of $R(z)$ by comparing
+the GW distance posterior to a host-galaxy catalog and a selection-corrected population model. Here we report
+a posterior-predictive score comparison between a fixed propagation history inferred from an external
+reconstruction and an internal GR baseline, together with a GR-truth catalog-injection calibration that
+stress-tests the dominant distance-distribution (spectral) channel. The main result is a statistically interesting
+tension that can reflect either modified propagation or residual catalog/selection mismodeling.
+
+\section{Data and Methods}
+\subsection{Dark-siren sample and galaxy-catalog mixture likelihood}
+We analyze $N_{\rm ev}=36$ GWTC-3 dark sirens (BBH-dominated), using public LVK parameter-estimation (PE)
+posterior samples \citep{Abbott2023GWTC3}. For each event $i$, we evaluate a galaxy-catalog (GLADE+; \citealt{Dalya2022})
+mixture likelihood that marginalizes host-catalog incompleteness,
+\begin{equation}
+\begin{aligned}
+p(d_i\mid\theta,\mathcal{M})={}&(1-f_{\rm miss})\,p_{\rm cat}(d_i\mid\theta,\mathcal{M}) \\
+&+ f_{\rm miss}\,p_{\rm miss}(d_i\mid\theta,\mathcal{M}),
+\end{aligned}
+\end{equation}
+where $f_{\rm miss}$ is the missing-host fraction marginalized on a fixed grid in the production configuration. The
+missing-host term adopts a comoving-uniform redshift prior $p(z)\propto dV_c/dz$ on $z\in[0,0.3]$ (matching the production
+configuration), ensuring a conservative host-marginalized likelihood contribution when the catalog is incomplete.
+
+\subsection{PE-prior-aware likelihood evaluation}
+Public PE samples satisfy $p(\vartheta\mid d)\propto\mathcal{L}(d\mid\vartheta)\,\pi_{\rm PE}(\vartheta)$ and therefore
+encode a PE distance prior. To avoid importing the PE prior into the propagation score, we reweight the released samples
+and divide by an analytic approximation to the PE distance prior (``PE-analytic'' removal), yielding a Monte Carlo estimate
+of the likelihood ratio required by the mixture likelihood. This procedure is applied identically in the real-data analysis
+and in the GR-truth injection calibration.
+
+\subsection{Posterior-predictive scoring and selection normalization}
+We compare a fixed propagation model to an internal GR baseline using the joint posterior predictive density (PPD) over the
+full event set. Let $\theta$ denote background/propagation parameters drawn from an external reconstruction posterior
+$p(\theta\mid d_{\rm recon})$. For a model $\mathcal{M}$, define the joint score
+\begin{equation}
+\begin{aligned}
+\LPD(\mathcal{M}) \equiv {}& \log\!\Bigg[\frac{1}{N_s}\sum_{j=1}^{N_s}
+\exp\!\Bigg(\sum_{i=1}^{N_{\rm ev}}\log p(d_i\mid\theta_j,\mathcal{M}) \\
+&\qquad\qquad\quad - N_{\rm ev}\log\alpha(\theta_j,\mathcal{M})\Bigg)\Bigg],
+\end{aligned}
+\end{equation}
+where $\{\theta_j\}_{j=1}^{N_s}$ are draws from $p(\theta\mid d_{\rm recon})$ and $\alpha(\theta,\mathcal{M})$ is the standard
+selection normalization (detection efficiency) computed from an injection-calibrated selection model. We report
+\begin{equation}
+\Delta\LPD_{\rm tot}\equiv \LPD({\rm prop})-\LPD({\rm GR}).
+\end{equation}
+For diagnostic bookkeeping we also use the decomposition
+\begin{equation}
+\Delta\LPD_{\rm tot} = \Delta\LPD_{\rm data} + \Delta\LPD_{\rm sel},
+\end{equation}
+where $\Delta\LPD_{\rm data}$ is computed by omitting the $\alpha$ term and $\Delta\LPD_{\rm sel}$ isolates the contribution from
+the selection normalization.
+
+\section{Real-Data Tension and Mechanism Controls}
+\subsection{Real-data score and sky-rotation null}
+On the $N_{\rm ev}=36$ GWTC-3 sample, the production configuration yields
+\begin{equation}
+\Delta\LPD_{\rm tot}\simeq +3.03,\qquad \exp(\Delta\LPD_{\rm tot})\approx 20,
+\end{equation}
+which indicates a statistically interesting preference for the propagation phenomenology over the internal GR baseline
+under the PPD construction. A key diagnostic is a sky-rotation null: we randomly rotate each event's sky localization
+relative to the galaxy catalog while preserving its distance posterior and re-score the dataset. Under rotations we obtain
+a distribution of scores with $\langle\Delta\LPD_{\rm rot}\rangle=+3.017$ (sd 0.091) and
+$P(\Delta\LPD_{\rm rot}\ge\Delta\LPD_{\rm real})=0.45$. Thus, the real-data preference is typical under rotations and is not
+driven by unique host-galaxy alignments.
+
+As a direct robustness check on the selection term implementation, we reran the same O3 configuration with an
+injection-trained logistic detection model for $\alpha(\theta,\mathcal{M})$ (``injection\_logit''), replacing the
+SNR-binned proxy. This rerun gives $\Delta\LPD_{\rm tot}=+3.670$ (data $+2.670$, selection $+1.000$), showing the
+positive O3 anomaly persists under a more explicit injection-derived selection model.
+
+\subsection{Spectral-only vs.\ sky-only controls}
+To isolate the dominant channel behind the preference, we implement two controls. In a spectral-only control we retain
+the distance/posterior and selection machinery but remove sky information, whereas in a sky-only control we retain sky
+weighting but suppress distance/redshift leverage. We find that spectral-only retains most of the preference
+($\Delta\LPD_{\rm spectral}\simeq +2.995$), while sky-only is much smaller ($\Delta\LPD_{\rm sky}\simeq +0.969$). This localizes
+the anomaly to population-level distance--redshift consistency coupled to selection/incompleteness modeling, rather than
+to sky-localized host associations.
+
+\subsection{Hero-event concentration and selection sensitivity}
+Jackknife removal tests show that the total score is concentrated in a small subset of high-leverage events, led by
+GW200308\_173609 and then GW200220\_061928. We also find order-unity shifts in $\Delta\LPD_{\rm tot}$ under plausible changes
+to the selection/population modeling (e.g., detection-model hyperparameters and population priors), motivating conservative
+interpretation and targeted stress-injection campaigns (Section~\ref{sec:discussion}).
+
+\begin{table}[t]
+\centering
+\caption{Posterior-predictive score summary. Real-data and control scores compare the fixed propagation model to the internal
+GR baseline using the joint posterior-predictive definition in Eq.~(4).}
+\label{tab:summary}
+\begin{tabular}{p{0.36\linewidth}p{0.60\linewidth}}
+\toprule
+Configuration & $\Delta\LPD$ summary \\
+\midrule
+Real data (production) & $\Delta\LPD_{\rm tot}\simeq +3.03$ \\
+Real data (O3 rerun; injection\_logit selection model) & $\Delta\LPD_{\rm tot}=+3.670$ ($\Delta\LPD_{\rm data}=+2.670$, $\Delta\LPD_{\rm sel}=+1.000$) \\
+Sky-rotation null (distribution) & $\langle\Delta\LPD_{\rm rot}\rangle=+3.017$ (sd 0.091); $P(\mathrm{rot}\ge \mathrm{real})=0.45$ \\
+Spectral-only control & $\Delta\LPD_{\rm spectral}\simeq +2.995$ \\
+Sky-only control & $\Delta\LPD_{\rm sky}\simeq +0.969$ \\
+GR-truth catalog injection (512 reps; spectral/selection channel) & $\langle\Delta\LPD_{\rm tot}\rangle=-0.839$ (sd 0.240); max $+0.076$ \\
+Fixed-power injection grid (5 scales, 256 reps/scale) & mean $\Delta\LPD_{\rm tot}$ rises from $-0.495$ (scale 0) to $+0.562$ (scale 2) \\
+GR-systematics matrix (9 variants, 128 reps/variant) & all variant maxima $\le +0.678$ (none near real-data $+3.03$) \\
+Hierarchical checkpoint (3 variants, 12 aligned reps) & $\langle\Delta\LPD_{\rm tot}\rangle=-0.548$ (sd 0.252); fixed-weight real $\Delta\LPD_{\rm tot}=+3.027$; calibrated tail $0/12$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{GR-Truth Catalog-Injection Calibration (512 Replicates)}
+\subsection{Motivation and what is (not) tested}
+Because the real-data preference is largely sky-independent (Sections 3.1--3.2), the most important immediate question is
+whether the full analysis pipeline can accidentally generate a large positive $\Delta\LPD_{\rm tot}$ under a calibrated GR null
+due to numerical, bookkeeping, or PE-prior-removal artifacts. We therefore construct a GR-truth catalog-injection suite
+designed to stress-test the dominant spectral/selection channel.
+
+This calibration does not validate sky--host association physics: the injection generator uses a synthetic, sky-independent
+PE-like distance likelihood and the scoring is performed in the spectral-only channel. This design matches the empirically
+dominant mechanism, and the sky-rotation null indicates that sky association is not the primary driver of the real-data score,
+but the calibration should not be over-interpreted as a full end-to-end validation of sky-localized host inference.
+
+\subsection{Injection design}
+We perform a parametric-bootstrap-style calibration under GR truth ($R_{\rm true}(z)\equiv 1$), using the same event ensemble
+and the same posterior draws used in the production analysis. Per replicate: (i) we draw a ``truth'' background history from
+$p(\theta\mid d_{\rm recon})$; (ii) for each of the 36 template events we sample a true redshift from a cached event-specific
+redshift support histogram; (iii) we compute $\dlEM(z_{\rm true})$ and set $\dlGW=\dlEM$; (iv) we generate a synthetic PE-like
+distance likelihood with event-dependent width; and (v) we score the synthetic dataset under the propagation model and the GR
+baseline using the same incompleteness mixture and selection normalization as in Eq.~(4).
+
+\subsection{Calibration results}
+Figure~\ref{fig:gr_truth_hist} shows the GR-truth distribution of $\Delta\LPD_{\rm tot}$ for 512 replicates, with the real-data
+value marked. Under GR truth we find mean $-0.839$, sd $0.240$, and maximum $+0.076$ in 512 replicates; none reach
+$\Delta\LPD_{\rm tot}\ge 3$. Figure~\ref{fig:gr_truth_decomp} shows the decomposition into data and selection components: on
+average $\langle\Delta\LPD_{\rm data}\rangle=-1.374$ and $\langle\Delta\LPD_{\rm sel}\rangle=+0.534$, so the selection term partially
+offsets the data term but does not reverse the net preference under GR truth.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_delta_lpd_total_hist.png}
+\caption{GR-truth injection calibration (512 replicates): histogram of the posterior-predictive score difference
+$\Delta\LPD_{\rm tot}=\LPD({\rm prop})-\LPD({\rm GR})$ computed using the joint catalog-injection logmeanexp construction
+(Eq.~4). The vertical black line marks $\Delta\LPD=0$; the dashed orange line marks the real-data value
+$\Delta\LPD_{\rm tot}\simeq +3.03$. Under the calibrated GR-truth generator, the score distribution has mean $-0.839$,
+sd $0.240$, and maximum $+0.076$ in 512 replicates.}
+\label{fig:gr_truth_hist}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_delta_lpd_components_hist.png}
+\caption{Decomposition of the GR-truth calibration scores into data and selection components, defined by toggling the
+selection normalization term in Eq.~4 and taking the difference (Eq.~6). The selection term partially offsets the data term on
+average ($\langle\Delta\LPD_{\rm data}\rangle=-1.374$, $\langle\Delta\LPD_{\rm sel}\rangle=+0.534$), but the net GR-truth score remains
+negative.}
+\label{fig:gr_truth_decomp}
+\end{figure*}
+
+\section{Discussion}
+\label{sec:discussion}
+The GR-truth calibration materially reduces the likelihood that the real-data preference is a generic numerical artifact that
+would also appear under GR truth (e.g., PE-prior-removal bug, weight underflow/overflow, or selection-bookkeeping error).
+However, the calibration is a model-consistency test: it inherits the injection generator's assumptions. If real data violate
+those assumptions---for example through catalog completeness mismodeling, selection-function mismatch to the true detector
+network, residual PE systematics, or redshift-support errors---a positive real-data score can still arise without new GW
+propagation physics.
+
+The mechanism controls provide guidance for targeted next steps: (i) because the score is dominated by spectral/selection
+information, stress injections that perturb incompleteness and selection priors are likely to be the most discriminating
+systematics tests; (ii) hero-event concentration motivates per-event audits (including PE-prior sensitivity and selection-weight
+diagnostics) focused on the handful of events that dominate the joint score; and (iii) complementary non-GR truth injections can
+quantify statistical power and expected score distributions when $R(z)\ne 1$.
+
+\subsection{How large a selection/systematics shift can move the score?}
+An auxiliary selection-normalization sensitivity sweep in the hierarchical PE channel (five EM seeds, cached likelihood stacks
+with varied selection-model assumptions) shows that mean $\Delta\LPD_{\rm tot}$ can move from approximately $-1.43$ to $+2.14$
+for moderate variant changes, and up to $+6.92$ for intentionally aggressive weighting choices. In this auxiliary sweep, cached
+data-term likelihood stacks were held fixed while selection-model assumptions were varied. While this sweep is not a fully
+self-consistent replacement for the catalog-mixture production analysis, it demonstrates that order-unity to multi-unit score
+excursions are plausible under selection-model changes alone. This motivates interpreting $\Delta\LPD\approx 3$ as a physically
+interesting tension that requires dedicated systematics-truth injection tests before a modified-gravity claim.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_selection_sensitivity_sweep.png}
+\caption{Auxiliary selection-normalization sensitivity sweep in the hierarchical-PE channel (five EM seeds). The plotted
+variants modify the selection model while reusing cached event likelihood stacks. Mean $\Delta\LPD_{\rm tot}$ spans from
+negative to positive values, illustrating that plausible selection assumptions can shift the score by order unity or larger.
+This is a scale-setting diagnostic for systematic sensitivity, not a substitute for full catalog-mixture stress injections.}
+\label{fig:selection_sensitivity}
+\end{figure*}
+
+\subsection{Completed fixed-power and systematics-truth suites}
+Fixed-power response under GR truth. Using a five-point injected log-$R$ grid (0, 0.5, 1.0, 1.5, 2.0; 256 replicates each), the
+mean score increases monotonically: $-0.495\pm0.294$, $-0.271\pm0.364$, $-0.019\pm0.465$, $+0.261\pm0.590$, and
+$+0.562\pm0.732$. This confirms that the implemented score has the expected directional sensitivity to progressively stronger
+injected propagation effects.
+
+GR-systematics truth matrix. For the nine-variant systematics matrix (128 replicates per variant), all maxima stay below $+1$
+(largest observed maximum $+0.678$, in selection weight none). No tested GR/systematics variant approaches the real-data score
+$\Delta\LPD_{\rm tot}\simeq +3.03$. Within this tested matrix, the real-data anomaly is therefore not reproduced by these
+perturbations of incompleteness and selection assumptions.
+
+\subsection{Small-sample hierarchical checkpoint and reproducibility note}
+As an additional consistency check, we ran a three-variant hierarchical integration checkpoint in the same output tree
+(baseline, selection-threshold, and fixed-low-$f_{\rm miss}$ variants). The aligned GR-truth replicate ensemble gives
+$\langle\Delta\LPD_{\rm tot}\rangle=-0.548$ with sd $0.252$ ($n_{\rm rep}=12$), while the fixed-weight real-data score is
+$\Delta\LPD_{\rm tot}=+3.027$ with calibrated tail frequency $0/12$.
+This run is directionally consistent with the larger suites but remains a small-sample confirmatory checkpoint, not a
+replacement for the 512-replicate and 9$\times$128 matrices.
+
+During this checkpoint, we identified and fixed a resume-path aggregation bug in the hierarchical wrapper
+(\path{scripts/run_dark_siren_hier_selection_uncertainty.py}) that could omit completed variants when reconstructing the
+final combined summary after a restart. The fix does not change per-variant replicate files or real-data summaries; it
+restores correct final integration from already completed artifacts.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_fixed_power_grid.png}
+\caption{Completed fixed-power injection grid under GR truth (five injected log-$R$ scales, 256 replicates per scale). Points
+show mean $\Delta\LPD_{\rm tot}$ with $1\sigma$ bars; squares mark per-scale maxima. The dashed red line is the real-data value
+$\Delta\LPD_{\rm tot}\simeq +3.03$. The monotonic upward trend validates directional score sensitivity to injected propagation
+strength.}
+\label{fig:fixed_power_grid}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_systematics_matrix.png}
+\caption{Completed GR-systematics truth matrix (nine variants, 128 replicates each). Bars show mean $\Delta\LPD_{\rm tot}$ with
+$1\sigma$ bars; diamonds mark variant maxima. All tested variant maxima are $\le +0.678$, well below the real-data
+$\Delta\LPD_{\rm tot}\simeq +3.03$ (dashed red line).}
+\label{fig:systematics_matrix}
+\end{figure*}
+
+\section{Conclusion}
+Using 36 GWTC-3 dark sirens, we find a posterior-predictive tension with the internal GR baseline, quantified by
+$\Delta\LPD_{\rm tot}\simeq +3.03$ under a joint logmeanexp score. Sky-rotation and spectral/sky mechanism controls localize the
+anomaly to the spectral/selection channel rather than unique host alignments. A GR-truth catalog-injection calibration
+(512 replicates) targeted at this dominant channel yields a centered-negative score distribution with maximum $+0.076$, placing
+the real-data value far outside the calibrated GR-truth ensemble under the injection-generator assumptions. The completed
+fixed-power grid further shows the expected monotonic score response to injected propagation strength, while the completed
+nine-variant GR-systematics matrix does not reproduce values close to $+3$. These results substantially weaken the generic
+numerical-artifact explanation under tested assumptions, but they still do not uniquely identify modified gravity. The highest-
+priority next step remains expansion of the systematics-truth space (and independent catalogs/selection calibrations) to test
+whether unmodeled effects can bridge the remaining gap to $\Delta\LPD \sim 3$. The new three-variant hierarchical checkpoint is
+consistent with this picture but is intentionally treated as a small-sample reinforcement only. An updated O3 rerun with an
+injection-trained logistic selection model gives $\Delta\LPD_{\rm tot}=+3.670$, confirming that the positive O3 signal survives
+this selection-model upgrade.
+
+\section*{Data and Software Availability}
+The source code and reproducibility materials for this analysis are archived on Zenodo at
+\href{https://doi.org/10.5281/zenodo.18510138}{doi:10.5281/zenodo.18510138}. All figures in this Letter are generated from the
+archived scripts and artifact manifests.
+
+\section*{Acknowledgments}
+The author used AI assistance during this project for brainstorming, drafting/editing text, and software development.
+
+\begin{thebibliography}{}
+\bibitem[Abbott et al.(2023)]{Abbott2023GWTC3}
+Abbott, R., et al. (LIGO Scientific Collaboration, Virgo Collaboration, and KAGRA Collaboration) 2023, \emph{Phys. Rev. X}, 13, 041039,
+\doi{10.1103/PhysRevX.13.041039} (arXiv:2111.03606)
+
+\bibitem[Belgacem et al.(2018)]{Belgacem2018}
+Belgacem, E., Dirian, Y., Foffa, S., \& Maggiore, M. 2018, \emph{Phys. Rev. D}, 98, 023510,
+\doi{10.1103/PhysRevD.98.023510} (arXiv:1712.08108)
+
+\bibitem[D\'alya et al.(2022)]{Dalya2022}
+D\'alya, G., et al. 2022, \emph{Mon. Not. R. Astron. Soc.}, 514, 1403,
+\doi{10.1093/mnras/stac2011}
+
+\bibitem[Nishizawa(2017)]{Nishizawa2017}
+Nishizawa, A. 2017, \emph{Phys. Rev. D}, 97, 104037,
+\doi{10.1103/PhysRevD.97.104037} (arXiv:1710.04825)
+\end{thebibliography}
+
+\end{document}

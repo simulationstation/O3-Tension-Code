@@ -1,0 +1,267 @@
+\documentclass[11pt]{article}
+
+% ==================== Packages ====================
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lineno}
+
+% --- graphics ---
+\graphicspath{{./}{update_paper/}{hubble_tension_assets/}{update_paper/hubble_tension_assets/}}
+
+% --- robust figure include ---
+\newcommand{\maybeincludegraphics}[2][]{%
+  \IfFileExists{#2}{%
+    \includegraphics[#1]{#2}%
+  }{%
+    \IfFileExists{hubble_tension_assets/#2}{%
+      \includegraphics[#1]{hubble_tension_assets/#2}%
+    }{%
+      \IfFileExists{update_paper/hubble_tension_assets/#2}{%
+        \includegraphics[#1]{update_paper/hubble_tension_assets/#2}%
+      }{%
+        \fbox{\parbox{0.9\linewidth}{\centering\small Missing figure: \texttt{\detokenize{#2}}}}%
+      }%
+    }%
+  }%
+}
+
+% ==================== Macros ====================
+\newcommand{\LPD}{\mathrm{LPD}}
+\newcommand{\dL}{d_L}
+
+\title{Hypothesis-Conditioned Forecast of Hubble-Tension Relief\\
+\large Assuming the GWTC-3 Dark-Siren Propagation Signal is Physical}
+\author{Aiden B. Smith}
+\date{February 8, 2026}
+
+\begin{document}
+\linenumbers
+\maketitle
+
+\begin{abstract}
+This paper is a hypothesis-conditioned forecast: I assume the GWTC-3/O3 dark-siren propagation anomaly is real and ask what expansion-history and inferred-Hubble-constant signatures should follow. The motivation is the calibrated O3 result from the prior analysis pipeline: real data give $\Delta\LPD_{\mathrm{tot}}\simeq +3.67$, while a GR-truth catalog-injection calibration gives mean $-0.839$, standard deviation $0.240$, and maximum $+0.076$ across 512 replicates (none reaching $+3$). Sky-rotation and mechanism controls showed the score is mainly spectral/selection-channel driven, so this follow-up forecasts the implied Hubble-tension pattern rather than re-arguing detection.
+
+I propagate posterior draws from the O3 reconstructed modified-propagation model into synthetic high-redshift anchor observables and compare GR-interpreted versus model-consistent inference. A full run gives a model-truth posterior $H_0$ median $\simeq 70.39$ (p16/p84: $67.70/73.39$), corresponding to $\sim 53\%$ relief of a $73.0$ vs $67.4$ local-vs-Planck baseline gap under a simple posterior-gap metric. To avoid overinterpreting that scalar, I run a 180-case robustness matrix and then a constrained-prior, repeatability-calibrated endpoint (two independent 45-case reruns across all 5 O3 seeds). The final anchor-based GR-interpreted relief posterior is moderate and tighter: mean $0.246$, p16/p50/p84 $=0.205/0.239/0.277$, with local-vs-high-$z$ GR gap significance typically near $1.17\sigma$ in the constrained setup.
+
+The current implication is moderate: under the physical-signal assumption, the model can produce partial Hubble-tension relief, but this forecast alone is not decisive. The dominant uncertainty remains high-$z$ calibration transfer; in the tested setup, local additive-bias effects are negligible by comparison. The result is best treated as a constrained prediction target for future independent siren datasets and stronger selection-calibrated analyses.
+\end{abstract}
+
+\section{Why this follow-up}
+The previous O3 paper established three points that motivate this forecast exercise:
+\begin{enumerate}[leftmargin=2em]
+\item Real-data O3 dark sirens gave a strong internal score preference for modified propagation:
+$\Delta\LPD_{\mathrm{tot}}\simeq +3.67$.
+\item A calibrated GR-truth injection suite did not reproduce large positive scores
+(mean $-0.839$, sd $0.240$, max $+0.076$, $0/512$ with $\Delta\LPD_{\mathrm{tot}}\ge 3$).
+\item Mechanism controls localized leverage to the spectral/selection channel, not unique sky-host alignment.
+\end{enumerate}
+Given that state, the highest-value question is: \emph{if this anomaly is physical, what Hubble-tension pattern should we expect?}
+
+\section{Forecast definitions}
+I use posterior draws from
+\texttt{outputs/finalization/highpower\_multistart\_v2/M0\_start101}
+as model-truth input and simulate high-$z$ anchor observables with controlled noise.
+
+\subsection{Posterior-gap relief metric}
+Define a baseline local-vs-Planck gap
+\begin{equation}
+\Delta H_0^{\mathrm{base}} \equiv \left|H_0^{\mathrm{local}}-H_0^{\mathrm{Planck}}\right|,
+\end{equation}
+and a posterior-gap relief fraction
+\begin{equation}
+\mathcal{R}_{\mathrm{post}} \equiv 1 -
+\frac{\left|H_{0,\mathrm{MG}}^{\mathrm{p50}}-H_0^{\mathrm{local}}\right|}{\Delta H_0^{\mathrm{base}}}.
+\end{equation}
+This is useful for intuition but does not directly include high-$z$ anchor inversion uncertainty.
+
+\subsection{Anchor-based relief metric (preferred)}
+For each anchor redshift $z_a$, I generate synthetic $H(z_a)$ observations from model truth and infer a GR-interpreted high-$z$ $H_0$:
+\begin{equation}
+H_{0,\mathrm{GR}}(z_a) = \frac{H_{\mathrm{obs}}(z_a)}
+{\sqrt{\Omega_{m0}^{\mathrm{GR}}(1+z_a)^3 + (1-\Omega_{m0}^{\mathrm{GR}})}}.
+\end{equation}
+I then define an anchor-averaged GR relief fraction
+\begin{equation}
+\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}} \equiv 1 -
+\frac{\left| \overline{H_{0,\mathrm{GR}}} - H_0^{\mathrm{local}} \right|}
+{\Delta H_0^{\mathrm{base}}},
+\end{equation}
+and report the local-vs-high-$z$ GR gap significance
+\begin{equation}
+Z_{\mathrm{anchor}}^{\mathrm{GR}} \equiv
+\frac{H_{0,\mathrm{local}}-\overline{H_{0,\mathrm{GR}}}}
+{\sqrt{\sigma_{\mathrm{local}}^2+\sigma_{\mathrm{anchor,GR}}^2}}.
+\end{equation}
+
+\section{Single-run forecast result}
+Using $z_a=\{0.2,0.35,0.5,0.62\}$, 20,000 Monte Carlo replicates per anchor, and local reference
+$H_0^{\mathrm{local}}=73.0\pm1.0$ with Planck reference $67.4\pm0.5$:
+\begin{itemize}[leftmargin=2em]
+\item Model-truth posterior: $H_0^{\mathrm{p50}}\simeq 70.39$ (p16/p84 $67.70/73.39$).
+\item Posterior-gap relief: $\mathcal{R}_{\mathrm{post}}\simeq 0.534$.
+\item Anchor-GR relief: $\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}}\sim 0.22$--$0.42$
+depending on GR $\Omega_{m0}$ treatment in this run.
+\item Anchor local-vs-high-$z$ GR gap: typically $\sim 0.95$--$1.44\sigma$ in the external-local setup.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\maybeincludegraphics[width=0.92\linewidth]{h_ratio_vs_planck.png}
+\caption{Forecasted expansion-ratio envelope under model truth:
+$H_{\mathrm{MG}}(z)/H_{\Lambda\mathrm{CDM,Planck}}(z)$.}
+\label{fig:hz_ratio}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\maybeincludegraphics[width=0.92\linewidth]{h0_apparent_gr_bias_vs_z.png}
+\caption{Apparent GR-interpreted high-$z$ $H_0$ bias vs anchor redshift under model truth.}
+\label{fig:h0_bias}
+\end{figure}
+
+\section{Robustness matrix (180 cases)}
+I ran a 180-case pilot matrix:
+5 O3 seeds ($M0\_start101..505$), three high-$z$ precision settings
+($\sigma_{H}/H=0.5\%,1\%,2\%$), three local references (72, 73, 74), two local modes
+(external vs truth-drawn), and two GR $\Omega_{m0}$ treatments (sampled vs fixed 0.315).
+
+Key summaries from
+\path{outputs/hubble_tension_mg_robustness_pilot_20260208_041157UTC/grid_summary.json}:
+\begin{itemize}[leftmargin=2em]
+\item Posterior-gap relief (legacy scalar): mean $0.593$, range $0.453$--$0.790$.
+\item Anchor-based GR relief (preferred): mean $0.351$, range $0.174$--$0.599$.
+\item Anchor GR gap significance: mean $0.679\sigma$, range $0.168\sigma$--$1.528\sigma$.
+\item Anchor MG gap significance: mean $0.356\sigma$ (near-consistency by construction in truth-local mode).
+\end{itemize}
+
+Sensitivity structure:
+\begin{itemize}[leftmargin=2em]
+\item Largest lever here is GR $\Omega_{m0}$ handling:
+mean $\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}}\approx 0.451$ (fixed) vs $\approx 0.251$ (sampled).
+\item Local reference assumption matters as expected:
+mean $\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}}\approx 0.419$ (72),
+$0.342$ (73), $0.291$ (74).
+\item Within this tested range, changing high-$z$ fractional precision does not strongly move the mean relief fraction.
+\end{itemize}
+
+\section{Constrained endpoint and repeatability calibration}
+To turn the broad matrix into a decision-grade estimate, I run a constrained prior map focused on the dominant uncertainty axis (high-$z$ calibration bias transfer), with local mode fixed to external, GR $\Omega_{m0}$ set to sampled mode, and two independent reruns for repeatability:
+\begin{itemize}[leftmargin=2em]
+\item \texttt{outputs/hubble\_tension\_bias\_transfer\_constrained\_v2\_20260209\_061632UTC/}
+\item \texttt{outputs/hubble\_tension\_bias\_transfer\_constrained\_v2\_repeat\_20260209\_061832UTC/}
+\end{itemize}
+
+Combining both constrained reruns with Gaussian priors
+$\sigma_{b,z}=0.003$ and $\sigma_{b,\mathrm{local}}=0.25$
+(local-bias units in km\,s$^{-1}$\,Mpc$^{-1}$) yields the final anchor-based relief posterior:
+\begin{equation}
+\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}} = 0.246,\qquad
+(\mathrm{p16},\mathrm{p50},\mathrm{p84})=(0.205,\,0.239,\,0.277).
+\end{equation}
+Finite-MC repeatability noise is small ($\sigma_{\mathrm{MC}}\approx 0.001$) relative to model/bias sensitivity.
+
+Using a pilot bias sweep for thresholding, a linearized fit gives the high-$z$ bias levels needed to force extreme relief outcomes:
+\begin{itemize}[leftmargin=2em]
+\item $\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}}=0.10$ requires $b_z\approx -1.20\%$.
+\item $\mathcal{R}_{\mathrm{anchor}}^{\mathrm{GR}}=0.40$ requires $b_z\approx +1.26\%$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\maybeincludegraphics[width=0.92\linewidth]{relief_vs_highz_bias.png}
+\caption{Anchor-based relief sensitivity to injected high-$z$ calibration bias. Pilot means and constrained means are shown with a linear fit used for threshold estimates.}
+\label{fig:relief_bias}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\maybeincludegraphics[width=0.92\linewidth]{anchor_h0_inference.png}
+\caption{Anchor-level inferred high-$z$ $H_0$ means under GR and model-consistent interpretations (single full run).}
+\label{fig:anchor_h0}
+\end{figure}
+
+\section{Joint transfer-bias fit (SN+BAO+CC+O3 metadata)}
+To test whether the relief forecast survives explicit nuisance transfer channels, I run a unified transfer-bias fit over SN+BAO+CC with O3 included as metadata support (the O3 offset cancels in transfer-vs-no-transfer Bayes factors):
+\begin{itemize}[leftmargin=2em]
+\item \texttt{outputs/joint\_transfer\_bias\_fit\_full\_20260208\_063407UTC/}
+\item fitted transfer terms: $(\beta_{\mathrm{Ia}},\beta_{\mathrm{CC}},\Delta H_0^{\mathrm{ladder}},\beta_{\mathrm{BAO}})$ with zero-centered Gaussian priors.
+\end{itemize}
+The clean full run gives
+\begin{equation}
+\log\mathrm{BF}_{\mathrm{transfer/no\text{-}transfer}} \simeq -0.533,
+\end{equation}
+so the explicit transfer block is not favored in this setup.
+At the same time, the marginalized relief remains substantial,
+\begin{equation}
+\mathcal{R}_{\mathrm{joint}} = 0.851,\qquad
+(\mathrm{p16},\mathrm{p50},\mathrm{p84})=(0.831,\,0.856,\,0.870).
+\end{equation}
+Posterior-weighted term dominance in mean absolute log-likelihood shift is led by
+$\Delta H_0^{\mathrm{ladder}}$ and $\beta_{\mathrm{Ia}}$, with weaker leverage from
+$\beta_{\mathrm{BAO}}$ and $\beta_{\mathrm{CC}}$.
+The relief-sensitivity diagnostics indicate that $\Delta H_0^{\mathrm{ladder}}$ is the
+primary \emph{expansion-inflating} channel (positive correlation with relief),
+while $\beta_{\mathrm{CC}}$ and $\beta_{\mathrm{Ia}}$ tend to \emph{reduce} relief
+in this setup; BAO transfer is near-neutral.
+
+\section{Interpretation}
+This paper is intentionally conditional: it does \emph{not} re-prove the propagation anomaly.
+It asks what follows if that anomaly is physical. The answer, with current assumptions, is:
+\begin{enumerate}[leftmargin=2em]
+\item partial Hubble-tension relief is plausible and quantitatively nontrivial;
+\item anchor-aware metrics are materially less optimistic than naive posterior-gap metrics;
+\item the present forecast does not yield a decisive (>few-$\sigma$) high-$z$ contradiction/resolution by itself.
+\end{enumerate}
+
+\section{Conclusion}
+Under the physical-signal hypothesis, the reconstructed model tends to move inferred high-$z$
+$H_0$ upward relative to strict Planck-$\Lambda$CDM expectations, yielding moderate expected relief
+of a local-vs-Planck baseline tension. In the constrained, repeatability-calibrated endpoint, the
+conservative anchor-based relief posterior is centered near $24.6\%$ with p16/p50/p84
+$\approx 20.5\%/23.9\%/27.7\%$. GR-interpreted local-vs-high-$z$ gap significance remains
+around $\sim 1.17\sigma$ in this setup.
+
+This is strong enough to motivate targeted prediction tests on new independent siren datasets,
+but not strong enough to claim standalone resolution of the Hubble tension.
+
+\section*{Reproducibility}
+Core scripts used in this follow-up:
+\begin{itemize}[leftmargin=2em]
+\item \texttt{scripts/run\_hubble\_tension\_mg\_forecast.py}
+\item \texttt{scripts/run\_hubble\_tension\_mg\_forecast\_robustness\_grid.py}
+\item \texttt{scripts/launch\_hubble\_tension\_mg\_forecast\_single\_nohup.sh}
+\item \texttt{scripts/launch\_hubble\_tension\_mg\_robustness\_grid\_single\_nohup.sh}
+\item \texttt{scripts/run\_hubble\_tension\_bias\_transfer\_sweep.py}
+\item \texttt{scripts/run\_hubble\_tension\_final\_relief\_posterior.py}
+\end{itemize}
+
+\begin{thebibliography}{99}
+
+\bibitem{GWTC3}
+R.\ Abbott et al.\ (LIGO Scientific Collaboration, Virgo Collaboration, and KAGRA Collaboration),
+``GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo During the Second Part of the Third Observing Run,''
+\emph{Phys.\ Rev.\ X} \textbf{13} (2023) 041039.
+
+\bibitem{Belgacem2018}
+E.\ Belgacem, Y.\ Dirian, S.\ Foffa, and M.\ Maggiore,
+``Modified gravitational-wave propagation and standard sirens,''
+\emph{Phys.\ Rev.\ D} \textbf{98} (2018) 023510.
+
+\bibitem{Nishizawa2017}
+A.\ Nishizawa,
+``Generalized framework for testing gravity with gravitational-wave propagation,''
+\emph{Phys.\ Rev.\ D} \textbf{97} (2018) 104037.
+
+\end{thebibliography}
+
+\end{document}

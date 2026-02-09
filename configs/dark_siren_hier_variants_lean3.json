@@ -1,0 +1,20 @@
+[
+  {
+    "name": "baseline",
+    "weight": 0.40,
+    "description": "Baseline scorer",
+    "args": []
+  },
+  {
+    "name": "selection_threshold",
+    "weight": 0.30,
+    "description": "Threshold det model",
+    "args": ["--selection-det-model", "threshold"]
+  },
+  {
+    "name": "score_fmiss_fixed_low",
+    "weight": 0.30,
+    "description": "Fixed low f_miss in scoring",
+    "args": ["--f-miss-mode", "fixed", "--f-miss-fixed", "0.580795"]
+  }
+]

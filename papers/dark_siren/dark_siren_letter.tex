@@ -271,11 +271,11 @@ restores correct final integration from already completed artifacts.
 Two additional holdout probes were run as secondary context. First, a three-source void-prism run (BOSS DR12 voids with
 Planck lensing plus ACT DR6/SDSS kSZx $\theta$ maps) gives very small same-sign shifts relative to its internal GR baseline:
 $\Delta\LPD_{\rm vs\,GR}=[+0.0116,+0.0198,+0.0249,+0.0127,+0.0221]$ across five seeds (mean $+0.0182$). The corresponding
-null batteries remain non-decisive in that setup, so this is at most a weak directional consistency hint. Second, an
-independent strong-lens time-delay holdout (H0LiCOW/TDCOSMO public chains) remains mildly BH/GR-favoring in this implementation:
-across a 13-configuration KDE nuisance suite, $\Delta\LPD_{\rm MG-BH}$ has mean $-0.498$ and range $[-0.646,-0.474]$ with
-$P(\Delta\LPD>0)=0$. We therefore treat these ancillary probes as useful external stress checks, but not decisive model selectors
-at current data volume and calibration depth.
+null batteries remain non-decisive in that setup, so this is at most a weak directional consistency hint. Second, a raw
+strong-lens re-inference with free post-Newtonian $\gamma_{\rm PPN}$ over 8 public TDCOSMO/H0LiCOW lenses gives
+$\gamma_{\rm PPN}$ posterior quantiles $(p16,p50,p84)=(0.718,0.968,1.195)$, i.e., a mild sub-GR central value but with GR
+($\gamma_{\rm PPN}=1$) still inside the credible interval. We therefore treat these ancillary probes as useful external stress
+checks, but not decisive model selectors at current data volume and calibration depth.
 
 \begin{figure*}[t]
 \centering

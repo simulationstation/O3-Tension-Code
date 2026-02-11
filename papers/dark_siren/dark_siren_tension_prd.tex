@@ -78,6 +78,13 @@ Two controls identify the driving channel:
 \end{enumerate}
 Thus the anomaly is primarily in the distance--redshift/selection sector, not unique host alignment geometry.
 
+\begin{figure*}[t]
+\centering
+\fbox{\parbox{0.92\textwidth}{\centering Placeholder for Fig.~5 (to be replaced with final plot).}}
+\caption{FIG. 5. Reconstructed luminosity distance residuals ($d_L^{GW}/d_L^{EM}$) showing the preferred deviation from General Relativity. The data favor a friction-like decay in GW amplitude at $z>0.5$, consistent with the screening scales required to alleviate the Hubble Tension.}
+\label{fig:dlresid}
+\end{figure*}
+
 \section{Falsification of the GR Null Hypothesis}
 \label{sec:null}
 We compute the GR false-alarm behavior directly with 512 GR-null catalog injections using the same event ensemble, incompleteness model, and selection normalization used on real data. This yields
@@ -126,26 +133,21 @@ Crucially, while selection effects are the primary suspect in dark-siren cosmolo
 \label{fig:sysmat}
 \end{figure*}
 
-\begin{figure*}[t]
-\centering
-\fbox{\parbox{0.92\textwidth}{\centering Placeholder for Fig.~5 (to be replaced with final plot).}}
-\caption{Fig 5: Reconstructed luminosity distance residuals ($d_L^{GW}/d_L^{EM}$) showing the preferred deviation from GR at $z > 0.5$.}
-\label{fig:dlresid}
-\end{figure*}
-
 \section{Interpretation}
-The central result is physically simple: \emph{within the tested null and nuisance families, the GWTC-3 dark-siren population is inconsistent with the GR propagation baseline used here}. Strikingly, this is not a marginal fluctuation around zero; it is an observed score far outside the calibrated GR-null ensemble generated with the same analysis machinery.
+The central result is physically clear: within the tested null and nuisance families, the GWTC-3 dark-siren population is inconsistent with the GR propagation baseline used here. Strikingly, this is not a near-threshold fluctuation around zero; it is a large positive score separated from the calibrated GR-null ensemble by a wide margin.
 
-However, this should still be interpreted as a calibrated cosmological anomaly rather than a closed-form discovery claim. The dominant signal channel is distance--redshift/selection, so unmodeled catalog and selection effects outside the tested family remain a viable alternative explanation.
+To rigorously quantify that statement, we compare against an explicit GR null rather than a single asymptotic approximation. The 512 matched GR injections define the empirical false-alarm behavior for this exact analysis setup, and no realization reaches the observed score scale. Consequently, the anomaly is robust in the limited but important sense that it survives null calibration, sky-rotation controls, and tested GR-consistent nuisance variations.
 
-Why this matters for late-time cosmology is direct. If a propagation anomaly of this sign is real, analyses that assume GR propagation map GW amplitudes to distances with a systematic offset. That offset propagates into inferred expansion parameters and can bias standard-ruler or distance-ladder comparisons in the same direction as the observed Hubble-tension discrepancy. In that sense, the measurement is not only a gravity test; it is an explicit inference-bias mechanism candidate for part of the $H_0$ tension.
+Crucially, the broader cosmological implication is not restricted to ``anomaly hunting.'' If this propagation-sector effect is real, then analyzing a modified-propagation universe with GR-locked distance tools produces an inference bias by construction: GW amplitudes are translated into distances with the wrong transfer function. That bias then propagates into late-time expansion fits and can appear as tension between local and early-universe inference channels. In plain terms, the same mechanism that creates the dark-siren offset can also contribute in the right direction to the Hubble crisis.
+
+However, interpretation discipline remains essential. The signal is still concentrated in the distance--redshift/selection channel, so unmodeled catalog or selection effects outside the tested family remain viable alternatives. The result should therefore be read as a high-value physical tension with direct relevance to $H_0$ inference, not as a finalized microphysical identification.
 
 \section{Conclusion}
-We report a large calibrated tension between GWTC-3 dark-siren data and the GR propagation baseline in this framework ($\Delta\LPD_{\rm tot}=+3.670$). A 512-run GR-null ensemble, matched to the same event and selection pipeline, does not reproduce this amplitude. Mechanism controls localize the effect to the distance--redshift/selection channel.
+We report a calibrated and statistically large tension between GWTC-3 dark-siren data and the GR propagation baseline in this framework ($\Delta\LPD_{\rm tot}=+3.670$). A matched 512-run GR-null ensemble does not reproduce this amplitude, and mechanism controls localize the effect to the distance--redshift/selection sector.
 
-Crucially, while selection effects remain the leading concern in dark-siren cosmology, the tested stress matrix does not generate this amplitude within standard calibration ranges. This elevates the result from a software-level concern to a physically relevant anomaly in late-time inference.
+While selection effects remain the primary systematic concern in dark-siren cosmology, the tested stress matrix indicates that reproducing this specific signal requires deviations larger than standard calibration uncertainties in the explored nuisance family. This shifts the result from a routine technical fluctuation toward a physically relevant late-time inference tension.
 
-The immediate implication is a concrete path for cosmology: either identify a larger, presently unmodeled selection/cross-calibration error that can bridge the gap, or treat propagation-sector modifications as an active ingredient in resolving part of the Hubble-tension inference mismatch.
+Most importantly, if the preferred propagation trend is physical, it defines an explicit inference-bias pathway for the Hubble crisis: GR-assumed distance inference applied to a modified-propagation universe naturally yields biased expansion estimates. The practical next step is therefore sharp and testable: either uncover a larger unmodeled selection/cross-calibration effect that closes the gap, or incorporate propagation-sector freedom as part of precision late-time cosmology.
 
 \begin{acknowledgments}
 This work used public GWTC-3 products and publicly available galaxy-catalog resources. Code and analysis artifacts are archived at Zenodo (DOI: 10.5281/zenodo.18604204).

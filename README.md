@@ -113,6 +113,29 @@ PYTHONPATH=src .venv/bin/python scripts/run_void_prism_eg_joint_test.py \
   --out outputs/void_prism_joint_repro
 ```
 
+### 7) Hero-event waveform-family consistency matrix
+
+Inputs for this run are bundled in:
+- `artifacts/waveform/hero_waveform_inputs_20260210/events/`
+
+Prepare and launch a 256-core matrix:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/run_hero_waveform_consistency_prod_matrix.py \
+  --event-root artifacts/waveform/hero_waveform_inputs_20260210/events \
+  --out-root outputs/forward_tests/hero_waveform_consistency_prod_repro \
+  --cores-total 256 --cores-per-job 8 \
+  --bilby-pipe-analysis .venv/bin/bilby_pipe_analysis \
+  --launch
+```
+
+Check live status:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/check_hero_waveform_prod_status.py \
+  --run-root outputs/forward_tests/hero_waveform_consistency_prod_repro
+```
+
 ## Detached long-run launchers
 
 Detachable launch scripts are included and follow the required robust pattern (`setsid`, `taskset`, `pid.txt`, `run.log`):

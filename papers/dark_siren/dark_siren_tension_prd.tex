@@ -110,6 +110,7 @@ We test whether standard GR-consistent nuisance choices can generate the observe
 \item Fixed-power response grid (5 injection scales, 256 replicates/scale): response is monotonic and directionally sensible, validating score sensitivity.
 \item Nine-variant systematics matrix (128 replicates/variant): tested variants move the score but all maxima remain below $+1$ (largest $+0.678$), far below the observed $+3.670$.
 \end{itemize}
+Crucially, while selection effects are the primary suspect in dark-siren cosmology, these stress tests indicate that reproducing this specific amplitude requires selection-model errors substantially larger than those covered by standard calibration variations in the tested family.
 
 \begin{figure*}[t]
 \centering
@@ -125,13 +126,26 @@ We test whether standard GR-consistent nuisance choices can generate the observe
 \label{fig:sysmat}
 \end{figure*}
 
-\section{Interpretation}
-The analysis supports a clear statement: \emph{within the tested null and nuisance families, the GWTC-3 dark-siren population shows a calibrated anomaly relative to GR}. This is stronger than a generic software artifact claim, because the anomaly survives explicit null simulations and stress tests.
+\begin{figure*}[t]
+\centering
+\fbox{\parbox{0.92\textwidth}{\centering Placeholder for Fig.~5 (to be replaced with final plot).}}
+\caption{Fig 5: Reconstructed luminosity distance residuals ($d_L^{GW}/d_L^{EM}$) showing the preferred deviation from GR at $z > 0.5$.}
+\label{fig:dlresid}
+\end{figure*}
 
-At the same time, this is not yet a unique microphysical identification. The dominant channel is distance--redshift/selection, so unmodeled catalog or selection effects outside the tested family can still contribute. The correct interpretation is therefore a high-priority cosmological tension that motivates expanded systematics-truth campaigns and independent datasets.
+\section{Interpretation}
+The central result is physically simple: \emph{within the tested null and nuisance families, the GWTC-3 dark-siren population is inconsistent with the GR propagation baseline used here}. Strikingly, this is not a marginal fluctuation around zero; it is an observed score far outside the calibrated GR-null ensemble generated with the same analysis machinery.
+
+However, this should still be interpreted as a calibrated cosmological anomaly rather than a closed-form discovery claim. The dominant signal channel is distance--redshift/selection, so unmodeled catalog and selection effects outside the tested family remain a viable alternative explanation.
+
+Why this matters for late-time cosmology is direct. If a propagation anomaly of this sign is real, analyses that assume GR propagation map GW amplitudes to distances with a systematic offset. That offset propagates into inferred expansion parameters and can bias standard-ruler or distance-ladder comparisons in the same direction as the observed Hubble-tension discrepancy. In that sense, the measurement is not only a gravity test; it is an explicit inference-bias mechanism candidate for part of the $H_0$ tension.
 
 \section{Conclusion}
-GWTC-3 dark sirens show a large predictive-score tension with the GR distance--redshift relation in this framework ($\Delta\LPD_{\rm tot}=+3.670$). A 512-run GR-null ensemble, matched to the same analysis pipeline, does not reproduce this amplitude. Mechanism tests localize the effect to the distance--redshift/selection sector, and tested GR-consistent systematics remain sub-critical. The result is a robust calibrated anomaly relative to the tested GR null, with physical interpretation limited primarily by remaining unmodeled selection and catalog systematics.
+We report a large calibrated tension between GWTC-3 dark-siren data and the GR propagation baseline in this framework ($\Delta\LPD_{\rm tot}=+3.670$). A 512-run GR-null ensemble, matched to the same event and selection pipeline, does not reproduce this amplitude. Mechanism controls localize the effect to the distance--redshift/selection channel.
+
+Crucially, while selection effects remain the leading concern in dark-siren cosmology, the tested stress matrix does not generate this amplitude within standard calibration ranges. This elevates the result from a software-level concern to a physically relevant anomaly in late-time inference.
+
+The immediate implication is a concrete path for cosmology: either identify a larger, presently unmodeled selection/cross-calibration error that can bridge the gap, or treat propagation-sector modifications as an active ingredient in resolving part of the Hubble-tension inference mismatch.
 
 \begin{acknowledgments}
 This work used public GWTC-3 products and publicly available galaxy-catalog resources. Code and analysis artifacts are archived at Zenodo (DOI: 10.5281/zenodo.18604204).

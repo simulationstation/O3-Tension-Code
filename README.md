@@ -23,6 +23,7 @@ In short:
 - `papers/dark_siren/` current dark-siren letter source and PDF.
 - `papers/hubble_tension/` Hubble-tension follow-up source and PDF.
 - `papers/inverse_recon/main_updated.tex` inverse reconstruction manuscript source.
+- `paper_gen/mrnas/` submission-ready MNRAS Letter build (TeX + embedded figures + PDF).
 - `artifacts/o3/` key O3 result summaries and plots.
 - `artifacts/hubble/` key transfer-bias fit summaries and plots.
 - `artifacts/ancillary/` secondary cross-probe checks (void prism + strong-lens holdouts).
@@ -37,8 +38,15 @@ In short:
   - `artifacts/o3/delta_lpd_by_event_M0_start101.png`
 - GR-truth catalog-injection calibration summary + figures:
   - `artifacts/o3/catalog_injection_summary.json`
+  - `artifacts/o3/catalog_injection_deltas_n512.json`
   - `artifacts/o3/fig_delta_lpd_total_hist.png`
   - `artifacts/o3/fig_delta_lpd_components_hist.png`
+- Fixed-power injection response grid:
+  - `artifacts/o3/fixed_power_grid_summary.json`
+  - `artifacts/o3/fig_fixed_power_grid.png`
+- GR-consistent systematics truth matrix:
+  - `artifacts/o3/systematics_matrix_summary.json`
+  - `artifacts/o3/fig_systematics_matrix.png`
 - Hubble transfer-bias posterior summary:
   - `artifacts/hubble/summary.json`
   - `artifacts/hubble/final_relief_posterior_summary.json`
@@ -110,8 +118,13 @@ PYTHONPATH=src .venv/bin/python scripts/build_void_prism_eg_measurement.py \
 PYTHONPATH=src .venv/bin/python scripts/measure_void_prism_eg_suite_jackknife.py \
   --out outputs/void_prism_suite_repro
 PYTHONPATH=src .venv/bin/python scripts/run_void_prism_eg_joint_test.py \
+  --embedding minimal \
   --out outputs/void_prism_joint_repro
 ```
+
+`run_void_prism_eg_joint_test.py` now requires explicit `--embedding` selection
+(unless `--allow-implicit-minimal` is set for legacy behavior) and records both
+fixed-amplitude and fitted-amplitude score channels by default.
 
 ### 7) Hero-event waveform-family consistency matrix
 

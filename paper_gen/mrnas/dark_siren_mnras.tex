@@ -1,0 +1,136 @@
+\documentclass[fleqn,usenatbib]{mnras}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\graphicspath{{figures/}}
+
+\newcommand{\LPD}{\mathrm{LPD}}
+\newcommand{\dL}{d_L}
+
+\title[GWTC-3 Dark-Siren Propagation Tension]{A robust calibrated dark-siren tension with General-Relativity propagation in GWTC-3}
+
+\author[Aiden B. Smith]{
+Aiden B. Smith$^{1}$\\
+$^{1}$Data Analyst
+}
+
+\date{Submitted 2026 February 12}
+\pubyear{2026}
+
+\hypersetup{hypertexnames=false}
+
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+\begin{abstract}
+We report a calibrated propagation anomaly in 36 GWTC-3 dark sirens. Relative to an internal General Relativity (GR) propagation baseline, the modified-propagation hypothesis yields $\Delta\LPD_{\rm tot}=+3.670$, equivalent to a predictive-density ratio proxy $\exp(\Delta\LPD)\approx 39$ in this fixed scoring framework. The GR null is explicitly falsified within the calibrated pipeline: in 512 matched GR-consistent injections, none reaches the observed scale (0/512 with $\Delta\LPD\ge 3$; null maximum $+0.076$). Mechanism controls show that sky rotations preserve a high positive score distribution and therefore do not explain the anomaly, whereas distance--redshift controls retain most of the signal, localising the effect to the propagation/selection channel. A stress-test matrix of tested GR-consistent nuisance variants also fails to reproduce the amplitude (maximum $+0.678$). The result is therefore a robust calibrated tension, not a routine fluctuation in tested systematics. If this propagation-sector preference is physical, GR-locked distance inference defines a concrete bias pathway into late-time expansion fits, opening an immediate route to partial relief of the Hubble-tension budget.
+\end{abstract}
+
+\begin{keywords}
+gravitational waves -- cosmology: observations -- cosmology: theory -- methods: statistical
+\end{keywords}
+
+\section{Introduction}
+Late-time expansion remains under stress, most visibly in the persistent disagreement between local and early-Universe inferences of $H_0$. Most analyses target background expansion directly, but dark sirens probe a distinct sector: \emph{propagation}. In GR, the gravitational-wave luminosity distance equals the electromagnetic luminosity distance at fixed background cosmology,
+\begin{equation}
+\dL^{\rm GW}(z)=\dL^{\rm EM}(z),
+\end{equation}
+whereas modified-friction scenarios generically admit
+\begin{equation}
+\dL^{\rm GW}(z)=R(z)\,\dL^{\rm EM}(z), \qquad R(z)=1 \ \text{in GR}.
+\end{equation}
+This Letter tests that propagation relation with GWTC-3 dark sirens using an internally calibrated posterior-predictive score and matched GR-null simulations.
+
+\section{Data and Method}
+We analyse 36 GWTC-3 dark sirens with a host-incompleteness-marginalised galaxy-catalogue likelihood. Public PE samples are reweighted to remove the distance-prior imprint before scoring. The core statistic is the joint posterior-predictive log score, $\LPD(\mathcal{M})$, defined as
+\begin{equation}
+\begin{aligned}
+\LPD(\mathcal{M}) \equiv {}&
+\log\!\Bigl[
+\frac{1}{N_s}\sum_{j=1}^{N_s}
+\exp\!\Bigl(
+\sum_{i=1}^{N_{\rm ev}}\log p(d_i \mid \theta_j,\mathcal{M})
+\\
+&\quad {}-N_{\rm ev}\log \alpha(\theta_j,\mathcal{M})
+\Bigr)
+\Bigl].
+\end{aligned}
+\label{eq:lpd_def}
+\end{equation}
+We then define the score difference between the modified-propagation hypothesis and the GR baseline as
+\begin{equation}
+\Delta\LPD_{\rm tot}\equiv \LPD({\rm prop})-\LPD({\rm GR}).
+\label{eq:delta_lpd_def}
+\end{equation}
+The construction is internally calibrated: the same event ensemble, incompleteness treatment, and score definition are used for real data and null simulations. Crucially, the selection normalisation $\alpha$ is not a free phenomenological correction; it is empirically trained from injections (logistic selection model), which materially hardens the calibration.
+
+\section{Results}
+The updated O3 rerun gives
+\begin{equation}
+\Delta\LPD_{\rm tot}=+3.670
+\end{equation}
+with decomposition $\Delta\LPD_{\rm data}=+2.670$ and $\Delta\LPD_{\rm sel}=+1.000$. In this fixed score framework, this corresponds to $\exp(\Delta\LPD)\approx 39$.
+
+Mechanism controls isolate the channel:
+\begin{enumerate}
+\item Sky-rotation null: $\langle\Delta\LPD_{\rm rot}\rangle=+3.017$ (s.d.\ 0.091) with $P(\Delta\LPD_{\rm rot}\ge\Delta\LPD_{\rm real})=0.45$, so the observed score is not a special sky-alignment outlier.
+\item Distance--redshift versus sky split: distance-only retains most of the signal ($\Delta\LPD\simeq+2.995$), while sky-only is subdominant ($\Delta\LPD\simeq+0.969$).
+\end{enumerate}
+Since randomising sky coordinates preserves the positive score distribution, the tension is driven by the isotropic distance--redshift distribution (and its selection calibration), not by unique lines-of-sight or angular host clustering. Together, these controls indicate that the anomaly is driven by the distance--redshift/selection sector rather than by unique angular host matching.
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{fig_dlresid_o3.png}
+\caption{Residual reconstruction implying a redshift-dependent propagation offset relative to GR; the preferred trend provides a physical interpretation of the score excess if the effect is not due to catalogue/selection mismatch.}
+\label{fig:residuals}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{fig_delta_lpd_total_hist.png}
+\caption{The observed score lies far outside the calibrated GR-null distribution (512 injections), rejecting the GR null hypothesis within the injection-generator assumptions.}
+\label{fig:null_hist}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{fig_delta_lpd_components_hist.png}
+\caption{Decomposition of the calibrated GR-null ensemble into data and selection components, illustrating that the null remains centred negative even with a positive selection contribution.}
+\label{fig:decomp}
+\end{figure*}
+
+\section{Discussion}
+The stress-test programme materially constrains mundane explanations. In 512 GR-consistent injections, the null distribution is centred at $-0.839$ with width $0.240$, maximum $+0.076$, and 0/512 draws at $\Delta\LPD\ge 3$. A fixed-power injection grid gives the expected monotonic response, confirming directional sensitivity of the statistic. A nine-variant GR-consistent nuisance matrix shifts the score but never reproduces the observed amplitude (largest variant maximum $+0.678$).
+
+These tests support a precise statement: within the tested nuisance family, the observed score is a robust calibrated tension with GR propagation. The leading caveat is also precise: unmodelled catalogue/selection errors outside this tested family can still contribute and remain the principal alternative explanation.
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{fig_fixed_power_grid.png}
+\caption{Injected-propagation power grid demonstrating a monotonic response of mean $\Delta\LPD_{\rm tot}$, validating that the statistic responds directionally to true propagation modifications.}
+\label{fig:power_grid}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{fig_systematics_matrix.png}
+\caption{GR-consistent systematics matrix showing that tested nuisance variants shift the score but do not reach the observed amplitude, motivating targeted expansion of the stress-test family.}
+\label{fig:systematics}
+\end{figure*}
+
+\section{Conclusions}
+GWTC-3 dark sirens now exhibit a calibrated propagation tension that is statistically large, internally consistent, and difficult to reproduce with tested GR-consistent nuisances. The null falsification is direct in this pipeline (0/512 at the observed scale), and mechanism controls identify the dominant channel as distance--redshift/selection rather than sky alignment.
+
+If this preference reflects real propagation physics, assuming GR propagation in late-time inference becomes a built-in modelling error. In that interpretation, GR-locking acts as an invisible wedge that can bias expansion parameters and propagate directly into the Hubble-tension budget. The immediate scientific task is therefore binary and testable: either identify a larger unmodelled selection/catalogue effect that closes the gap, or promote propagation-sector freedom from optional extension to required baseline in precision late-time cosmology.
+
+\section*{Data availability}
+All numerical values quoted here are taken from the corresponding dark-siren production outputs in this repository.
+
+\bsp
+\label{lastpage}
+\end{document}

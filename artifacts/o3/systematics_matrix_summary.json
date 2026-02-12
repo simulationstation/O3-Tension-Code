@@ -1,0 +1,115 @@
+{
+  "elapsed_sec": 13116.067121267319,
+  "n_variants": 9,
+  "rows": [
+    {
+      "max_total": 0.48871792870215813,
+      "mean_data": -1.0973411317156114,
+      "mean_sel": 0.6090678257766928,
+      "mean_total": -0.4882733059389186,
+      "n_rep_done": 128,
+      "name": "baseline",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/baseline",
+      "p_ge_0": 0.0703125,
+      "p_ge_3": 0.0,
+      "sd_total": 0.2984077968909118
+    },
+    {
+      "max_total": 0.4881933441274384,
+      "mean_data": -1.0976125971885855,
+      "mean_sel": 0.6090108394722484,
+      "mean_total": -0.48860175771633707,
+      "n_rep_done": 128,
+      "name": "score_fmiss_fixed_low",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/score_fmiss_fixed_low",
+      "p_ge_0": 0.0703125,
+      "p_ge_3": 0.0,
+      "sd_total": 0.2983505966846414
+    },
+    {
+      "max_total": 0.48727387327843985,
+      "mean_data": -1.0980885550421855,
+      "mean_sel": 0.6089109330975753,
+      "mean_total": -0.48917762194461023,
+      "n_rep_done": 128,
+      "name": "score_fmiss_fixed_high",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/score_fmiss_fixed_high",
+      "p_ge_0": 0.0703125,
+      "p_ge_3": 0.0,
+      "sd_total": 0.2982503495453614
+    },
+    {
+      "max_total": 0.3273284351504344,
+      "mean_data": -1.1403511566135711,
+      "mean_sel": 0.6012980208129661,
+      "mean_total": -0.539053135800605,
+      "n_rep_done": 128,
+      "name": "inj_f_low",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/inj_f_low",
+      "p_ge_0": 0.046875,
+      "p_ge_3": 0.0,
+      "sd_total": 0.2911942017009543
+    },
+    {
+      "max_total": 0.5582517332870793,
+      "mean_data": -1.0571939388292093,
+      "mean_sel": 0.6150230411654705,
+      "mean_total": -0.44217089766373885,
+      "n_rep_done": 128,
+      "name": "inj_f_high",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/inj_f_high",
+      "p_ge_0": 0.1015625,
+      "p_ge_3": 0.0,
+      "sd_total": 0.3083520617171991
+    },
+    {
+      "max_total": 0.4051669522952466,
+      "mean_data": -1.1536444728483206,
+      "mean_sel": 0.5990855759232805,
+      "mean_total": -0.5545588969250401,
+      "n_rep_done": 128,
+      "name": "hostz_k_minus2",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/hostz_k_minus2",
+      "p_ge_0": 0.0390625,
+      "p_ge_3": 0.0,
+      "sd_total": 0.28729523901335263
+    },
+    {
+      "max_total": 0.5623175879428004,
+      "mean_data": -1.0397705406801663,
+      "mean_sel": 0.6179267281504424,
+      "mean_total": -0.4218438125297239,
+      "n_rep_done": 128,
+      "name": "hostz_k_plus2",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/hostz_k_plus2",
+      "p_ge_0": 0.1171875,
+      "p_ge_3": 0.0,
+      "sd_total": 0.30788940676559473
+    },
+    {
+      "max_total": 0.5837397415351973,
+      "mean_data": -1.0973411317156114,
+      "mean_sel": 0.6924873813050614,
+      "mean_total": -0.40485375041055005,
+      "n_rep_done": 128,
+      "name": "selection_threshold",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/selection_threshold",
+      "p_ge_0": 0.1328125,
+      "p_ge_3": 0.0,
+      "sd_total": 0.3040094630586317
+    },
+    {
+      "max_total": 0.6776060551660521,
+      "mean_data": -1.097341131715611,
+      "mean_sel": 1.160956358139114,
+      "mean_total": 0.06361522642350304,
+      "n_rep_done": 128,
+      "name": "selection_weight_none",
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_systematics_grid_gr_n128_draw256_9var_20260206_141729UTC/selection_weight_none",
+      "p_ge_0": 0.5703125,
+      "p_ge_3": 0.0,
+      "sd_total": 0.17847653265666555
+    }
+  ],
+  "updated_utc": "2026-02-06T18:09:06Z"
+}

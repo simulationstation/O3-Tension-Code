@@ -1,0 +1,67 @@
+{
+  "elapsed_sec": 14621.56967496872,
+  "n_scales": 5,
+  "rows": [
+    {
+      "max_total": 0.48871792870215813,
+      "mean_data": -1.1036772010115037,
+      "mean_sel": 0.6083349092814453,
+      "mean_total": -0.4953422917300585,
+      "n_rep_done": 256,
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_catalog_injection_power_grid_muMix_n256_draw256_5scale_clean_20260206_134428UTC/scale_0",
+      "p_ge_0": 0.0546875,
+      "p_ge_3": 0.0,
+      "scale": 0.0,
+      "sd_total": 0.2942704528534196
+    },
+    {
+      "max_total": 0.901866066125308,
+      "mean_data": -0.9110960633814299,
+      "mean_sel": 0.6397651631751647,
+      "mean_total": -0.27133090020626516,
+      "n_rep_done": 256,
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_catalog_injection_power_grid_muMix_n256_draw256_5scale_clean_20260206_134428UTC/scale_0p5",
+      "p_ge_0": 0.20703125,
+      "p_ge_3": 0.0,
+      "scale": 0.5,
+      "sd_total": 0.3644759164196895
+    },
+    {
+      "max_total": 1.4662770099112095,
+      "mean_data": -0.6826239842779,
+      "mean_sel": 0.6640704913498819,
+      "mean_total": -0.01855349292801811,
+      "n_rep_done": 256,
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_catalog_injection_power_grid_muMix_n256_draw256_5scale_clean_20260206_134428UTC/scale_1",
+      "p_ge_0": 0.45703125,
+      "p_ge_3": 0.0,
+      "scale": 1.0,
+      "sd_total": 0.4651738363321948
+    },
+    {
+      "max_total": 2.054633839731821,
+      "mean_data": -0.41974156702967247,
+      "mean_sel": 0.6803697918117969,
+      "mean_total": 0.26062822478212444,
+      "n_rep_done": 256,
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_catalog_injection_power_grid_muMix_n256_draw256_5scale_clean_20260206_134428UTC/scale_1p5",
+      "p_ge_0": 0.65625,
+      "p_ge_3": 0.0,
+      "scale": 1.5,
+      "sd_total": 0.5902542382333281
+    },
+    {
+      "max_total": 2.6957267597321106,
+      "mean_data": -0.12496695253376489,
+      "mean_sel": 0.6873651195571613,
+      "mean_total": 0.5623981670233964,
+      "n_rep_done": 256,
+      "out_dir": "/home/primary/PROJECT/outputs/dark_siren_catalog_injection_power_grid_muMix_n256_draw256_5scale_clean_20260206_134428UTC/scale_2",
+      "p_ge_0": 0.765625,
+      "p_ge_3": 0.0,
+      "scale": 2.0,
+      "sd_total": 0.731916006553139
+    }
+  ],
+  "updated_utc": "2026-02-06T18:38:45Z"
+}

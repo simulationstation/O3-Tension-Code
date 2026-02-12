@@ -31,6 +31,19 @@ os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 
 
+def _atomic_write_text(path: Path, text: str) -> None:
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text)
+    os.replace(tmp, path)
+
+
+def _atomic_savez(path: Path, **arrs: Any) -> None:
+    tmp = path.with_name(path.name + ".tmp")
+    with tmp.open("wb") as f:
+        np.savez_compressed(f, **arrs)
+    os.replace(tmp, path)
+
+
 def _utc_stamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%SUTC")
 
@@ -542,6 +555,30 @@ def main() -> int:
             flush=True,
         )
 
+        ckpt_path = tab_dir / "jackknife_partial.npz"
+        rids = [int(r) for r in good_regions.tolist()]
+        resume_n_done = 0
+        resume_jk = None
+        if ckpt_path.exists():
+            try:
+                ckpt = np.load(ckpt_path)
+                ckpt_rids = [int(r) for r in np.asarray(ckpt["rids"], dtype=int).tolist()]
+                ckpt_n_done = int(np.asarray(ckpt["n_done"]).reshape(-1)[0])
+                ckpt_jk = np.asarray(ckpt["jk"], dtype=float)
+                if (
+                    ckpt_rids == rids
+                    and 0 <= ckpt_n_done <= len(rids)
+                    and ckpt_jk.shape == (ckpt_n_done, y_obs.size)
+                    and np.all(np.isfinite(ckpt_jk))
+                ):
+                    resume_n_done = ckpt_n_done
+                    resume_jk = ckpt_jk
+                    print(f"[jk] resume from checkpoint: {resume_n_done}/{len(rids)}", flush=True)
+                else:
+                    print(f"[jk] checkpoint incompatible; ignoring: {ckpt_path}", flush=True)
+            except Exception as e:
+                print(f"[jk] failed to load checkpoint; ignoring: {ckpt_path} ({e})", flush=True)
+
         # Set globals for worker function (threads share memory, so no pickling overhead).
         _JK_KAPPA = kappa
         _JK_THETA_LIST = theta_list
@@ -555,23 +592,76 @@ def main() -> int:
         _JK_PREFACTOR = float(args.prefactor) * float(eg_sign)
 
         jk = np.empty((good_regions.size, y_obs.size), dtype=float)
+        if resume_n_done > 0 and resume_jk is not None:
+            jk[:resume_n_done] = resume_jk
         if n_proc <= 1:
-            for i, rid in enumerate(good_regions):
-                jk[i] = _jk_one_region(int(rid))
+            for i in range(resume_n_done, good_regions.size):
+                rid = int(good_regions[i])
+                try:
+                    jk[i] = _jk_one_region(rid)
+                except Exception:
+                    if i > 0:
+                        _atomic_savez(
+                            ckpt_path,
+                            version=np.array([1], dtype=int),
+                            updated_utc=np.array([datetime.now(timezone.utc).isoformat()], dtype=str),
+                            rids=np.asarray(rids, dtype=int),
+                            n_done=np.array([i], dtype=int),
+                            vec_dim=np.array([y_obs.size], dtype=int),
+                            jk=np.asarray(jk[:i], dtype=float),
+                        )
+                    raise
                 if (i + 1) % progress_every == 0 or (i + 1) == good_regions.size:
                     pct = 100.0 * float(i + 1) / float(good_regions.size)
                     print(f"[jk] {i+1}/{good_regions.size} ({pct:.1f}%)", flush=True)
+                    _atomic_savez(
+                        ckpt_path,
+                        version=np.array([1], dtype=int),
+                        updated_utc=np.array([datetime.now(timezone.utc).isoformat()], dtype=str),
+                        rids=np.asarray(rids, dtype=int),
+                        n_done=np.array([i + 1], dtype=int),
+                        vec_dim=np.array([y_obs.size], dtype=int),
+                        jk=np.asarray(jk[: i + 1], dtype=float),
+                    )
         else:
             # Multiprocessing with fork: much faster for HEALPix ops because we avoid pickling
             # large maps into each worker. We keep OpenMP threads at 1 to reduce fork risks.
-            rids = [int(r) for r in good_regions.tolist()]
             ctx = mp.get_context("fork")
             with ctx.Pool(processes=n_proc) as pool:
-                for i, vec in enumerate(pool.imap(_jk_one_region, rids, chunksize=1), start=1):
-                    jk[i - 1] = vec
-                    if i % progress_every == 0 or i == len(rids):
-                        pct = 100.0 * float(i) / float(len(rids))
-                        print(f"[jk] {i}/{len(rids)} ({pct:.1f}%)", flush=True)
+                rids_todo = rids[resume_n_done:]
+                if rids_todo:
+                    i_done = resume_n_done
+                    try:
+                        for i, vec in enumerate(
+                            pool.imap(_jk_one_region, rids_todo, chunksize=1),
+                            start=resume_n_done + 1,
+                        ):
+                            jk[i - 1] = vec
+                            i_done = i
+                            if i % progress_every == 0 or i == len(rids):
+                                pct = 100.0 * float(i) / float(len(rids))
+                                print(f"[jk] {i}/{len(rids)} ({pct:.1f}%)", flush=True)
+                                _atomic_savez(
+                                    ckpt_path,
+                                    version=np.array([1], dtype=int),
+                                    updated_utc=np.array([datetime.now(timezone.utc).isoformat()], dtype=str),
+                                    rids=np.asarray(rids, dtype=int),
+                                    n_done=np.array([i], dtype=int),
+                                    vec_dim=np.array([y_obs.size], dtype=int),
+                                    jk=np.asarray(jk[:i], dtype=float),
+                                )
+                    except Exception:
+                        if i_done > 0:
+                            _atomic_savez(
+                                ckpt_path,
+                                version=np.array([1], dtype=int),
+                                updated_utc=np.array([datetime.now(timezone.utc).isoformat()], dtype=str),
+                                rids=np.asarray(rids, dtype=int),
+                                n_done=np.array([i_done], dtype=int),
+                                vec_dim=np.array([y_obs.size], dtype=int),
+                                jk=np.asarray(jk[:i_done], dtype=float),
+                            )
+                        raise
 
         cov_joint = jackknife_covariance(jk)
 
@@ -607,8 +697,9 @@ def main() -> int:
         weight_col=weight_col,
     )
 
-    (tab_dir / "measurements.json").write_text(json.dumps({"measurements": measurements}, indent=2))
-    (tab_dir / "suite_joint.json").write_text(
+    _atomic_write_text(tab_dir / "measurements.json", json.dumps({"measurements": measurements}, indent=2))
+    _atomic_write_text(
+        tab_dir / "suite_joint.json",
         json.dumps(
             {
                 "meta": asdict(meta),
@@ -617,7 +708,7 @@ def main() -> int:
                 "cov": cov_joint.tolist() if cov_joint is not None else None,
             },
             indent=2,
-        )
+        ),
     )
 
     print(str(out_dir))

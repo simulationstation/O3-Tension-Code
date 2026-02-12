@@ -19,6 +19,12 @@ os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 
 
+def _atomic_write_text(path: Path, text: str) -> None:
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text)
+    os.replace(tmp, path)
+
+
 def _utc_stamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%SUTC")
 
@@ -127,11 +133,23 @@ class JointRow:
     mapping_variant: str
     embedding: str
     convention: str
+    eta0: float
+    eta1: float
+    env_proxy: float
+    env_alpha: float
+    muP_highz: float
     fit_amplitude: bool
+    report_both_amplitudes: bool
     max_draws: int | None
     lpd: float
     lpd_gr: float
     delta_lpd_vs_gr: float
+    lpd_no_amp: float
+    lpd_gr_no_amp: float
+    delta_lpd_vs_gr_no_amp: float
+    lpd_fit_amp: float
+    lpd_gr_fit_amp: float
+    delta_lpd_vs_gr_fit_amp: float
     amp_mean: float | None
     amp_std: float | None
     amp_q16: float | None
@@ -150,10 +168,36 @@ def main() -> int:
         action="append",
         choices=["minimal", "slip_allowed", "screening_allowed"],
         default=None,
-        help="Embedding(s) to score (repeatable). Default: minimal only.",
+        help=(
+            "Embedding(s) to score (repeatable). "
+            "Must be provided explicitly unless --allow-implicit-minimal is set."
+        ),
+    )
+    ap.add_argument(
+        "--allow-implicit-minimal",
+        action="store_true",
+        help=(
+            "Legacy behavior: if --embedding is omitted, score only 'minimal'. "
+            "By default this is disallowed to prevent silently GR-like runs."
+        ),
     )
     ap.add_argument("--max-draws", type=int, default=5000, help="Subsample posterior draws for speed (default 5000).")
-    ap.add_argument("--fit-amplitude", action="store_true", help="Fit a per-draw scalar amplitude before scoring (shape-only).")
+    ap.add_argument(
+        "--fit-amplitude",
+        action="store_true",
+        help=(
+            "Choose amplitude-fitted score as primary output field (`lpd`/`delta_lpd_vs_gr`). "
+            "Both fixed-amplitude and fitted-amplitude scores are always recorded."
+        ),
+    )
+    ap.add_argument(
+        "--no-report-both-amplitudes",
+        action="store_true",
+        help=(
+            "If set, compute/store only the primary mode selected by --fit-amplitude. "
+            "Default behavior computes and stores both amplitude modes."
+        ),
+    )
     ap.add_argument("--eta0", type=float, default=1.0, help="Slip model eta0 (used for slip_allowed).")
     ap.add_argument("--eta1", type=float, default=0.0, help="Slip model eta1 (used for slip_allowed).")
     ap.add_argument("--env-proxy", type=float, default=0.0, help="Screening env proxy value (used for screening_allowed).")
@@ -175,9 +219,40 @@ def main() -> int:
     meta, blocks, y_obs, cov = _load_suite(suite_path)
     block_tuples = [(float(b["z_eff"]), np.asarray(b["ell"], dtype=int)) for b in blocks]
 
-    embeddings = args.embedding if args.embedding else ["minimal"]
+    if args.embedding:
+        embeddings = list(args.embedding)
+    elif args.allow_implicit_minimal:
+        embeddings = ["minimal"]
+        print(
+            "[void_prism_joint] WARNING: using implicit legacy embedding=['minimal']; "
+            "pass --embedding explicitly to avoid GR-like defaults.",
+            flush=True,
+        )
+    else:
+        raise ValueError(
+            "No --embedding provided. Pass one or more --embedding values "
+            "(minimal, slip_allowed, screening_allowed), or set --allow-implicit-minimal for legacy behavior."
+        )
 
-    print(f"[void_prism_joint] suite={suite_path}  blocks={len(blocks)}  y_dim={y_obs.size}  embeddings={embeddings}", flush=True)
+    report_both_amplitudes = not bool(args.no_report_both_amplitudes)
+
+    # Warn if selected embeddings collapse to minimal behavior under current parameters.
+    if "slip_allowed" in embeddings and float(args.eta0) == 1.0 and float(args.eta1) == 0.0:
+        print(
+            "[void_prism_joint] WARNING: slip_allowed with eta0=1 and eta1=0 is effectively identical to minimal.",
+            flush=True,
+        )
+    if "screening_allowed" in embeddings and float(args.env_alpha) == 0.0:
+        print(
+            "[void_prism_joint] WARNING: screening_allowed with env_alpha=0 is effectively identical to minimal.",
+            flush=True,
+        )
+
+    print(
+        f"[void_prism_joint] suite={suite_path}  blocks={len(blocks)}  y_dim={y_obs.size}  embeddings={embeddings}  "
+        f"report_both_amplitudes={report_both_amplitudes}",
+        flush=True,
+    )
     for i, b in enumerate(blocks):
         if i < 10:
             print(f"[void_prism_joint] block {i+1}/{len(blocks)} name={b.get('name')} z_eff={b.get('z_eff')}", flush=True)
@@ -194,8 +269,25 @@ def main() -> int:
 
         print(f"[void_prism_joint] {run_label} predicting GR baseline (single growth solve per draw)...", flush=True)
         eg_gr = eg_gr_baseline_concat_from_background(post, blocks=block_tuples, max_draws=int(args.max_draws) if args.max_draws else None)
-        lpd_gr, A_gr = _lpd_from_draws(eg_gr, y_obs, cov, fit_amplitude=bool(args.fit_amplitude))
-        print(f"[void_prism_joint] {run_label} GR lpd={lpd_gr:.3g}", flush=True)
+        if report_both_amplitudes:
+            lpd_gr_no_amp, _ = _lpd_from_draws(eg_gr, y_obs, cov, fit_amplitude=False)
+            lpd_gr_fit_amp, _ = _lpd_from_draws(eg_gr, y_obs, cov, fit_amplitude=True)
+        elif bool(args.fit_amplitude):
+            lpd_gr_fit_amp, _ = _lpd_from_draws(eg_gr, y_obs, cov, fit_amplitude=True)
+            lpd_gr_no_amp = float("nan")
+        else:
+            lpd_gr_no_amp, _ = _lpd_from_draws(eg_gr, y_obs, cov, fit_amplitude=False)
+            lpd_gr_fit_amp = float("nan")
+
+        lpd_gr = lpd_gr_fit_amp if bool(args.fit_amplitude) else lpd_gr_no_amp
+        if report_both_amplitudes:
+            print(
+                f"[void_prism_joint] {run_label} GR lpd_primary={lpd_gr:.3g}  "
+                f"lpd_no_amp={lpd_gr_no_amp:.3g}  lpd_fit_amp={lpd_gr_fit_amp:.3g}",
+                flush=True,
+            )
+        else:
+            print(f"[void_prism_joint] {run_label} GR lpd_primary={lpd_gr:.3g}", flush=True)
 
         for emb in embeddings:
             print(f"[void_prism_joint] {run_label} predicting emb={emb} (single growth solve per draw)...", flush=True)
@@ -211,27 +303,72 @@ def main() -> int:
                 muP_highz=float(args.muP_highz),
                 max_draws=int(args.max_draws) if args.max_draws else None,
             )
-            lpd, A = _lpd_from_draws(eg, y_obs, cov, fit_amplitude=bool(args.fit_amplitude))
+            if report_both_amplitudes:
+                lpd_no_amp, _ = _lpd_from_draws(eg, y_obs, cov, fit_amplitude=False)
+                lpd_fit_amp, A_fit = _lpd_from_draws(eg, y_obs, cov, fit_amplitude=True)
+            elif bool(args.fit_amplitude):
+                lpd_fit_amp, A_fit = _lpd_from_draws(eg, y_obs, cov, fit_amplitude=True)
+                lpd_no_amp = float("nan")
+            else:
+                lpd_no_amp, _ = _lpd_from_draws(eg, y_obs, cov, fit_amplitude=False)
+                lpd_fit_amp = float("nan")
+                A_fit = None
+
+            # Respect legacy "primary score" behavior while storing both modes.
+            if bool(args.fit_amplitude):
+                lpd = lpd_fit_amp
+                A_primary = A_fit
+            else:
+                lpd = lpd_no_amp
+                A_primary = None
+
             amp_stats = {"mean": None, "std": None, "q16": None, "q50": None, "q84": None}
-            if A is not None and A.size > 0:
+            if A_primary is not None and A_primary.size > 0:
                 amp_stats = {
-                    "mean": float(np.mean(A)),
-                    "std": float(np.std(A, ddof=1)) if A.size > 1 else float("nan"),
-                    "q16": float(np.percentile(A, 16)),
-                    "q50": float(np.percentile(A, 50)),
-                    "q84": float(np.percentile(A, 84)),
+                    "mean": float(np.mean(A_primary)),
+                    "std": float(np.std(A_primary, ddof=1)) if A_primary.size > 1 else float("nan"),
+                    "q16": float(np.percentile(A_primary, 16)),
+                    "q50": float(np.percentile(A_primary, 50)),
+                    "q84": float(np.percentile(A_primary, 84)),
                 }
+
+            if report_both_amplitudes:
+                delta_no_amp = float(lpd_no_amp - lpd_gr_no_amp)
+                delta_fit_amp = float(lpd_fit_amp - lpd_gr_fit_amp)
+            else:
+                if bool(args.fit_amplitude):
+                    delta_no_amp = float("nan")
+                    delta_fit_amp = float(lpd_fit_amp - lpd_gr_fit_amp)
+                    lpd_no_amp = float("nan")
+                    lpd_gr_no_amp = float("nan")
+                else:
+                    delta_no_amp = float(lpd_no_amp - lpd_gr_no_amp)
+                    delta_fit_amp = float("nan")
+                    lpd_fit_amp = float("nan")
+                    lpd_gr_fit_amp = float("nan")
 
             row = JointRow(
                 run=run_label,
                 mapping_variant=str(mapping_variant),
                 embedding=str(emb),
                 convention=str(args.convention),
+                eta0=float(args.eta0),
+                eta1=float(args.eta1),
+                env_proxy=float(args.env_proxy),
+                env_alpha=float(args.env_alpha),
+                muP_highz=float(args.muP_highz),
                 fit_amplitude=bool(args.fit_amplitude),
+                report_both_amplitudes=bool(report_both_amplitudes),
                 max_draws=int(args.max_draws) if args.max_draws else None,
                 lpd=float(lpd),
                 lpd_gr=float(lpd_gr),
                 delta_lpd_vs_gr=float(lpd - lpd_gr),
+                lpd_no_amp=float(lpd_no_amp),
+                lpd_gr_no_amp=float(lpd_gr_no_amp),
+                delta_lpd_vs_gr_no_amp=float(delta_no_amp),
+                lpd_fit_amp=float(lpd_fit_amp),
+                lpd_gr_fit_amp=float(lpd_gr_fit_amp),
+                delta_lpd_vs_gr_fit_amp=float(delta_fit_amp),
                 amp_mean=amp_stats["mean"],
                 amp_std=amp_stats["std"],
                 amp_q16=amp_stats["q16"],
@@ -239,13 +376,17 @@ def main() -> int:
                 amp_q84=amp_stats["q84"],
             )
             rows.append({**asdict(row), "status": "ok", "suite_meta": meta})
-            (tab_dir / "results_partial.json").write_text(json.dumps(rows, indent=2))
+            _atomic_write_text(tab_dir / "results_partial.json", json.dumps(rows, indent=2))
             print(
-                f"[void_prism_joint] {run_label} emb={emb} lpd={lpd:.3g}  Δlpd_vs_GR={(lpd-lpd_gr):.3g}  amp_mean={amp_stats['mean']}",
+                f"[void_prism_joint] {run_label} emb={emb} "
+                f"ΔLPD_primary={(lpd-lpd_gr):+.3g} "
+                f"ΔLPD_no_amp={delta_no_amp:+.3g} "
+                f"ΔLPD_fit_amp={delta_fit_amp:+.3g} "
+                f"amp_mean={amp_stats['mean']}",
                 flush=True,
             )
 
-    (tab_dir / "results.json").write_text(json.dumps(rows, indent=2))
+    _atomic_write_text(tab_dir / "results.json", json.dumps(rows, indent=2))
     print(str(out_dir))
     return 0
 

@@ -38,6 +38,8 @@ How it was run:
   - `scripts/measure_void_prism_eg_suite_jackknife.py`
 - Joint model-vs-GR score:
   - `scripts/run_void_prism_eg_joint_test.py`
+  - Use explicit `--embedding` flags (`minimal`, `slip_allowed`, `screening_allowed`) to
+    avoid implicit GR-like defaults.
 
 Stored artifacts:
 - `artifacts/ancillary/void/void_prism_three_source_results.json`

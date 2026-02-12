@@ -84,10 +84,8 @@ def make_fig_delta_lpd_total_hist(
     plt.xlabel(r"$\Delta\mathrm{LPD}_{\rm tot}$")
     plt.ylabel("count")
 
-    # Ensure observed line is visible (legacy plots included it far to the right).
-    xmin = min(float(np.min(deltas)) - 0.2, -1.5)
-    xmax = max(observed + 0.3, 4.0)
-    plt.xlim(xmin, xmax)
+    # Reviewer-friendly framing: leave room for the observed line on the right.
+    plt.xlim(-1.5, 4.5)
     plt.legend(fontsize=8, loc="upper left")
     plt.tight_layout()
     out_png.parent.mkdir(parents=True, exist_ok=True)
@@ -129,6 +127,7 @@ def make_fig_fixed_power_grid(
     plt.ylabel(r"$\Delta\mathrm{LPD}_{\rm tot}$")
     plt.title("Fixed-power injection grid (GR-consistent null; 256 reps/scale)")
     plt.grid(alpha=0.2)
+    plt.ylim(-1.0, 4.5)
     plt.legend(fontsize=9, loc="upper left")
     plt.tight_layout()
     out_png.parent.mkdir(parents=True, exist_ok=True)
@@ -178,6 +177,7 @@ def make_fig_systematics_matrix(
     plt.ylabel(r"$\Delta\mathrm{LPD}_{\rm tot}$")
     plt.title("GR-consistent systematics matrix (128 reps/variant)")
     plt.grid(axis="y", alpha=0.2)
+    plt.ylim(-1.0, 4.5)
     plt.legend(fontsize=9, loc="upper left")
     plt.tight_layout()
     out_png.parent.mkdir(parents=True, exist_ok=True)

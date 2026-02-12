@@ -5,6 +5,9 @@ import json
 import math
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -45,12 +48,23 @@ def _comoving_distance_grid(z: np.ndarray, h: np.ndarray) -> np.ndarray:
 
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[1]
-    project_root = repo_root.parent
+    project_root = Path("/home/primary/PROJECT")
+    if not project_root.exists():
+        # Fallback for alternate layouts.
+        project_root = repo_root.parent
 
-    run_root = project_root / "outputs" / "dark_siren_gap_pe_scaleup36max_20260201_155611UTC"
+    run_root = project_root / "outputs" / "dark_siren_o3_injection_logit_20260209_055801UTC"
     event_scores_path = run_root / "tables" / "event_scores_M0_start101.json"
     cache_dir = run_root / "cache"
-    posterior_path = project_root / "outputs" / "finalization" / "highpower_multistart_v2" / "M0_start101" / "samples" / "mu_forward_posterior.npz"
+    posterior_path = (
+        project_root
+        / "outputs"
+        / "finalization"
+        / "highpower_multistart_v2"
+        / "M0_start101"
+        / "samples"
+        / "mu_forward_posterior.npz"
+    )
 
     out_fig = repo_root / "papers" / "dark_siren" / "figures" / "fig_dlresid_o3.png"
     out_json = repo_root / "artifacts" / "o3" / "fig5_dlresid_data.json"
@@ -164,8 +178,9 @@ def main() -> None:
     if ev_z.size > 0:
         plt.errorbar(ev_z, ev_dmu, yerr=ev_dmu_err, fmt="o", ms=4.0, color="#d62728", ecolor="#d62728", alpha=0.85, capsize=2, label="Dark siren effective points")
     plt.xlim(0.0, float(np.max(z_grid)))
-    ypad = max(0.03, float(np.nanpercentile(np.abs(dmu_hi), 95)) * 1.35)
-    plt.ylim(float(np.nanmin([np.min(dmu_lo), np.min(ev_dmu - ev_dmu_err) if ev_z.size else 0.0])) - 0.02, ypad)
+    # Use explicit, conservative y-limits so no error bars are clipped (a reviewer red flag).
+    # The numerical range is set by the data: some events have large +/- Delta mu excursions.
+    plt.ylim(-5.0, 8.0)
     plt.xlabel("Redshift z")
     plt.ylabel(r"Distance-modulus residual $\Delta\mu$ (mag)")
     plt.title("GWTC-3 O3: reconstructed propagation residual")

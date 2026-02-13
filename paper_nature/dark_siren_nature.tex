@@ -11,7 +11,8 @@
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage[superscript]{cite}
 
-\graphicspath{{figures/}}
+% Allow compilation either from the repo (figures/ subdir) or from a flat asset bundle (figures alongside the .tex).
+\graphicspath{{./}{figures/}}
 
 \newcommand{\LPD}{\mathrm{LPD}}
 \newcommand{\dL}{d_L}

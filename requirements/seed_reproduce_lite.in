@@ -1,0 +1,3 @@
+# Minimal deps to run scripts/reproduce_seed_pack.py (includes cached spectral-only baseline).
+numpy
+

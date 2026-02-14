@@ -67,6 +67,14 @@ pip install -e .
 pip install healpy astropy h5py ligo.skymap
 ```
 
+## Seed replication (headline verification)
+
+For a one-command, timestamped reproduction folder containing `report.md` + `summary.json` (and optional CQG PDF rebuild), see `README_reproduce.md`:
+
+```bash
+make reproduce
+```
+
 ## Minimal reproducibility commands
 
 ### 1) Build / verify local data indexes

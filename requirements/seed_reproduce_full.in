@@ -1,0 +1,6 @@
+# Full pipeline + audit scripts (includes optional dark-siren and optical-bias extras).
+-e .[dev,optical_bias,sirens]
+
+# Spec-z audit helpers used by some scripts (optional but recommended for full reproduction).
+astroquery
+

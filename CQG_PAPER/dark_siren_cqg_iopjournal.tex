@@ -1,0 +1,196 @@
+\documentclass{iopjournal}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+
+% Allow compilation either from the repo (figures/ subdir) or from a flat asset bundle (figures alongside the .tex).
+\graphicspath{{./}{figures/}}
+
+\newcommand{\LPD}{\mathrm{LPD}}
+\newcommand{\dL}{d_L}
+
+\begin{document}
+
+\articletype{Paper}
+
+\title{Evidence for a Modified Gravity Anomaly in GWTC-3 Dark Siren Propagation}
+
+\author{Aiden B. Smith}
+\affil{Independent Researcher}
+\email{aidenblakesmithtravel@gmail.com}
+
+\keywords{gravitational waves, standard sirens, cosmology, modified gravity, selection effects, galaxy catalogues}
+
+\begin{abstract}
+The Hubble constant tension is commonly interpreted as a mismatch between early-Universe and late-Universe inferences of cosmic expansion. Gravitational-wave (GW) dark sirens provide a complementary late-time probe because they carry an absolute distance scale without requiring an electromagnetic counterpart. Here we test the propagation sector directly by asking whether the GWTC-3 dark-siren catalogue prefers a non-General-Relativity (GR) mapping between observed GW amplitude and luminosity distance. Using 36 O3 dark sirens and a host-incompleteness-marginalised galaxy-catalogue likelihood with an injection-calibrated selection normalisation, we compare an internal GR propagation baseline to a fixed modified-propagation history. The modified hypothesis yields a calibrated predictive-score shift of $\Delta\LPD_{\rm tot}=+3.670$ ($\Delta\LPD_{\rm data}=+2.670$, $\Delta\LPD_{\rm sel}=+1.000$; $\exp(\Delta\LPD)\approx 39$) relative to GR in this fixed scoring framework. A matched GR-truth injection calibration (512 catalogues) gives a centred-negative score distribution (mean $-0.839$; maximum $+0.076$), and none of the GR-truth replicates approach the observed scale. We refer to this calibrated preference as a Modified Gravity Anomaly in GW propagation, while emphasising that residual catalogue and selection mismodelling outside the tested nuisance family can still mimic the dominant distance--redshift channel. We present mechanism controls, stress tests and spectroscopic-redshift override audits that constrain, but do not yet eliminate, leading systematic explanations.
+\end{abstract}
+
+\section{Introduction}
+The Hubble constant, $H_0$, sets the absolute scale of the late-time Universe. Local distance-ladder determinations of $H_0$ and early-Universe inferences from the cosmic microwave background (CMB) prefer values that disagree beyond reported uncertainties, raising the prospect of either underestimated systematics or new physics in the late-time sector \cite{Verde2019,Planck2018cosmo,Riess2022}. Most proposed resolutions modify the background expansion history or its inference, but an alternative is to test how distances themselves are measured.
+
+Gravitational-wave (GW) observations provide an absolute distance scale through waveform amplitudes and phasing, independent of the electromagnetic distance ladder \cite{Schutz1986,Abbott2017GW170817}. In standard siren cosmology, the central observable is a luminosity distance and the principal challenge is to associate a redshift. ``Bright'' sirens obtain a redshift from an electromagnetic counterpart; ``dark'' sirens instead infer a statistical host-redshift distribution by correlating the GW localisation volume with galaxy catalogues. Dark-siren inference is therefore intrinsically entangled with catalogue completeness, redshift systematics and GW selection effects.
+
+Standard siren analyses typically assume that the mapping from observed GW amplitude to distance is described by General Relativity (GR), and focus on linking that distance to redshift. However, in broad classes of modified gravity the propagation of gravitational waves can deviate from GR: the GW amplitude can experience additional effective ``friction'' during propagation \cite{Belgacem2018,Nishizawa2018}. In such scenarios the GW luminosity distance, $\dL^{\rm GW}(z)$, differs from the electromagnetic (EM) luminosity distance, $\dL^{\rm EM}(z)$, even if the background expansion is unchanged. A propagation deviation can therefore masquerade as a background anomaly: it does not need to alter the expansion history to bias inferred cosmological parameters, only the distance scale that feeds into those inferences.
+
+This paper targets the propagation sector directly. Rather than fitting a flexible function to the data, we score a fixed modified-propagation history against an internal GR propagation baseline using a joint posterior-predictive log score, and calibrate that score using matched injections. This yields a statement that is strong but bounded: it quantifies the false-alarm behaviour under a tested GR-truth generator, while remaining explicit about which unmodelled catalogue or selection failures could still mimic the signal.
+
+\section{Formalism \& methodology}
+\subsection{Modified-propagation parameterisation}
+We parameterise modified GW propagation by a redshift-dependent ratio $R(z)$ between GW and EM luminosity distances,
+\begin{equation}
+\dL^{\rm GW}(z) = R(z)\,\dL^{\rm EM}(z), \qquad R(z)=1 \ \ \text{in GR}.
+\label{eq:Rdef}
+\end{equation}
+We compare an internal GR baseline ($R\equiv 1$) to a fixed modified-propagation history $R(z)$ that is specified upstream and held fixed during scoring. In common scalar--tensor constructions, $R(z)$ is related to an evolving effective Planck mass, but our scoring treatment only requires a deterministic $R(z)$ curve.
+
+\subsection{Dark-siren likelihood with incompleteness}
+For each event we evaluate a galaxy-catalogue likelihood that marginalises host incompleteness through a mixture of in-catalogue and missing-host terms. The in-catalogue term correlates the GW localisation with a galaxy catalogue, while the missing-host term provides a conservative completion that prevents the likelihood from spuriously over-weighting the catalogue where it is incomplete. Both terms share a consistent selection normalisation.
+
+\subsection{Posterior-predictive score and selection normalisation}
+For a model $\mathcal{M}$ we compute a joint posterior-predictive log score across events,
+\begin{equation}
+\LPD(\mathcal{M}) \equiv
+\log\!\Biggl[
+\frac{1}{N_s}\sum_{j=1}^{N_s}
+\exp\!\Biggl(
+\sum_{i=1}^{N_{\rm ev}}\log p(d_i \mid \theta_j,\mathcal{M})
+-N_{\rm ev}\log \alpha(\theta_j,\mathcal{M})
+\Biggr)
+\Biggr],
+\label{eq:lpd}
+\end{equation}
+where $\theta_j$ are posterior draws, $p(d_i \mid \theta_j,\mathcal{M})$ is the event likelihood under $\mathcal{M}$, and $\alpha(\theta_j,\mathcal{M})$ is the selection normalisation. We report $\Delta\LPD_{\rm tot}=\LPD(\mathrm{prop})-\LPD(\mathrm{GR})$ and, for diagnostics, decompose the score into data and selection contributions by toggling the $\alpha$ term.
+
+The selection normalisation $\alpha$ is calibrated empirically from injections using a logistic selection model trained on an injection set. This injection-calibrated selection model is applied consistently to the real-data scoring and to all injection-based null tests.
+
+\subsection{Calibration and robustness suite}
+We calibrate the GR false-alarm behaviour with 512 GR-consistent injection catalogues matched to the real-data analysis settings and event ensemble definition. This calibration tests whether the pipeline can generate a large positive $\Delta\LPD$ under GR truth within the injection generator assumptions.
+
+To localise the mechanism of any preference and to stress-test leading systematics, we apply (i) a sky-rotation null that randomises event sky positions relative to the galaxy catalogue; (ii) distance-only versus sky-only channel splits that isolate the dominant information channel; (iii) a fixed-power injection grid that validates the directional response of the score to injected propagation strength; (iv) a GR-systematics matrix that perturbs catalogue incompleteness and selection assumptions within a GR-truth ensemble; and (v) adversarial stress tests in the dominant distance--redshift channel (bounded selection-function deformations, completeness tilts and photo-$z$ bias models).
+
+To attack the leading remaining systematic class (global photo-$z$ bias), we additionally perform a spectroscopic-redshift (spec-$z$) override audit. For each high-leverage event we rank host candidates by a host-weight proxy consistent with the spectral-only likelihood channel, crossmatch top-weight candidates against public spec-$z$ resources (including SDSS and DESI DR1 spectroscopy and bright-redshift catalogues), and override the catalogue redshift with $z_{\rm spec}$ where a match is supported by shifted-sky false-match controls.
+
+\section{Data}
+\subsection{GW events}
+We analyse $N_{\rm ev}=36$ GWTC-3 dark-siren events from the O3 observing run and public parameter-estimation samples \cite{Abbott2023GWTC3}. The analysis is restricted to GWTC-3 (O1--O3) and explicitly excludes O4a. O4a operated predominantly as a two-detector network, which typically produces degenerate sky localisations and greatly inflates the galaxy-catalogue search volume relative to three-detector triangulation.
+
+\subsection{Galaxy catalogue and spectroscopic resources}
+Host redshifts are treated statistically using a galaxy-catalogue likelihood based on GLADE+ \cite{Dalya2022}. For the spec-$z$ override audit we crossmatch top-weight host candidates against public spectroscopic compilations (2MRS, 6dFGS, 2dFGRS and GAMA DR3), and against SDSS DR16 and DESI DR1 spectroscopy, with shifted-sky controls used to identify coincidence-dominated radii.
+
+\section{Results}
+\subsection{Calibrated modified-propagation preference}
+The observed catalogue yields $\Delta\LPD_{\rm tot}=+3.670$ in favour of the fixed modified-propagation history relative to the internal GR baseline. In this fixed scoring setup, $\exp(\Delta\LPD)$ acts as a predictive Bayes-factor proxy, corresponding here to a factor of $\simeq 39$. The preference splits into $\Delta\LPD_{\rm data}=+2.670$ and $\Delta\LPD_{\rm sel}=+1.000$, indicating an order-unity selection contribution but a dominant data-fit component.
+
+The GR-truth injection calibration provides the key falsification. Figure~\ref{fig:null_hist} shows the $\Delta\LPD_{\rm tot}$ distribution for 512 GR-consistent injection catalogues: it is centred at $-0.839$ (s.d.\ 0.240) with maximum $+0.076$, and none of the GR-truth replicates approach the observed scale. Within the assumptions of the injection generator, this establishes a calibrated Modified Gravity Anomaly (propagation anomaly) in the O3 dark-siren sample.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig_delta_lpd_total_hist.png}
+\caption{\textbf{Calibrated GR-null falsification.} Histogram of $\Delta\LPD_{\rm tot}$ for 512 GR-consistent injection catalogues processed through the same pipeline. The dashed line marks the observed value. None of the GR-consistent injections reaches the observed scale within the tested null generator.}
+\label{fig:null_hist}
+\end{figure}
+
+Figure~\ref{fig:comp_hist} decomposes the GR-truth calibration ensemble into data and selection components, illustrating that the selection term partially offsets the data term but does not reverse the net preference under GR truth.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig_delta_lpd_components_hist.png}
+\caption{\textbf{Data vs.\ selection decomposition under GR truth.} Injection calibration ensemble decomposed into the data-only contribution and the selection contribution to $\Delta\LPD_{\rm tot}$ (constructed by toggling the selection normalisation term in Eq.~(\ref{eq:lpd})).}
+\label{fig:comp_hist}
+\end{figure}
+
+\subsection{Directional sensitivity and GR-consistent nuisance suites}
+Directional sensitivity is validated by a fixed-power injection grid: the mean $\Delta\LPD_{\rm tot}$ increases monotonically with injected propagation strength (Figure~\ref{fig:fixed_power_grid}). A nine-variant GR-systematics matrix (128 replicates per variant) perturbs incompleteness and selection assumptions within a GR-consistent family; none of the tested variants approaches the observed $\Delta\LPD_{\rm tot}\simeq +3.67$ (Figure~\ref{fig:systematics_matrix}).
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig_fixed_power_grid.png}
+\caption{\textbf{Injected-strength response.} Fixed-power injection grid under GR truth. Mean $\Delta\LPD_{\rm tot}$ rises monotonically with injected propagation strength, confirming directional sensitivity of the score construction.}
+\label{fig:fixed_power_grid}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig_systematics_matrix.png}
+\caption{\textbf{GR-systematics truth matrix.} Nine GR-consistent nuisance variants (128 replicates each) evaluated under the calibrated injection suite. Tested variant maxima remain well below the observed $\Delta\LPD_{\rm tot}$ in the real catalogue.}
+\label{fig:systematics_matrix}
+\end{figure}
+
+\subsection{Mechanism controls and adversarial robustness}
+Mechanism controls localise the preference to the dominant distance--redshift channel. A sky-rotation null (random sky rotations relative to the galaxy catalogue) leaves the score strongly positive, with mean $\langle \Delta\LPD_{\rm rot} \rangle \simeq +3.017$ (s.d.\ 0.091), indicating that the preference is not driven purely by a small number of privileged lines of sight. A channel split further shows that a distance-only weighting retains most of the preference ($\Delta\LPD\simeq +2.995$), whereas a sky-only weighting is smaller ($\Delta\LPD\simeq +0.969$).
+
+Figure~\ref{fig:robustness_summary} summarises adversarial public-data stress tests in the dominant channel. Within bounded selection-function and completeness deformations at the $\pm 20\%$ level, the preference remains $\Delta\LPD_{\rm tot}\simeq +3.67$ and does not fall below 1 or 0. Global photometric-redshift biases of the form $\Delta z=b_0+b_1 z$ can reduce the preference but do not remove it on the tested grid (e.g.\ $\Delta\LPD\simeq +1.98$ for $b_0=0.03$, $b_1=0.2$).
+
+To probe photo-$z$ failure more directly we anchor a fraction of the host-weight proxy to spectroscopic redshifts by overriding catalogue redshifts where spec-$z$ matches exist. At $K=20000$ and radii that pass shifted-sky false-match controls, this anchors up to $\simeq 9\%$ (GW200308\_173609), $\simeq 5\%$ (GW200220\_061928) and $\simeq 10\%$ (GW200219\_094415) of total host-weight proxy to spec-$z$, with median matched host-weight fraction $\simeq 5\%$ in the best-scored condition. The score remains stable or slightly higher ($\Delta\LPD_{\rm tot}\simeq 3.63 \rightarrow 3.65$) under unchanged selection normalisation. Across the tested $(r,K)$ grid, $\Delta\LPD_{\rm tot}$ is non-decreasing with spec-$z$ weight coverage.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig_robustness_summary.png}
+\caption{\textbf{Adversarial robustness summary.} Public-data re-scoring diagnostics for bounded selection-function deformations and catalogue/photo-$z$ stresses in the dominant distance--redshift channel, together with a ``required failure'' summary across tested nuisance families.}
+\label{fig:robustness_summary}
+\end{figure}
+
+\subsection{Residual diagnostic}
+Figure~\ref{fig:residuals} provides a compact physical diagnostic by reconstructing effective distance-modulus residuals $\Delta\mu\equiv \mu_{\rm GW,obs}-\mu_{\rm EM}$ from galaxy-weighted redshift distributions and GW distance posteriors. Positive $\Delta\mu$ corresponds to $d_L^{\rm GW}>d_L^{\rm EM}$, as expected for friction-like damping. These points are not direct independent measurements of $R(z)$, but they provide an interpretable visualisation consistent with the preferred modified-propagation history.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig_dlresid_o3.png}
+\caption{\textbf{Reconstructed propagation residuals.} Red points show event-level effective distance-modulus residuals, $\Delta\mu \equiv \mu_{\rm GW,obs}-\mu_{\rm EM}$, with propagated distance uncertainties. The blue band shows the 68\% posterior range of the fixed modified-propagation history; the dashed line is the GR propagation baseline, $\Delta\mu=0$.}
+\label{fig:residuals}
+\end{figure}
+
+\section{Discussion}
+Within the tested calibration suite, the data support a narrow statement: GWTC-3 dark sirens prefer the fixed modified-propagation history over the GR propagation baseline by a calibrated predictive score that is far outside the matched GR-truth injection ensemble. The most conservative interpretation is therefore conditional. Either (i) the propagation sector deviates from GR in the manner encoded by the fixed $R(z)$ history, or (ii) a catalogue, redshift or selection mismatch outside the tested nuisance family mimics the dominant distance--redshift channel preference.
+
+The mechanism controls and robustness suite guide the next discriminants. The sky-rotation and channel-split tests indicate that the preference is not driven primarily by special angular associations, but instead by the isotropic distance distribution coupled to the selection and incompleteness model. The adversarial stresses show that order-unity perturbations of selection and completeness within tested bounds do not erase the signal, while large coherent photo-$z$ biases remain the most effective reduction mechanism explored so far.
+
+The spec-$z$ override audit attacks that escape hatch directly by anchoring a fraction of the host-weight proxy to external spectroscopy. Current public spectroscopy overlap is sufficient to anchor only a modest fraction of the host-weight proxy for the highest-leverage events at radii that remain clean under shifted-sky controls. The non-decreasing $\Delta\LPD$ trend with spec-$z$ weight coverage therefore constrains (but does not eliminate) photo-$z$ explanations: to close that loophole decisively, higher coverage of the dominant host-weight region is required, which is most naturally expected from future galaxy spectroscopy products and from improved event localisation in later observing runs.
+
+\section{Conclusion}
+We have presented evidence for a calibrated Modified Gravity Anomaly (propagation anomaly) in GWTC-3 O3 dark-siren propagation. A fixed modified-propagation history yields $\Delta\LPD_{\rm tot}=+3.670$ ($\exp(\Delta\LPD)\approx 39$; $\Delta\LPD_{\rm data}=+2.670$, $\Delta\LPD_{\rm sel}=+1.000$) relative to an internal GR propagation baseline, while 512 matched GR-truth injection catalogues have mean $-0.839$ and maximum $+0.076$. Mechanism controls and stress tests localise the preference to the dominant distance--redshift channel and show robustness to bounded selection and completeness deformations, while highlighting global photo-$z$ failure as the dominant remaining systematic escape hatch. Spectroscopic-redshift override audits using public spectroscopy resources anchor a modest fraction of the host-weight proxy and do not reduce the score within the clean-radius regime.
+
+\section*{Declarations}
+\subsection*{Conflict of interest}
+The authors declare no competing interests.
+
+\subsection*{Data availability}
+Analysis artifacts and summary tables are provided with this repository and mirrored on the associated project archive (Zenodo DOI: 10.5281/zenodo.18604204).
+
+\subsection*{Funding}
+This research was supported by [Insert Placeholder].
+
+\section*{References}
+\begin{thebibliography}{99}
+\bibitem{Verde2019}
+Verde, L., Treu, T. \& Riess, A. G. Tensions between the early and late Universe. \emph{Nat. Astron.} \textbf{3}, 891--895 (2019).
+
+\bibitem{Planck2018cosmo}
+Planck Collaboration. Planck 2018 results. VI. Cosmological parameters. \emph{Astron. Astrophys.} \textbf{641}, A6 (2020).
+
+\bibitem{Riess2022}
+Riess, A. G. \emph{et al.} A comprehensive measurement of the local value of the Hubble constant with 1 km s$^{-1}$ Mpc$^{-1}$ uncertainty. \emph{Astrophys. J. Lett.} \textbf{934}, L7 (2022).
+
+\bibitem{Schutz1986}
+Schutz, B. F. Determining the Hubble constant from gravitational wave observations. \emph{Nature} \textbf{323}, 310--311 (1986).
+
+\bibitem{Abbott2017GW170817}
+Abbott, B. P. \emph{et al.} (LIGO Scientific Collaboration \& Virgo Collaboration). A gravitational-wave standard siren measurement of the Hubble constant. \emph{Nature} \textbf{551}, 85--88 (2017).
+
+\bibitem{Belgacem2018}
+Belgacem, E., Dirian, Y., Foffa, S. \& Maggiore, M. Modified gravitational-wave propagation and standard sirens. \emph{Phys. Rev. D} \textbf{98}, 023510 (2018).
+
+\bibitem{Nishizawa2018}
+Nishizawa, A. Generalized framework for testing gravity with gravitational-wave propagation. \emph{Phys. Rev. D} \textbf{97}, 104037 (2018).
+
+\bibitem{Abbott2023GWTC3}
+Abbott, R. \emph{et al.} (LIGO Scientific Collaboration, Virgo Collaboration \& KAGRA Collaboration). GWTC-3: Compact binary coalescences observed by LIGO and Virgo during the second part of the third observing run. \emph{Phys. Rev. X} \textbf{13}, 041039 (2023).
+
+\bibitem{Dalya2022}
+D\'alya, G. \emph{et al.} GLADE+: An extended galaxy catalogue for multimessenger searches. \emph{Mon. Not. R. Astron. Soc.} \textbf{514}, 1403--1411 (2022).
+\end{thebibliography}
+
+\end{document}

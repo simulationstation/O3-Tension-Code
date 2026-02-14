@@ -1,0 +1,1991 @@
+{
+  "k": 200,
+  "notes": "Applied spec-z overrides used in the binned-z scoring for this condition (only entries with finite z_spec and nonzero w*prob mass).",
+  "overrides_by_event": {
+    "GW191230_180458": [
+      {
+        "gal_index_in_event": 415336,
+        "sep_arcsec": 0.7078861062308166,
+        "source": "2dFGRS",
+        "z_spec": 0.27309998869895935
+      },
+      {
+        "gal_index_in_event": 430691,
+        "sep_arcsec": 0.07233009148420504,
+        "source": "6dFGS",
+        "z_spec": 0.29003064513384125
+      },
+      {
+        "gal_index_in_event": 438458,
+        "sep_arcsec": 0.24711317696423904,
+        "source": "2dFGRS",
+        "z_spec": 0.2433999925851822
+      },
+      {
+        "gal_index_in_event": 221017,
+        "sep_arcsec": 0.23488304144536898,
+        "source": "2dFGRS",
+        "z_spec": 0.266400009393692
+      },
+      {
+        "gal_index_in_event": 487029,
+        "sep_arcsec": 10.504907141737695,
+        "source": "6dFGS",
+        "z_spec": 0.04698250280865972
+      },
+      {
+        "gal_index_in_event": 409172,
+        "sep_arcsec": 3.2531718690183493,
+        "source": "2dFGRS",
+        "z_spec": 0.2442999929189682
+      },
+      {
+        "gal_index_in_event": 430605,
+        "sep_arcsec": 0.5716868335302503,
+        "source": "2dFGRS",
+        "z_spec": 0.25920000672340393
+      },
+      {
+        "gal_index_in_event": 336736,
+        "sep_arcsec": 0.3241677432260589,
+        "source": "6dFGS",
+        "z_spec": 0.24711095300469502
+      },
+      {
+        "gal_index_in_event": 430603,
+        "sep_arcsec": 0.9109434531014232,
+        "source": "2dFGRS",
+        "z_spec": 0.26809999346733093
+      },
+      {
+        "gal_index_in_event": 425570,
+        "sep_arcsec": 0.4834427769369426,
+        "source": "2dFGRS",
+        "z_spec": 0.24770000576972961
+      },
+      {
+        "gal_index_in_event": 416986,
+        "sep_arcsec": 0.4212493897155264,
+        "source": "2dFGRS",
+        "z_spec": 0.3089999854564667
+      },
+      {
+        "gal_index_in_event": 431638,
+        "sep_arcsec": 0.37072074486277595,
+        "source": "2dFGRS",
+        "z_spec": 0.25099998712539673
+      },
+      {
+        "gal_index_in_event": 415489,
+        "sep_arcsec": 0.2567869550416567,
+        "source": "2dFGRS",
+        "z_spec": 0.2484000027179718
+      },
+      {
+        "gal_index_in_event": 440051,
+        "sep_arcsec": 1.0213371046829265,
+        "source": "2dFGRS",
+        "z_spec": 0.23680000007152557
+      },
+      {
+        "gal_index_in_event": 425583,
+        "sep_arcsec": 0.3503887044216963,
+        "source": "2dFGRS",
+        "z_spec": 0.24639999866485596
+      },
+      {
+        "gal_index_in_event": 431346,
+        "sep_arcsec": 0.21329883960761759,
+        "source": "2dFGRS",
+        "z_spec": 0.25029999017715454
+      },
+      {
+        "gal_index_in_event": 417126,
+        "sep_arcsec": 0.32230171924465817,
+        "source": "2dFGRS",
+        "z_spec": 0.24169999361038208
+      },
+      {
+        "gal_index_in_event": 222480,
+        "sep_arcsec": 0.6296875272223422,
+        "source": "2dFGRS",
+        "z_spec": 0.2524000108242035
+      },
+      {
+        "gal_index_in_event": 483044,
+        "sep_arcsec": 0.2730478646463755,
+        "source": "2dFGRS",
+        "z_spec": 0.3046000003814697
+      },
+      {
+        "gal_index_in_event": 430932,
+        "sep_arcsec": 0.8503560816433352,
+        "source": "2dFGRS",
+        "z_spec": 0.24079999327659607
+      },
+      {
+        "gal_index_in_event": 440687,
+        "sep_arcsec": 0.5309746340820941,
+        "source": "2dFGRS",
+        "z_spec": 0.25760000944137573
+      },
+      {
+        "gal_index_in_event": 343396,
+        "sep_arcsec": 0.1146435382736035,
+        "source": "6dFGS",
+        "z_spec": 0.2665944318052191
+      },
+      {
+        "gal_index_in_event": 437040,
+        "sep_arcsec": 0.8659440582618224,
+        "source": "2dFGRS",
+        "z_spec": 0.2768000066280365
+      },
+      {
+        "gal_index_in_event": 431634,
+        "sep_arcsec": 0.2394241959349525,
+        "source": "2dFGRS",
+        "z_spec": 0.25049999356269836
+      },
+      {
+        "gal_index_in_event": 437056,
+        "sep_arcsec": 0.5411255879387792,
+        "source": "2dFGRS",
+        "z_spec": 0.2468000054359436
+      },
+      {
+        "gal_index_in_event": 343294,
+        "sep_arcsec": 0.3546762750065715,
+        "source": "2dFGRS",
+        "z_spec": 0.2653000056743622
+      },
+      {
+        "gal_index_in_event": 425954,
+        "sep_arcsec": 0.34363726159235086,
+        "source": "2dFGRS",
+        "z_spec": 0.24819999933242798
+      },
+      {
+        "gal_index_in_event": 437043,
+        "sep_arcsec": 0.7362247055467392,
+        "source": "2dFGRS",
+        "z_spec": 0.2590000033378601
+      },
+      {
+        "gal_index_in_event": 416589,
+        "sep_arcsec": 0.42695186187635453,
+        "source": "2dFGRS",
+        "z_spec": 0.30480000376701355
+      },
+      {
+        "gal_index_in_event": 438283,
+        "sep_arcsec": 0.3274197806348948,
+        "source": "2dFGRS",
+        "z_spec": 0.2687000036239624
+      },
+      {
+        "gal_index_in_event": 439783,
+        "sep_arcsec": 0.286223229831875,
+        "source": "2dFGRS",
+        "z_spec": 0.2903999984264374
+      },
+      {
+        "gal_index_in_event": 412866,
+        "sep_arcsec": 0.41746481291241616,
+        "source": "2dFGRS",
+        "z_spec": 0.24410000443458557
+      },
+      {
+        "gal_index_in_event": 428964,
+        "sep_arcsec": 0.47920337181722894,
+        "source": "2dFGRS",
+        "z_spec": 0.26339998841285706
+      },
+      {
+        "gal_index_in_event": 427404,
+        "sep_arcsec": 0.538746063882327,
+        "source": "2dFGRS",
+        "z_spec": 0.2547999918460846
+      },
+      {
+        "gal_index_in_event": 438066,
+        "sep_arcsec": 0.4210699534256397,
+        "source": "2dFGRS",
+        "z_spec": 0.2565999925136566
+      },
+      {
+        "gal_index_in_event": 438466,
+        "sep_arcsec": 0.4061321402380984,
+        "source": "2dFGRS",
+        "z_spec": 0.2930999994277954
+      },
+      {
+        "gal_index_in_event": 438936,
+        "sep_arcsec": 0.4176458437746647,
+        "source": "2dFGRS",
+        "z_spec": 0.25369998812675476
+      },
+      {
+        "gal_index_in_event": 438928,
+        "sep_arcsec": 0.4176458437746647,
+        "source": "2dFGRS",
+        "z_spec": 0.25369998812675476
+      },
+      {
+        "gal_index_in_event": 431340,
+        "sep_arcsec": 0.3779385063095665,
+        "source": "2dFGRS",
+        "z_spec": 0.25940001010894775
+      },
+      {
+        "gal_index_in_event": 300210,
+        "sep_arcsec": 0.22163936759384337,
+        "source": "2dFGRS",
+        "z_spec": 0.3050000071525574
+      },
+      {
+        "gal_index_in_event": 430242,
+        "sep_arcsec": 0.7013164212011126,
+        "source": "2dFGRS",
+        "z_spec": 0.251800000667572
+      },
+      {
+        "gal_index_in_event": 302627,
+        "sep_arcsec": 0.4196766254757587,
+        "source": "2dFGRS",
+        "z_spec": 0.26910001039505005
+      },
+      {
+        "gal_index_in_event": 222135,
+        "sep_arcsec": 0.25047362096870973,
+        "source": "2dFGRS",
+        "z_spec": 0.29919999837875366
+      },
+      {
+        "gal_index_in_event": 417130,
+        "sep_arcsec": 0.5130217659535548,
+        "source": "2dFGRS",
+        "z_spec": 0.26930001378059387
+      },
+      {
+        "gal_index_in_event": 299979,
+        "sep_arcsec": 3.3339656614472695,
+        "source": "2dFGRS",
+        "z_spec": 0.24639999866485596
+      },
+      {
+        "gal_index_in_event": 431083,
+        "sep_arcsec": 0.20248372291266734,
+        "source": "2dFGRS",
+        "z_spec": 0.24899999797344208
+      },
+      {
+        "gal_index_in_event": 438462,
+        "sep_arcsec": 0.35674778865167106,
+        "source": "2dFGRS",
+        "z_spec": 0.24629999697208405
+      },
+      {
+        "gal_index_in_event": 417447,
+        "sep_arcsec": 0.5272609688498945,
+        "source": "2dFGRS",
+        "z_spec": 0.26179999113082886
+      },
+      {
+        "gal_index_in_event": 438282,
+        "sep_arcsec": 0.21576479886591365,
+        "source": "2dFGRS",
+        "z_spec": 0.2513999938964844
+      },
+      {
+        "gal_index_in_event": 436749,
+        "sep_arcsec": 0.44344921373289925,
+        "source": "2dFGRS",
+        "z_spec": 0.2451000064611435
+      },
+      {
+        "gal_index_in_event": 410777,
+        "sep_arcsec": 0.5350510645265976,
+        "source": "2dFGRS",
+        "z_spec": 0.272599995136261
+      },
+      {
+        "gal_index_in_event": 431092,
+        "sep_arcsec": 0.7009930513059819,
+        "source": "2dFGRS",
+        "z_spec": 0.24379999935626984
+      },
+      {
+        "gal_index_in_event": 417141,
+        "sep_arcsec": 0.4992470995055502,
+        "source": "2dFGRS",
+        "z_spec": 0.25609999895095825
+      },
+      {
+        "gal_index_in_event": 438044,
+        "sep_arcsec": 1.4914712523962919,
+        "source": "2dFGRS",
+        "z_spec": 0.025200000032782555
+      },
+      {
+        "gal_index_in_event": 423895,
+        "sep_arcsec": 0.5884932510298638,
+        "source": "2dFGRS",
+        "z_spec": 0.2621000111103058
+      },
+      {
+        "gal_index_in_event": 425439,
+        "sep_arcsec": 0.5315081123354821,
+        "source": "2dFGRS",
+        "z_spec": 0.24770000576972961
+      },
+      {
+        "gal_index_in_event": 416153,
+        "sep_arcsec": 0.5319700224293386,
+        "source": "2dFGRS",
+        "z_spec": 0.30480000376701355
+      },
+      {
+        "gal_index_in_event": 303925,
+        "sep_arcsec": 0.21329883960761759,
+        "source": "2dFGRS",
+        "z_spec": 0.2879999876022339
+      },
+      {
+        "gal_index_in_event": 438290,
+        "sep_arcsec": 0.3456109435331368,
+        "source": "2dFGRS",
+        "z_spec": 0.2476000040769577
+      },
+      {
+        "gal_index_in_event": 229644,
+        "sep_arcsec": 15.32822544361413,
+        "source": "6dFGS",
+        "z_spec": 0.04052803756657548
+      },
+      {
+        "gal_index_in_event": 413682,
+        "sep_arcsec": 0.29710616275138896,
+        "source": "2dFGRS",
+        "z_spec": 0.2614000141620636
+      },
+      {
+        "gal_index_in_event": 438464,
+        "sep_arcsec": 0.5200447785258695,
+        "source": "2dFGRS",
+        "z_spec": 0.24869999289512634
+      },
+      {
+        "gal_index_in_event": 414886,
+        "sep_arcsec": 0.19975939603257686,
+        "source": "2dFGRS",
+        "z_spec": 0.3028999865055084
+      },
+      {
+        "gal_index_in_event": 438662,
+        "sep_arcsec": 0.48093503050292913,
+        "source": "2dFGRS",
+        "z_spec": 0.2556999921798706
+      },
+      {
+        "gal_index_in_event": 324337,
+        "sep_arcsec": 0.548477785905427,
+        "source": "2dFGRS",
+        "z_spec": 0.2531999945640564
+      },
+      {
+        "gal_index_in_event": 427405,
+        "sep_arcsec": 0.3540364528464096,
+        "source": "2dFGRS",
+        "z_spec": 0.24459999799728394
+      },
+      {
+        "gal_index_in_event": 411705,
+        "sep_arcsec": 0.4629598852605145,
+        "source": "2dFGRS",
+        "z_spec": 0.24869999289512634
+      },
+      {
+        "gal_index_in_event": 425811,
+        "sep_arcsec": 0.49697126955180065,
+        "source": "2dFGRS",
+        "z_spec": 0.2615000009536743
+      },
+      {
+        "gal_index_in_event": 416157,
+        "sep_arcsec": 0.46738712162460766,
+        "source": "2dFGRS",
+        "z_spec": 0.2500999867916107
+      },
+      {
+        "gal_index_in_event": 421688,
+        "sep_arcsec": 0.8240189051373631,
+        "source": "2dFGRS",
+        "z_spec": 0.25110000371932983
+      },
+      {
+        "gal_index_in_event": 424911,
+        "sep_arcsec": 0.5458188833913542,
+        "source": "2dFGRS",
+        "z_spec": 0.24310000240802765
+      },
+      {
+        "gal_index_in_event": 416615,
+        "sep_arcsec": 0.5491319357672515,
+        "source": "2dFGRS",
+        "z_spec": 0.2551000118255615
+      },
+      {
+        "gal_index_in_event": 415120,
+        "sep_arcsec": 0.33086398658754623,
+        "source": "2dFGRS",
+        "z_spec": 0.27639999985694885
+      },
+      {
+        "gal_index_in_event": 428031,
+        "sep_arcsec": 0.40121766821910976,
+        "source": "2dFGRS",
+        "z_spec": 0.2946999967098236
+      },
+      {
+        "gal_index_in_event": 425046,
+        "sep_arcsec": 0.32042033490410676,
+        "source": "2dFGRS",
+        "z_spec": 0.24199999868869781
+      },
+      {
+        "gal_index_in_event": 437441,
+        "sep_arcsec": 1.8980427442226278,
+        "source": "2dFGRS",
+        "z_spec": 0.2554999887943268
+      },
+      {
+        "gal_index_in_event": 428408,
+        "sep_arcsec": 0.43592930427314486,
+        "source": "2dFGRS",
+        "z_spec": 0.27880001068115234
+      },
+      {
+        "gal_index_in_event": 302891,
+        "sep_arcsec": 0.6797836443220016,
+        "source": "2dFGRS",
+        "z_spec": 0.24959999322891235
+      },
+      {
+        "gal_index_in_event": 415123,
+        "sep_arcsec": 0.3609598280957041,
+        "source": "2dFGRS",
+        "z_spec": 0.24719999730587006
+      },
+      {
+        "gal_index_in_event": 413683,
+        "sep_arcsec": 0.49008023129201694,
+        "source": "2dFGRS",
+        "z_spec": 0.2754000127315521
+      },
+      {
+        "gal_index_in_event": 414651,
+        "sep_arcsec": 0.325509928487767,
+        "source": "2dFGRS",
+        "z_spec": 0.24879999458789825
+      },
+      {
+        "gal_index_in_event": 222991,
+        "sep_arcsec": 0.28318714060546374,
+        "source": "2dFGRS",
+        "z_spec": 0.2623000144958496
+      },
+      {
+        "gal_index_in_event": 419217,
+        "sep_arcsec": 0.4813670189154087,
+        "source": "2dFGRS",
+        "z_spec": 0.28119999170303345
+      },
+      {
+        "gal_index_in_event": 436481,
+        "sep_arcsec": 0.26087478198862546,
+        "source": "2dFGRS",
+        "z_spec": 0.26579999923706055
+      },
+      {
+        "gal_index_in_event": 425584,
+        "sep_arcsec": 0.9199625419763854,
+        "source": "2dFGRS",
+        "z_spec": 0.24799999594688416
+      },
+      {
+        "gal_index_in_event": 220900,
+        "sep_arcsec": 0.5303693531732393,
+        "source": "2dFGRS",
+        "z_spec": 0.27000001072883606
+      },
+      {
+        "gal_index_in_event": 302629,
+        "sep_arcsec": 0.2657540561676859,
+        "source": "2dFGRS",
+        "z_spec": 0.26809999346733093
+      },
+      {
+        "gal_index_in_event": 409893,
+        "sep_arcsec": 0.20755235255968807,
+        "source": "2dFGRS",
+        "z_spec": 0.26989999413490295
+      },
+      {
+        "gal_index_in_event": 417983,
+        "sep_arcsec": 0.3708736127631643,
+        "source": "2dFGRS",
+        "z_spec": 0.25130000710487366
+      },
+      {
+        "gal_index_in_event": 419468,
+        "sep_arcsec": 1.5575162822587987,
+        "source": "2dFGRS",
+        "z_spec": 0.24199999868869781
+      },
+      {
+        "gal_index_in_event": 311372,
+        "sep_arcsec": 0.5047047579096599,
+        "source": "2dFGRS",
+        "z_spec": 0.25099998712539673
+      },
+      {
+        "gal_index_in_event": 424507,
+        "sep_arcsec": 0.3002060348722712,
+        "source": "2dFGRS",
+        "z_spec": 0.28139999508857727
+      },
+      {
+        "gal_index_in_event": 343401,
+        "sep_arcsec": 0.28760612271262337,
+        "source": "2dFGRS",
+        "z_spec": 0.2865000069141388
+      },
+      {
+        "gal_index_in_event": 425040,
+        "sep_arcsec": 0.5243503583985971,
+        "source": "2dFGRS",
+        "z_spec": 0.24230000376701355
+      },
+      {
+        "gal_index_in_event": 437434,
+        "sep_arcsec": 1.4719489029709716,
+        "source": "2dFGRS",
+        "z_spec": 0.25119999051094055
+      },
+      {
+        "gal_index_in_event": 415263,
+        "sep_arcsec": 0.3682149916442155,
+        "source": "2dFGRS",
+        "z_spec": 0.28299999237060547
+      },
+      {
+        "gal_index_in_event": 415256,
+        "sep_arcsec": 0.38393986698985244,
+        "source": "2dFGRS",
+        "z_spec": 0.26429998874664307
+      },
+      {
+        "gal_index_in_event": 415359,
+        "sep_arcsec": 1.390905137876837,
+        "source": "2dFGRS",
+        "z_spec": 0.25209999084472656
+      },
+      {
+        "gal_index_in_event": 302890,
+        "sep_arcsec": 0.5106223097425806,
+        "source": "2dFGRS",
+        "z_spec": 0.2784999907016754
+      },
+      {
+        "gal_index_in_event": 440928,
+        "sep_arcsec": 0.3180529577371175,
+        "source": "2dFGRS",
+        "z_spec": 0.2476000040769577
+      },
+      {
+        "gal_index_in_event": 304151,
+        "sep_arcsec": 0.5226541085991656,
+        "source": "2dFGRS",
+        "z_spec": 0.26089999079704285
+      },
+      {
+        "gal_index_in_event": 437423,
+        "sep_arcsec": 0.4193162990211847,
+        "source": "2dFGRS",
+        "z_spec": 0.3091999888420105
+      },
+      {
+        "gal_index_in_event": 311898,
+        "sep_arcsec": 0.5676737638875333,
+        "source": "2dFGRS",
+        "z_spec": 0.2538999915122986
+      },
+      {
+        "gal_index_in_event": 414643,
+        "sep_arcsec": 1.932911164259533,
+        "source": "2dFGRS",
+        "z_spec": 0.24879999458789825
+      },
+      {
+        "gal_index_in_event": 343136,
+        "sep_arcsec": 0.46738712162460766,
+        "source": "2dFGRS",
+        "z_spec": 0.26919999718666077
+      },
+      {
+        "gal_index_in_event": 345448,
+        "sep_arcsec": 0.3389873244382625,
+        "source": "2dFGRS",
+        "z_spec": 0.2506999969482422
+      },
+      {
+        "gal_index_in_event": 335779,
+        "sep_arcsec": 1.0788940382666994,
+        "source": "2dFGRS",
+        "z_spec": 0.2777000069618225
+      },
+      {
+        "gal_index_in_event": 441016,
+        "sep_arcsec": 0.3574356121298411,
+        "source": "2dFGRS",
+        "z_spec": 0.2741999924182892
+      },
+      {
+        "gal_index_in_event": 412530,
+        "sep_arcsec": 0.45935446335216806,
+        "source": "2dFGRS",
+        "z_spec": 0.2468000054359436
+      },
+      {
+        "gal_index_in_event": 423170,
+        "sep_arcsec": 0.44417291508920925,
+        "source": "2dFGRS",
+        "z_spec": 0.26159998774528503
+      },
+      {
+        "gal_index_in_event": 301260,
+        "sep_arcsec": 0.3925053703766523,
+        "source": "2dFGRS",
+        "z_spec": 0.2924000024795532
+      },
+      {
+        "gal_index_in_event": 222134,
+        "sep_arcsec": 0.4605047128152529,
+        "source": "2dFGRS",
+        "z_spec": 0.30239999294281006
+      }
+    ],
+    "GW200208_130117": [],
+    "GW200219_094415": [
+      {
+        "gal_index_in_event": 324267,
+        "sep_arcsec": 4.280867377935104,
+        "source": "2dFGRS",
+        "z_spec": 0.304500013589859
+      },
+      {
+        "gal_index_in_event": 367104,
+        "sep_arcsec": 0.42633232426191825,
+        "source": "6dFGS",
+        "z_spec": 0.29758920753103135
+      },
+      {
+        "gal_index_in_event": 317681,
+        "sep_arcsec": 0.7204525558204764,
+        "source": "2dFGRS",
+        "z_spec": 0.07259999960660934
+      },
+      {
+        "gal_index_in_event": 352337,
+        "sep_arcsec": 1.6043643492561799,
+        "source": "2dFGRS",
+        "z_spec": 0.13920000195503235
+      },
+      {
+        "gal_index_in_event": 358171,
+        "sep_arcsec": 0.5841105688935245,
+        "source": "2dFGRS",
+        "z_spec": 0.20749999582767487
+      },
+      {
+        "gal_index_in_event": 374896,
+        "sep_arcsec": 0.5062372826468868,
+        "source": "2dFGRS",
+        "z_spec": 0.2994999885559082
+      },
+      {
+        "gal_index_in_event": 373976,
+        "sep_arcsec": 0.4661322869742652,
+        "source": "2dFGRS",
+        "z_spec": 0.30880001187324524
+      },
+      {
+        "gal_index_in_event": 366396,
+        "sep_arcsec": 0.38374298420236047,
+        "source": "2dFGRS",
+        "z_spec": 0.3043000102043152
+      },
+      {
+        "gal_index_in_event": 352731,
+        "sep_arcsec": 1.6470861319731505,
+        "source": "2dFGRS",
+        "z_spec": 0.21879999339580536
+      },
+      {
+        "gal_index_in_event": 374748,
+        "sep_arcsec": 0.30196311291738487,
+        "source": "2dFGRS",
+        "z_spec": 0.21209999918937683
+      },
+      {
+        "gal_index_in_event": 375177,
+        "sep_arcsec": 0.3692909762445098,
+        "source": "2dFGRS",
+        "z_spec": 0.25099998712539673
+      },
+      {
+        "gal_index_in_event": 375298,
+        "sep_arcsec": 2.3268887235743994,
+        "source": "2dFGRS",
+        "z_spec": 0.20640000700950623
+      },
+      {
+        "gal_index_in_event": 368638,
+        "sep_arcsec": 0.5287281161202888,
+        "source": "2dFGRS",
+        "z_spec": 0.20669999718666077
+      },
+      {
+        "gal_index_in_event": 365685,
+        "sep_arcsec": 1.637791275877924,
+        "source": "2dFGRS",
+        "z_spec": 0.2547999918460846
+      },
+      {
+        "gal_index_in_event": 367223,
+        "sep_arcsec": 1.2935375479184497,
+        "source": "2dFGRS",
+        "z_spec": 0.20239999890327454
+      },
+      {
+        "gal_index_in_event": 374366,
+        "sep_arcsec": 0.7651683981747723,
+        "source": "2dFGRS",
+        "z_spec": 0.218299999833107
+      },
+      {
+        "gal_index_in_event": 352473,
+        "sep_arcsec": 6.015818761899206,
+        "source": "2dFGRS",
+        "z_spec": 0.0
+      },
+      {
+        "gal_index_in_event": 377938,
+        "sep_arcsec": 0.4593955939392644,
+        "source": "2dFGRS",
+        "z_spec": 0.22859999537467957
+      },
+      {
+        "gal_index_in_event": 366627,
+        "sep_arcsec": 0.38477554015538995,
+        "source": "2dFGRS",
+        "z_spec": 0.3059000074863434
+      },
+      {
+        "gal_index_in_event": 365918,
+        "sep_arcsec": 3.78482518125636,
+        "source": "2dFGRS",
+        "z_spec": 0.2159000039100647
+      },
+      {
+        "gal_index_in_event": 368778,
+        "sep_arcsec": 1.1683019919868,
+        "source": "2dFGRS",
+        "z_spec": 0.20819999277591705
+      },
+      {
+        "gal_index_in_event": 365602,
+        "sep_arcsec": 1.0490609963534292,
+        "source": "2dFGRS",
+        "z_spec": 0.24639999866485596
+      },
+      {
+        "gal_index_in_event": 357687,
+        "sep_arcsec": 1.8157162863606613,
+        "source": "2dFGRS",
+        "z_spec": 0.10649999976158142
+      },
+      {
+        "gal_index_in_event": 375293,
+        "sep_arcsec": 1.2160525869408008,
+        "source": "2dFGRS",
+        "z_spec": 0.23690000176429749
+      },
+      {
+        "gal_index_in_event": 375005,
+        "sep_arcsec": 0.46058673949351,
+        "source": "2dFGRS",
+        "z_spec": 0.22360000014305115
+      },
+      {
+        "gal_index_in_event": 366516,
+        "sep_arcsec": 0.41913606544511706,
+        "source": "2dFGRS",
+        "z_spec": 0.2529999911785126
+      },
+      {
+        "gal_index_in_event": 356938,
+        "sep_arcsec": 0.5000789972865255,
+        "source": "2dFGRS",
+        "z_spec": 0.22509999573230743
+      },
+      {
+        "gal_index_in_event": 366041,
+        "sep_arcsec": 1.2276039505246619,
+        "source": "2dFGRS",
+        "z_spec": 0.2851000130176544
+      },
+      {
+        "gal_index_in_event": 358164,
+        "sep_arcsec": 0.3903816110371109,
+        "source": "2dFGRS",
+        "z_spec": 0.22419999539852142
+      },
+      {
+        "gal_index_in_event": 374367,
+        "sep_arcsec": 0.22644627632719125,
+        "source": "2dFGRS",
+        "z_spec": 0.21850000321865082
+      },
+      {
+        "gal_index_in_event": 335610,
+        "sep_arcsec": 0.5219305948396038,
+        "source": "2dFGRS",
+        "z_spec": 0.3100000023841858
+      },
+      {
+        "gal_index_in_event": 367330,
+        "sep_arcsec": 0.5793035429122049,
+        "source": "2dFGRS",
+        "z_spec": 0.2062000036239624
+      },
+      {
+        "gal_index_in_event": 357991,
+        "sep_arcsec": 0.3592809309955043,
+        "source": "2dFGRS",
+        "z_spec": 0.22220000624656677
+      },
+      {
+        "gal_index_in_event": 374989,
+        "sep_arcsec": 0.3297199043675669,
+        "source": "2dFGRS",
+        "z_spec": 0.2639999985694885
+      },
+      {
+        "gal_index_in_event": 367215,
+        "sep_arcsec": 0.3508736654660176,
+        "source": "2dFGRS",
+        "z_spec": 0.21389999985694885
+      },
+      {
+        "gal_index_in_event": 374380,
+        "sep_arcsec": 0.7076458416952467,
+        "source": "2dFGRS",
+        "z_spec": 0.22769999504089355
+      },
+      {
+        "gal_index_in_event": 357076,
+        "sep_arcsec": 0.7662047764115527,
+        "source": "2dFGRS",
+        "z_spec": 0.22290000319480896
+      },
+      {
+        "gal_index_in_event": 356603,
+        "sep_arcsec": 1.388580345171732,
+        "source": "2dFGRS",
+        "z_spec": 0.23019999265670776
+      },
+      {
+        "gal_index_in_event": 357600,
+        "sep_arcsec": 0.4076180940825236,
+        "source": "2dFGRS",
+        "z_spec": 0.2680000066757202
+      },
+      {
+        "gal_index_in_event": 374137,
+        "sep_arcsec": 0.8231242562440322,
+        "source": "2dFGRS",
+        "z_spec": 0.2223999947309494
+      },
+      {
+        "gal_index_in_event": 305673,
+        "sep_arcsec": 0.26738424846207065,
+        "source": "2dFGRS",
+        "z_spec": 0.3082999885082245
+      },
+      {
+        "gal_index_in_event": 365707,
+        "sep_arcsec": 0.38181796016820196,
+        "source": "2dFGRS",
+        "z_spec": 0.21580000221729279
+      },
+      {
+        "gal_index_in_event": 358087,
+        "sep_arcsec": 0.26404225928772806,
+        "source": "2dFGRS",
+        "z_spec": 0.2800000011920929
+      },
+      {
+        "gal_index_in_event": 355070,
+        "sep_arcsec": 0.5834309058739114,
+        "source": "2dFGRS",
+        "z_spec": 0.2012999951839447
+      },
+      {
+        "gal_index_in_event": 374891,
+        "sep_arcsec": 0.5190265033753149,
+        "source": "2dFGRS",
+        "z_spec": 0.26660001277923584
+      },
+      {
+        "gal_index_in_event": 332186,
+        "sep_arcsec": 1.9839367294498693,
+        "source": "2dFGRS",
+        "z_spec": 0.2451999932527542
+      },
+      {
+        "gal_index_in_event": 366636,
+        "sep_arcsec": 1.366055603585941,
+        "source": "2dFGRS",
+        "z_spec": 0.225600004196167
+      },
+      {
+        "gal_index_in_event": 352659,
+        "sep_arcsec": 20.46869023576235,
+        "source": "2dFGRS",
+        "z_spec": 0.14000000059604645
+      },
+      {
+        "gal_index_in_event": 351723,
+        "sep_arcsec": 0.18856889824399042,
+        "source": "2dFGRS",
+        "z_spec": 0.28850001096725464
+      },
+      {
+        "gal_index_in_event": 352625,
+        "sep_arcsec": 0.9409186933499901,
+        "source": "2dFGRS",
+        "z_spec": 0.21610000729560852
+      },
+      {
+        "gal_index_in_event": 357077,
+        "sep_arcsec": 0.3806285029846926,
+        "source": "2dFGRS",
+        "z_spec": 0.2508000135421753
+      },
+      {
+        "gal_index_in_event": 357098,
+        "sep_arcsec": 0.7539749222877866,
+        "source": "2dFGRS",
+        "z_spec": 0.2842000126838684
+      },
+      {
+        "gal_index_in_event": 358086,
+        "sep_arcsec": 0.369751151068443,
+        "source": "2dFGRS",
+        "z_spec": 0.23240000009536743
+      },
+      {
+        "gal_index_in_event": 377746,
+        "sep_arcsec": 0.3464845346914535,
+        "source": "2dFGRS",
+        "z_spec": 0.2150000035762787
+      },
+      {
+        "gal_index_in_event": 357881,
+        "sep_arcsec": 0.27846071087719787,
+        "source": "2dFGRS",
+        "z_spec": 0.22290000319480896
+      },
+      {
+        "gal_index_in_event": 377731,
+        "sep_arcsec": 0.42379821983744864,
+        "source": "2dFGRS",
+        "z_spec": 0.2492000013589859
+      },
+      {
+        "gal_index_in_event": 360299,
+        "sep_arcsec": 0.38236189694031547,
+        "source": "2dFGRS",
+        "z_spec": 0.2142000049352646
+      },
+      {
+        "gal_index_in_event": 368645,
+        "sep_arcsec": 0.8199965494555942,
+        "source": "2dFGRS",
+        "z_spec": 0.2087000012397766
+      },
+      {
+        "gal_index_in_event": 357703,
+        "sep_arcsec": 0.6222017603708002,
+        "source": "2dFGRS",
+        "z_spec": 0.23489999771118164
+      },
+      {
+        "gal_index_in_event": 367205,
+        "sep_arcsec": 0.3802311730714881,
+        "source": "2dFGRS",
+        "z_spec": 0.22169999778270721
+      },
+      {
+        "gal_index_in_event": 374126,
+        "sep_arcsec": 1.393348022735088,
+        "source": "2dFGRS",
+        "z_spec": 0.21789999306201935
+      },
+      {
+        "gal_index_in_event": 357441,
+        "sep_arcsec": 1.003420771021107,
+        "source": "2dFGRS",
+        "z_spec": 0.22579999268054962
+      },
+      {
+        "gal_index_in_event": 375112,
+        "sep_arcsec": 0.38766183337816923,
+        "source": "2dFGRS",
+        "z_spec": 0.2069000005722046
+      },
+      {
+        "gal_index_in_event": 375311,
+        "sep_arcsec": 0.4820337846585662,
+        "source": "2dFGRS",
+        "z_spec": 0.26930001378059387
+      },
+      {
+        "gal_index_in_event": 356487,
+        "sep_arcsec": 0.31181365403102473,
+        "source": "2dFGRS",
+        "z_spec": 0.30250000953674316
+      },
+      {
+        "gal_index_in_event": 357101,
+        "sep_arcsec": 0.3928902720052724,
+        "source": "2dFGRS",
+        "z_spec": 0.22300000488758087
+      },
+      {
+        "gal_index_in_event": 305669,
+        "sep_arcsec": 0.6661955897395038,
+        "source": "2dFGRS",
+        "z_spec": 0.2831000089645386
+      },
+      {
+        "gal_index_in_event": 375004,
+        "sep_arcsec": 0.5003434149034574,
+        "source": "2dFGRS",
+        "z_spec": 0.22370000183582306
+      },
+      {
+        "gal_index_in_event": 374669,
+        "sep_arcsec": 0.2172483374022022,
+        "source": "2dFGRS",
+        "z_spec": 0.26030001044273376
+      },
+      {
+        "gal_index_in_event": 336244,
+        "sep_arcsec": 0.6562517895922838,
+        "source": "2dFGRS",
+        "z_spec": 0.17030000686645508
+      },
+      {
+        "gal_index_in_event": 357240,
+        "sep_arcsec": 0.49727531698184146,
+        "source": "2dFGRS",
+        "z_spec": 0.22339999675750732
+      },
+      {
+        "gal_index_in_event": 332326,
+        "sep_arcsec": 0.5327862558818189,
+        "source": "2dFGRS",
+        "z_spec": 0.27079999446868896
+      },
+      {
+        "gal_index_in_event": 366941,
+        "sep_arcsec": 0.5022655780872027,
+        "source": "2dFGRS",
+        "z_spec": 0.21400000154972076
+      },
+      {
+        "gal_index_in_event": 320374,
+        "sep_arcsec": 1.0665650861605467,
+        "source": "2dFGRS",
+        "z_spec": 0.2556000053882599
+      },
+      {
+        "gal_index_in_event": 373806,
+        "sep_arcsec": 0.41949653259725234,
+        "source": "2dFGRS",
+        "z_spec": 0.2249000072479248
+      },
+      {
+        "gal_index_in_event": 358090,
+        "sep_arcsec": 1.1024706348209725,
+        "source": "2dFGRS",
+        "z_spec": 0.2280000001192093
+      },
+      {
+        "gal_index_in_event": 356926,
+        "sep_arcsec": 0.34692048608524384,
+        "source": "2dFGRS",
+        "z_spec": 0.23199999332427979
+      },
+      {
+        "gal_index_in_event": 375002,
+        "sep_arcsec": 0.4796762563208693,
+        "source": "2dFGRS",
+        "z_spec": 0.22450000047683716
+      },
+      {
+        "gal_index_in_event": 365786,
+        "sep_arcsec": 0.38516818014988335,
+        "source": "2dFGRS",
+        "z_spec": 0.21080000698566437
+      },
+      {
+        "gal_index_in_event": 318793,
+        "sep_arcsec": 1.9430989808773909,
+        "source": "2dFGRS",
+        "z_spec": 0.23080000281333923
+      },
+      {
+        "gal_index_in_event": 362917,
+        "sep_arcsec": 0.9128702593046958,
+        "source": "2dFGRS",
+        "z_spec": 0.24480000138282776
+      },
+      {
+        "gal_index_in_event": 361260,
+        "sep_arcsec": 20.396672594333374,
+        "source": "2dFGRS",
+        "z_spec": 0.06539999693632126
+      },
+      {
+        "gal_index_in_event": 348504,
+        "sep_arcsec": 0.24534833710365866,
+        "source": "2dFGRS",
+        "z_spec": 0.22939999401569366
+      },
+      {
+        "gal_index_in_event": 367855,
+        "sep_arcsec": 0.5627934813759463,
+        "source": "2dFGRS",
+        "z_spec": 0.2485000044107437
+      },
+      {
+        "gal_index_in_event": 319862,
+        "sep_arcsec": 1.0732755156507838,
+        "source": "2dFGRS",
+        "z_spec": 0.23639999330043793
+      },
+      {
+        "gal_index_in_event": 357781,
+        "sep_arcsec": 1.5280262609999513,
+        "source": "2dFGRS",
+        "z_spec": 0.23270000517368317
+      },
+      {
+        "gal_index_in_event": 356613,
+        "sep_arcsec": 1.5696964701434808,
+        "source": "2dFGRS",
+        "z_spec": 0.19220000505447388
+      },
+      {
+        "gal_index_in_event": 363161,
+        "sep_arcsec": 2.8887383588208326,
+        "source": "2dFGRS",
+        "z_spec": 0.23970000445842743
+      },
+      {
+        "gal_index_in_event": 373982,
+        "sep_arcsec": 0.36708439294053047,
+        "source": "2dFGRS",
+        "z_spec": 0.22390000522136688
+      },
+      {
+        "gal_index_in_event": 373820,
+        "sep_arcsec": 24.558401410578764,
+        "source": "2dFGRS",
+        "z_spec": 0.05739999935030937
+      },
+      {
+        "gal_index_in_event": 373816,
+        "sep_arcsec": 0.241388967030187,
+        "source": "2dFGRS",
+        "z_spec": 0.22450000047683716
+      },
+      {
+        "gal_index_in_event": 314151,
+        "sep_arcsec": 0.23656625327078262,
+        "source": "2dFGRS",
+        "z_spec": 0.21439999341964722
+      },
+      {
+        "gal_index_in_event": 348371,
+        "sep_arcsec": 0.544224217231205,
+        "source": "2dFGRS",
+        "z_spec": 0.2020999938249588
+      },
+      {
+        "gal_index_in_event": 375515,
+        "sep_arcsec": 0.26339746581373247,
+        "source": "2dFGRS",
+        "z_spec": 0.22609999775886536
+      },
+      {
+        "gal_index_in_event": 374129,
+        "sep_arcsec": 0.5278697671977828,
+        "source": "2dFGRS",
+        "z_spec": 0.21870000660419464
+      },
+      {
+        "gal_index_in_event": 305674,
+        "sep_arcsec": 0.8561355622694089,
+        "source": "2dFGRS",
+        "z_spec": 0.25519999861717224
+      },
+      {
+        "gal_index_in_event": 331932,
+        "sep_arcsec": 1.420249115066985,
+        "source": "2dFGRS",
+        "z_spec": 0.287200003862381
+      },
+      {
+        "gal_index_in_event": 358174,
+        "sep_arcsec": 0.3993768751250026,
+        "source": "2dFGRS",
+        "z_spec": 0.22619999945163727
+      },
+      {
+        "gal_index_in_event": 356935,
+        "sep_arcsec": 0.2592036467038928,
+        "source": "2dFGRS",
+        "z_spec": 0.22059999406337738
+      },
+      {
+        "gal_index_in_event": 317984,
+        "sep_arcsec": 0.7605865820899566,
+        "source": "2dFGRS",
+        "z_spec": 0.24539999663829803
+      },
+      {
+        "gal_index_in_event": 373799,
+        "sep_arcsec": 0.8215388761229292,
+        "source": "2dFGRS",
+        "z_spec": 0.23000000417232513
+      },
+      {
+        "gal_index_in_event": 374004,
+        "sep_arcsec": 0.39533519697814995,
+        "source": "2dFGRS",
+        "z_spec": 0.21950000524520874
+      },
+      {
+        "gal_index_in_event": 352076,
+        "sep_arcsec": 0.7895465018367331,
+        "source": "2dFGRS",
+        "z_spec": 0.22699999809265137
+      },
+      {
+        "gal_index_in_event": 357885,
+        "sep_arcsec": 0.6260765243107276,
+        "source": "2dFGRS",
+        "z_spec": 0.22519999742507935
+      },
+      {
+        "gal_index_in_event": 356923,
+        "sep_arcsec": 0.5290139197665434,
+        "source": "2dFGRS",
+        "z_spec": 0.2222999930381775
+      },
+      {
+        "gal_index_in_event": 351735,
+        "sep_arcsec": 0.8218148309398907,
+        "source": "2dFGRS",
+        "z_spec": 0.23639999330043793
+      },
+      {
+        "gal_index_in_event": 312954,
+        "sep_arcsec": 0.37457407587419056,
+        "source": "2dFGRS",
+        "z_spec": 0.28220000863075256
+      },
+      {
+        "gal_index_in_event": 366937,
+        "sep_arcsec": 0.5488910146430622,
+        "source": "2dFGRS",
+        "z_spec": 0.21539999544620514
+      },
+      {
+        "gal_index_in_event": 351607,
+        "sep_arcsec": 0.5296920820121688,
+        "source": "2dFGRS",
+        "z_spec": 0.24799999594688416
+      },
+      {
+        "gal_index_in_event": 385923,
+        "sep_arcsec": 0.2762370490563178,
+        "source": "6dFGS",
+        "z_spec": 0.21273383735357346
+      },
+      {
+        "gal_index_in_event": 373794,
+        "sep_arcsec": 0.8826275060928518,
+        "source": "2dFGRS",
+        "z_spec": 0.2231999933719635
+      },
+      {
+        "gal_index_in_event": 331408,
+        "sep_arcsec": 0.5831717878651229,
+        "source": "2dFGRS",
+        "z_spec": 0.20919999480247498
+      },
+      {
+        "gal_index_in_event": 324668,
+        "sep_arcsec": 0.9650274080812066,
+        "source": "2dFGRS",
+        "z_spec": 0.20839999616146088
+      },
+      {
+        "gal_index_in_event": 365787,
+        "sep_arcsec": 1.2930993219140827,
+        "source": "2dFGRS",
+        "z_spec": 0.21310000121593475
+      },
+      {
+        "gal_index_in_event": 356956,
+        "sep_arcsec": 0.40426700646588054,
+        "source": "2dFGRS",
+        "z_spec": 0.2207999974489212
+      },
+      {
+        "gal_index_in_event": 352332,
+        "sep_arcsec": 0.3924572283610828,
+        "source": "2dFGRS",
+        "z_spec": 0.23149999976158142
+      },
+      {
+        "gal_index_in_event": 373803,
+        "sep_arcsec": 0.2785285505513539,
+        "source": "2dFGRS",
+        "z_spec": 0.23180000483989716
+      },
+      {
+        "gal_index_in_event": 356936,
+        "sep_arcsec": 0.4353654822456962,
+        "source": "2dFGRS",
+        "z_spec": 0.22100000083446503
+      },
+      {
+        "gal_index_in_event": 323721,
+        "sep_arcsec": 2.2031324618012964,
+        "source": "2dFGRS",
+        "z_spec": 0.2508000135421753
+      },
+      {
+        "gal_index_in_event": 375309,
+        "sep_arcsec": 0.27221624826052326,
+        "source": "2dFGRS",
+        "z_spec": 0.22550000250339508
+      },
+      {
+        "gal_index_in_event": 172432,
+        "sep_arcsec": 0.2485148635501577,
+        "source": "6dFGS",
+        "z_spec": 0.21964528540607917
+      },
+      {
+        "gal_index_in_event": 351752,
+        "sep_arcsec": 0.6207424452646532,
+        "source": "2dFGRS",
+        "z_spec": 0.2892000079154968
+      },
+      {
+        "gal_index_in_event": 362521,
+        "sep_arcsec": 0.796788017721806,
+        "source": "2dFGRS",
+        "z_spec": 0.2590999901294708
+      },
+      {
+        "gal_index_in_event": 352474,
+        "sep_arcsec": 0.9824901328052832,
+        "source": "2dFGRS",
+        "z_spec": 0.22709999978542328
+      },
+      {
+        "gal_index_in_event": 375292,
+        "sep_arcsec": 0.43610264366870716,
+        "source": "2dFGRS",
+        "z_spec": 0.22540000081062317
+      },
+      {
+        "gal_index_in_event": 365928,
+        "sep_arcsec": 0.7487445373444122,
+        "source": "2dFGRS",
+        "z_spec": 0.22599999606609344
+      },
+      {
+        "gal_index_in_event": 360185,
+        "sep_arcsec": 0.5009849488839492,
+        "source": "2dFGRS",
+        "z_spec": 0.27219998836517334
+      },
+      {
+        "gal_index_in_event": 374769,
+        "sep_arcsec": 0.3096246110230252,
+        "source": "2dFGRS",
+        "z_spec": 0.2198999971151352
+      },
+      {
+        "gal_index_in_event": 374774,
+        "sep_arcsec": 0.3536626897747284,
+        "source": "2dFGRS",
+        "z_spec": 0.218299999833107
+      },
+      {
+        "gal_index_in_event": 358167,
+        "sep_arcsec": 0.6767752490655758,
+        "source": "2dFGRS",
+        "z_spec": 0.21459999680519104
+      },
+      {
+        "gal_index_in_event": 360589,
+        "sep_arcsec": 0.2526330002408614,
+        "source": "2dFGRS",
+        "z_spec": 0.22759999334812164
+      },
+      {
+        "gal_index_in_event": 348511,
+        "sep_arcsec": 0.6978595290183439,
+        "source": "2dFGRS",
+        "z_spec": 0.25850000977516174
+      },
+      {
+        "gal_index_in_event": 366838,
+        "sep_arcsec": 0.5198994379450123,
+        "source": "2dFGRS",
+        "z_spec": 0.22349999845027924
+      },
+      {
+        "gal_index_in_event": 367321,
+        "sep_arcsec": 0.43174847623813345,
+        "source": "2dFGRS",
+        "z_spec": 0.23810000717639923
+      },
+      {
+        "gal_index_in_event": 346827,
+        "sep_arcsec": 0.7794311444630556,
+        "source": "2dFGRS",
+        "z_spec": 0.16940000653266907
+      },
+      {
+        "gal_index_in_event": 306360,
+        "sep_arcsec": 0.348387867851573,
+        "source": "2dFGRS",
+        "z_spec": 0.2603999972343445
+      },
+      {
+        "gal_index_in_event": 375738,
+        "sep_arcsec": 0.34297685068904726,
+        "source": "2dFGRS",
+        "z_spec": 0.25839999318122864
+      },
+      {
+        "gal_index_in_event": 347388,
+        "sep_arcsec": 0.6105226434012863,
+        "source": "2dFGRS",
+        "z_spec": 0.2822999954223633
+      },
+      {
+        "gal_index_in_event": 374785,
+        "sep_arcsec": 0.2623051055644223,
+        "source": "6dFGS",
+        "z_spec": 0.2265000275624012
+      },
+      {
+        "gal_index_in_event": 374363,
+        "sep_arcsec": 2.1221364400790157,
+        "source": "2dFGRS",
+        "z_spec": 0.21660000085830688
+      },
+      {
+        "gal_index_in_event": 318796,
+        "sep_arcsec": 0.2578882652029907,
+        "source": "2dFGRS",
+        "z_spec": 0.0052999998442828655
+      },
+      {
+        "gal_index_in_event": 358180,
+        "sep_arcsec": 0.4882649044565106,
+        "source": "2dFGRS",
+        "z_spec": 0.21639999747276306
+      },
+      {
+        "gal_index_in_event": 356730,
+        "sep_arcsec": 0.64741115212429,
+        "source": "2dFGRS",
+        "z_spec": 0.24150000512599945
+      },
+      {
+        "gal_index_in_event": 351467,
+        "sep_arcsec": 0.3649162435203886,
+        "source": "2dFGRS",
+        "z_spec": 0.22789999842643738
+      },
+      {
+        "gal_index_in_event": 367318,
+        "sep_arcsec": 0.559763887686948,
+        "source": "2dFGRS",
+        "z_spec": 0.24060000479221344
+      },
+      {
+        "gal_index_in_event": 366938,
+        "sep_arcsec": 0.9195311632533374,
+        "source": "2dFGRS",
+        "z_spec": 0.24500000476837158
+      },
+      {
+        "gal_index_in_event": 321942,
+        "sep_arcsec": 0.6992659418414302,
+        "source": "2dFGRS",
+        "z_spec": 0.24480000138282776
+      },
+      {
+        "gal_index_in_event": 360584,
+        "sep_arcsec": 0.4355824378852718,
+        "source": "2dFGRS",
+        "z_spec": 0.2249000072479248
+      },
+      {
+        "gal_index_in_event": 365710,
+        "sep_arcsec": 0.2915858939324887,
+        "source": "2dFGRS",
+        "z_spec": 0.2619999945163727
+      },
+      {
+        "gal_index_in_event": 367209,
+        "sep_arcsec": 0.5171301347444804,
+        "source": "2dFGRS",
+        "z_spec": 0.22609999775886536
+      },
+      {
+        "gal_index_in_event": 357083,
+        "sep_arcsec": 0.39043001099820945,
+        "source": "2dFGRS",
+        "z_spec": 0.22450000047683716
+      },
+      {
+        "gal_index_in_event": 350863,
+        "sep_arcsec": 0.381421873083456,
+        "source": "2dFGRS",
+        "z_spec": 0.30239999294281006
+      },
+      {
+        "gal_index_in_event": 362831,
+        "sep_arcsec": 0.3628913711168709,
+        "source": "2dFGRS",
+        "z_spec": 0.25060001015663147
+      },
+      {
+        "gal_index_in_event": 367332,
+        "sep_arcsec": 0.22702956151729067,
+        "source": "2dFGRS",
+        "z_spec": 0.2563999891281128
+      },
+      {
+        "gal_index_in_event": 374527,
+        "sep_arcsec": 0.23391579261039178,
+        "source": "2dFGRS",
+        "z_spec": 0.227400004863739
+      },
+      {
+        "gal_index_in_event": 373800,
+        "sep_arcsec": 0.8659440582618224,
+        "source": "2dFGRS",
+        "z_spec": 0.22210000455379486
+      },
+      {
+        "gal_index_in_event": 361262,
+        "sep_arcsec": 0.41791715557210185,
+        "source": "2dFGRS",
+        "z_spec": 0.22010000050067902
+      },
+      {
+        "gal_index_in_event": 358176,
+        "sep_arcsec": 0.451555597527477,
+        "source": "2dFGRS",
+        "z_spec": 0.22859999537467957
+      },
+      {
+        "gal_index_in_event": 362644,
+        "sep_arcsec": 0.3882949020553872,
+        "source": "2dFGRS",
+        "z_spec": 0.29089999198913574
+      },
+      {
+        "gal_index_in_event": 357353,
+        "sep_arcsec": 2.4245814186989447,
+        "source": "2dFGRS",
+        "z_spec": 0.2257000058889389
+      },
+      {
+        "gal_index_in_event": 375003,
+        "sep_arcsec": 0.5278697671977828,
+        "source": "2dFGRS",
+        "z_spec": 0.2240999937057495
+      },
+      {
+        "gal_index_in_event": 358172,
+        "sep_arcsec": 0.3692398092313717,
+        "source": "2dFGRS",
+        "z_spec": 0.2078000009059906
+      },
+      {
+        "gal_index_in_event": 373817,
+        "sep_arcsec": 0.19448776325414624,
+        "source": "2dFGRS",
+        "z_spec": 0.22660000622272491
+      },
+      {
+        "gal_index_in_event": 348660,
+        "sep_arcsec": 0.4904270976798899,
+        "source": "2dFGRS",
+        "z_spec": 0.28999999165534973
+      },
+      {
+        "gal_index_in_event": 373814,
+        "sep_arcsec": 0.2744282953198006,
+        "source": "2dFGRS",
+        "z_spec": 0.22220000624656677
+      },
+      {
+        "gal_index_in_event": 357996,
+        "sep_arcsec": 0.49898211909837287,
+        "source": "2dFGRS",
+        "z_spec": 0.22499999403953552
+      },
+      {
+        "gal_index_in_event": 376688,
+        "sep_arcsec": 0.38038021868812694,
+        "source": "2dFGRS",
+        "z_spec": 0.2071000039577484
+      },
+      {
+        "gal_index_in_event": 375964,
+        "sep_arcsec": 0.5373414332283517,
+        "source": "2dFGRS",
+        "z_spec": 0.20999999344348907
+      },
+      {
+        "gal_index_in_event": 366951,
+        "sep_arcsec": 0.42165286342224245,
+        "source": "2dFGRS",
+        "z_spec": 0.20630000531673431
+      },
+      {
+        "gal_index_in_event": 369102,
+        "sep_arcsec": 0.40102927418448486,
+        "source": "2dFGRS",
+        "z_spec": 0.20600000023841858
+      },
+      {
+        "gal_index_in_event": 360384,
+        "sep_arcsec": 0.3966711203230071,
+        "source": "2dFGRS",
+        "z_spec": 0.2231999933719635
+      },
+      {
+        "gal_index_in_event": 365700,
+        "sep_arcsec": 0.5619199371168163,
+        "source": "2dFGRS",
+        "z_spec": 0.26019999384880066
+      },
+      {
+        "gal_index_in_event": 313134,
+        "sep_arcsec": 2.0289387506443766,
+        "source": "2dFGRS",
+        "z_spec": 0.14149999618530273
+      },
+      {
+        "gal_index_in_event": 332071,
+        "sep_arcsec": 0.8262171638356339,
+        "source": "2dFGRS",
+        "z_spec": 0.22509999573230743
+      },
+      {
+        "gal_index_in_event": 374529,
+        "sep_arcsec": 0.32446346692575917,
+        "source": "2dFGRS",
+        "z_spec": 0.21439999341964722
+      },
+      {
+        "gal_index_in_event": 367337,
+        "sep_arcsec": 0.8313920201414707,
+        "source": "2dFGRS",
+        "z_spec": 0.2062000036239624
+      },
+      {
+        "gal_index_in_event": 376692,
+        "sep_arcsec": 0.3128420594059948,
+        "source": "2dFGRS",
+        "z_spec": 0.20880000293254852
+      },
+      {
+        "gal_index_in_event": 351742,
+        "sep_arcsec": 0.341154113781978,
+        "source": "2dFGRS",
+        "z_spec": 0.28380000591278076
+      }
+    ],
+    "GW200220_061928": [
+      {
+        "gal_index_in_event": 649201,
+        "sep_arcsec": 5.016189977664155,
+        "source": "DESI_DR1",
+        "z_spec": 0.016355617064473946
+      },
+      {
+        "gal_index_in_event": 1186028,
+        "sep_arcsec": 1.4794037163590594,
+        "source": "DESI_DR1",
+        "z_spec": 0.2995919480343687
+      },
+      {
+        "gal_index_in_event": 602720,
+        "sep_arcsec": 0.8816499394367082,
+        "source": "2dFGRS",
+        "z_spec": 0.304500013589859
+      },
+      {
+        "gal_index_in_event": 1187187,
+        "sep_arcsec": 28.73577879972971,
+        "source": "DESI_DR1",
+        "z_spec": 0.07634837081880541
+      },
+      {
+        "gal_index_in_event": 896055,
+        "sep_arcsec": 25.435492750637973,
+        "source": "DESI_DR1",
+        "z_spec": 0.18623204076611774
+      },
+      {
+        "gal_index_in_event": 1577515,
+        "sep_arcsec": 0.5615262101059297,
+        "source": "6dFGS",
+        "z_spec": 0.3057315070948183
+      },
+      {
+        "gal_index_in_event": 588387,
+        "sep_arcsec": 0.6117014544693223,
+        "source": "2dFGRS",
+        "z_spec": 0.302700012922287
+      },
+      {
+        "gal_index_in_event": 1048293,
+        "sep_arcsec": 24.691695654068617,
+        "source": "DESI_DR1",
+        "z_spec": 0.1603176977728991
+      },
+      {
+        "gal_index_in_event": 606698,
+        "sep_arcsec": 1.412747121096667,
+        "source": "DESI_DR1",
+        "z_spec": 0.026536272186270898
+      },
+      {
+        "gal_index_in_event": 772301,
+        "sep_arcsec": 20.508705372641792,
+        "source": "DESI_DR1",
+        "z_spec": 0.22948901860184956
+      },
+      {
+        "gal_index_in_event": 558134,
+        "sep_arcsec": 1.6812820176667862,
+        "source": "2dFGRS",
+        "z_spec": 0.29820001125335693
+      },
+      {
+        "gal_index_in_event": 472910,
+        "sep_arcsec": 0.7153184549082415,
+        "source": "GAMA_DR3",
+        "z_spec": 0.30946
+      },
+      {
+        "gal_index_in_event": 565175,
+        "sep_arcsec": 1.223501397232923,
+        "source": "2dFGRS",
+        "z_spec": 0.2978000044822693
+      },
+      {
+        "gal_index_in_event": 391709,
+        "sep_arcsec": 1.9776507376029373,
+        "source": "2dFGRS",
+        "z_spec": 0.3075999915599823
+      },
+      {
+        "gal_index_in_event": 652378,
+        "sep_arcsec": 4.6832492715987595,
+        "source": "DESI_DR1",
+        "z_spec": 0.25473514564210237
+      },
+      {
+        "gal_index_in_event": 786373,
+        "sep_arcsec": 9.110495766553344,
+        "source": "DESI_DR1",
+        "z_spec": 0.09745709682496476
+      },
+      {
+        "gal_index_in_event": 478409,
+        "sep_arcsec": 0.4087919807359123,
+        "source": "DESI_DR1",
+        "z_spec": 0.29859539787706185
+      },
+      {
+        "gal_index_in_event": 582967,
+        "sep_arcsec": 0.44413305078016496,
+        "source": "DESI_DR1",
+        "z_spec": 0.2983455971842157
+      },
+      {
+        "gal_index_in_event": 918295,
+        "sep_arcsec": 0.5901603764340998,
+        "source": "DESI_DR1",
+        "z_spec": 0.277910924384372
+      },
+      {
+        "gal_index_in_event": 473365,
+        "sep_arcsec": 1.0013002711750643,
+        "source": "GAMA_DR3",
+        "z_spec": 0.3011
+      },
+      {
+        "gal_index_in_event": 888474,
+        "sep_arcsec": 29.94743468474074,
+        "source": "DESI_DR1",
+        "z_spec": 0.00012499842779835194
+      },
+      {
+        "gal_index_in_event": 944891,
+        "sep_arcsec": 26.674927961565917,
+        "source": "DESI_DR1",
+        "z_spec": 0.2528423073508843
+      },
+      {
+        "gal_index_in_event": 487776,
+        "sep_arcsec": 26.794233490730857,
+        "source": "DESI_DR1",
+        "z_spec": 0.12899611190261331
+      },
+      {
+        "gal_index_in_event": 515631,
+        "sep_arcsec": 0.03995660664457465,
+        "source": "2dFGRS",
+        "z_spec": 0.29789999127388
+      },
+      {
+        "gal_index_in_event": 1043571,
+        "sep_arcsec": 1.6519261280830428,
+        "source": "DESI_DR1",
+        "z_spec": 0.2993819220646911
+      },
+      {
+        "gal_index_in_event": 862031,
+        "sep_arcsec": 0.1643793410390536,
+        "source": "DESI_DR1",
+        "z_spec": 0.2978742364008476
+      }
+    ],
+    "GW200308_173609": [
+      {
+        "gal_index_in_event": 3733855,
+        "sep_arcsec": 0.36075039977565987,
+        "source": "2dFGRS",
+        "z_spec": 0.3109999895095825
+      },
+      {
+        "gal_index_in_event": 5301403,
+        "sep_arcsec": 1.3956953270500065,
+        "source": "2dFGRS",
+        "z_spec": 0.3100000023841858
+      },
+      {
+        "gal_index_in_event": 1610890,
+        "sep_arcsec": 22.70977352283511,
+        "source": "DESI_DR1",
+        "z_spec": 0.21048342540052237
+      },
+      {
+        "gal_index_in_event": 1646226,
+        "sep_arcsec": 0.17699154078572235,
+        "source": "DESI_DR1",
+        "z_spec": 0.29025403465255883
+      },
+      {
+        "gal_index_in_event": 3404843,
+        "sep_arcsec": 1.8662407806358323,
+        "source": "DESI_DR1",
+        "z_spec": 0.23988057550183708
+      },
+      {
+        "gal_index_in_event": 5304760,
+        "sep_arcsec": 12.016340886203098,
+        "source": "2dFGRS",
+        "z_spec": 0.12479999661445618
+      },
+      {
+        "gal_index_in_event": 1646361,
+        "sep_arcsec": 28.37507977714943,
+        "source": "DESI_DR1",
+        "z_spec": 0.26209007886262675
+      },
+      {
+        "gal_index_in_event": 3089163,
+        "sep_arcsec": 0.5841477599489037,
+        "source": "GAMA_DR3",
+        "z_spec": 0.31041
+      },
+      {
+        "gal_index_in_event": 2561006,
+        "sep_arcsec": 1.3922681220526643,
+        "source": "GAMA_DR3",
+        "z_spec": 0.19125
+      },
+      {
+        "gal_index_in_event": 1459273,
+        "sep_arcsec": 0.28708010142998647,
+        "source": "DESI_DR1",
+        "z_spec": 0.25795977738667764
+      },
+      {
+        "gal_index_in_event": 1266431,
+        "sep_arcsec": 0.556658411113204,
+        "source": "DESI_DR1",
+        "z_spec": 0.24445983977654362
+      },
+      {
+        "gal_index_in_event": 2557395,
+        "sep_arcsec": 0.2870142784208762,
+        "source": "GAMA_DR3",
+        "z_spec": 0.31007
+      }
+    ]
+  },
+  "radius_arcsec": 30.0,
+  "top_events": [
+    "GW200308_173609",
+    "GW200220_061928",
+    "GW200208_130117",
+    "GW200219_094415",
+    "GW191230_180458"
+  ]
+}

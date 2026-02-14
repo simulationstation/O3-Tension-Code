@@ -19,7 +19,8 @@ The “spec-z override” audit uses public spec-z catalogs and (optionally) CDS
 - Expected cache dirs (configurable):
   - `data/cache/specz_catalogs/`
   - `data/cache/specz_xmatch/`
-- Action: cache and checksum the exact query results used in the paper so the audit can run **offline** (or provide a deterministic “query pack” + replay tool).
+- Status: this repo now includes an **offline replay pack** (tables + match manifests + override maps) at `artifacts/o3/specz_override_pack_20260214_064541UTC/` so the reported coverage/ΔLPD figures can be inspected without re-querying external services.
+- Remaining: the full upstream catalog caches (e.g. complete DESI/SDSS downloads) are still intentionally not committed; they should live in the project archive (Zenodo) and/or be re-downloaded by the user.
 
 ## One-command *full rerun* entrypoint
 
@@ -33,4 +34,3 @@ Add a single driver (e.g. `make reproduce-full`) that:
 ## External repo note
 
 If any missing CQG-paper-relevant piece is only present in `/home/O2-Modified-Gravity-Hubble resolution` (active work-in-progress), do **not** vendor it yet; instead, list it here with an exact path and the minimal file(s) needed.
-

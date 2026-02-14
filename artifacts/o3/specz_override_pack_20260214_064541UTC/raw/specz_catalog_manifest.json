@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "cache_path": "/home/primary/O3-Modified-Gravity-Hubble-Resolution/data/cache/specz_catalogs/2MRS_clean.npz",
+      "n_rows": 44599,
+      "name": "2MRS",
+      "status": "loaded_clean_cache",
+      "vizier_id": "J/ApJS/199/26"
+    },
+    {
+      "cache_path": "/home/primary/O3-Modified-Gravity-Hubble-Resolution/data/cache/specz_catalogs/6dFGS_clean.npz",
+      "n_rows": 124647,
+      "name": "6dFGS",
+      "status": "loaded_clean_cache",
+      "vizier_id": "VII/259"
+    },
+    {
+      "cache_path": "/home/primary/O3-Modified-Gravity-Hubble-Resolution/data/cache/specz_catalogs/2dFGRS_clean.npz",
+      "n_rows": 241554,
+      "name": "2dFGRS",
+      "status": "loaded_clean_cache",
+      "vizier_id": "VII/250/2dfgrs"
+    },
+    {
+      "cache_path": "/home/primary/O3-Modified-Gravity-Hubble-Resolution/data/cache/specz_catalogs/GAMA_DR3_clean.npz",
+      "n_rows": 214624,
+      "name": "GAMA_DR3",
+      "status": "loaded_clean_cache",
+      "vizier_id": "J/MNRAS/474/3875/gamadr3"
+    },
+    {
+      "cache_path": "/home/primary/O3-Modified-Gravity-Hubble-Resolution/data/cache/specz_catalogs/DESI_DR1_clean.npz",
+      "n_rows": 5186949,
+      "name": "DESI_DR1",
+      "status": "loaded_clean_cache",
+      "vizier_id": "DESI_DR1_local_clean_cache"
+    }
+  ]
+}
